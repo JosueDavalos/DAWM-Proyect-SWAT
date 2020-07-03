@@ -7,6 +7,7 @@ import { MascotasAdoptadasComponent } from './componentes/paginas/mascotas-adopt
 import { OrganizacionesComponent } from './componentes/paginas/organizaciones/organizaciones.component';
 import { QuienesSomosComponent } from './componentes/paginas/quienes-somos/quienes-somos.component';
 import { AyudaComponent } from './componentes/paginas/ayuda/ayuda.component';
+import { LoginComponent } from './login/login.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'organizaciones', component: OrganizacionesComponent },
   { path: 'quienesSomos', component: QuienesSomosComponent },
   { path: 'ayuda', component: AyudaComponent },
+  { path: 'login', component: LoginComponent },
 ];
 
 @NgModule({
