@@ -1,36 +1,25 @@
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
     <div class="container">
-        <!-- <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="assets/img/navbar-logo.svg" alt="" /></a> -->
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             Menu
             <i class="fas fa-bars ml-1"></i>
         </button>
         <div class="collapse navbar-collapse text-center" id="navbarResponsive">
-            <ul class="navbar-nav text-uppercase ml-auto">
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Inicio</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adoptar" *ngIf="!isAdmin && !isOrganizer">Adoptar</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="ponerAdopcion" *ngIf="!isAdmin && !isOrganizer">Poner en Adopción</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adoptadas" *ngIf="!isAdmin && !isOrganizer && !isVolunteer">Mascotas Adoptadas</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="organizaciones" *ngIf="!isAdmin && !isOrganizer && !isVolunteer">Oganizaciones</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="quienesSomos" *ngIf="!isAdmin && !isOrganizer && !isVolunteer">Quienes Somos</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="controlPanel" *ngIf="isAdmin">Admin</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="gestionProcesos" *ngIf="isAdmin">Gestionar Procesos</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="reporteGrafico" *ngIf="isAdmin">Reporte Graficos</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="comoAyudar" *ngIf="!isAdmin && !isVolunteer">Como Ayudar</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="login" *ngIf="!isLogged">Login</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" (click)="logout()" *ngIf="isLogged">Logout</a></li>
+            <ul class="navbar-nav text-uppercase">
+                <li class="nav-item"><a class="nav-link js-scroll-trigger text-dark font-weight-bold" href="">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger text-dark font-weight-bold" href="adoptar" *ngIf="!isAdmin && !isOrganizer">Adoptar</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger text-dark font-weight-bold" href="ponerAdopcion" *ngIf="!isAdmin && !isOrganizer">Poner en Adopción</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger text-dark font-weight-bold" href="adoptadas" *ngIf="!isAdmin && !isOrganizer && !isVolunteer">Mascotas Adoptadas</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger text-dark font-weight-bold" href="organizaciones" *ngIf="!isAdmin && !isOrganizer && !isVolunteer">Oganizaciones</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger text-dark font-weight-bold" href="quienesSomos" *ngIf="!isAdmin && !isOrganizer && !isVolunteer">Quienes Somos</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger text-dark font-weight-bold" href="controlPanel" *ngIf="isAdmin">Admin</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger text-dark font-weight-bold" href="gestionProcesos" *ngIf="isAdmin">Gestionar Procesos</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger text-dark font-weight-bold" href="reporteGrafico" *ngIf="isAdmin">Reporte Graficos</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger text-dark font-weight-bold" href="comoAyudar" *ngIf="!isAdmin && !isVolunteer">Como Ayudar</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger text-dark font-weight-bold" href="login" *ngIf="!isLogged">Login</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger text-dark font-weight-bold" (click)="logout()" *ngIf="isLogged">Logout</a></li>
             </ul>
         </div>
     </div>
 </nav>
-
-
-<!-- Masthead-->
-<header class="masthead">
-    <div class="container text-right">
-        <div class="masthead-subheading">Encuentra a tu mejor amigo con AdoptMe</div>
-        <div class="masthead-heading text-uppercase">No compres, Adopta</div>
-        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="adoptar">Adoptar</a>
-    </div>
-</header>

@@ -10,6 +10,8 @@ selector: 'app-control-panel',
   templateUrl: './control-panel.component.html',
   styleUrls: ['./control-panel.component.css']
 })
+
+//Las varibales que tengo asi son las que puedo usar en el html
 export class ControlPanelComponent implements OnInit {
     loading = false;
     users: User[] = [];
