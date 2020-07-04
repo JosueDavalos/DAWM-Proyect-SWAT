@@ -6,9 +6,12 @@ import { PonerAdopcionComponent } from './componentes/paginas/poner-adopcion/pon
 import { MascotasAdoptadasComponent } from './componentes/paginas/mascotas-adoptadas/mascotas-adoptadas.component';
 import { OrganizacionesComponent } from './componentes/paginas/organizaciones/organizaciones.component';
 import { QuienesSomosComponent } from './componentes/paginas/quienes-somos/quienes-somos.component';
-import { AyudaComponent } from './componentes/paginas/ayuda/ayuda.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { ControlPanelComponent } from './componentes/admin/control-panel/control-panel.component';
+import { ComoAyudarComponent } from './componentes/paginas/como-ayudar/como-ayudar.component';
+import { DetalleMascotaComponent } from './componentes/paginas/detalle-mascota/detalle-mascota.component';
+import { GestionProcesoComponent } from './componentes/admin/gestion-proceso/gestion-proceso.component';
+import { ReportesComponent } from './componentes/admin/reportes/reportes.component';
 
 
 const routes: Routes = [
@@ -18,9 +21,12 @@ const routes: Routes = [
   { path: 'adoptadas', component: MascotasAdoptadasComponent },
   { path: 'organizaciones', component: OrganizacionesComponent },
   { path: 'quienesSomos', component: QuienesSomosComponent },
-  { path: 'ayuda', component: AyudaComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'controlPanel', component: ControlPanelComponent }
+  { path: 'controlPanel', component: ControlPanelComponent },
+  { path: 'gestionProcesos', component: GestionProcesoComponent },
+  { path: 'reporteGrafico', component: ReportesComponent },
+  { path: 'comoAyudar', component: ComoAyudarComponent },
+  { path: 'detalleMascota', component: DetalleMascotaComponent },
 ];
 
 @NgModule({

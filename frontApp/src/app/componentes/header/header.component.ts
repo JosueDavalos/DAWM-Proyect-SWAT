@@ -25,6 +25,14 @@ export class HeaderComponent implements OnInit {
     return this.currentUser && this.currentUser.role === Role.Admin;
   }
 
+  get isVolunteer() {
+    return this.currentUser && this.currentUser.role === Role.Volunteer;
+  }
+
+  get isOrganizer() {
+    return this.currentUser && this.currentUser.role === Role.Organizer;
+  }
+
   logout() {
     this.authenticationService.logout();
     this.router.navigate(['']); 

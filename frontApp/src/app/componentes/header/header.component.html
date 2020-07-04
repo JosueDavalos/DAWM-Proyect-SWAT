@@ -9,14 +9,16 @@
         <div class="collapse navbar-collapse text-center" id="navbarResponsive">
             <ul class="navbar-nav text-uppercase ml-auto">
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Inicio</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adoptar">Adoptar</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="ponerAdopcion">Poner en Adopción</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adoptadas">Mascotas Adoptadas</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="organizaciones">Oganizaciones</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="quienesSomos">Quienes Somos</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="ayuda">Preguntas Frecuentes</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="login" *ngIf="!isLogged">Login</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adoptar" *ngIf="!isAdmin && !isOrganizer">Adoptar</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="ponerAdopcion" *ngIf="!isAdmin && !isOrganizer">Poner en Adopción</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adoptadas" *ngIf="!isAdmin && !isOrganizer && !isVolunteer">Mascotas Adoptadas</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="organizaciones" *ngIf="!isAdmin && !isOrganizer && !isVolunteer">Oganizaciones</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="quienesSomos" *ngIf="!isAdmin && !isOrganizer && !isVolunteer">Quienes Somos</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="controlPanel" *ngIf="isAdmin">Admin</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="gestionProcesos" *ngIf="isAdmin">Gestionar Procesos</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="reporteGrafico" *ngIf="isAdmin">Reporte Graficos</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="comoAyudar" *ngIf="!isAdmin && !isVolunteer">Como Ayudar</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="login" *ngIf="!isLogged">Login</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" (click)="logout()" *ngIf="isLogged">Logout</a></li>
             </ul>
         </div>

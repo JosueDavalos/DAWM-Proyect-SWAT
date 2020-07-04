@@ -13,7 +13,6 @@ import { PonerAdopcionComponent } from './componentes/paginas/poner-adopcion/pon
 import { MascotasAdoptadasComponent } from './componentes/paginas/mascotas-adoptadas/mascotas-adoptadas.component';
 import { OrganizacionesComponent } from './componentes/paginas/organizaciones/organizaciones.component';
 import { QuienesSomosComponent } from './componentes/paginas/quienes-somos/quienes-somos.component';
-import { AyudaComponent } from './componentes/paginas/ayuda/ayuda.component';
 import { RegisterComponent } from './componentes/register/register.component';
 import { ControlPanelComponent } from './componentes/admin/control-panel/control-panel.component';
 import { GestionProcesoComponent } from './componentes/admin/gestion-proceso/gestion-proceso.component';
@@ -21,6 +20,8 @@ import { ReportesComponent } from './componentes/admin/reportes/reportes.compone
 import { NoticiasComponent } from './componentes/paginas/noticias/noticias.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { JwtInterceptor, ErrorInterceptor, fakeBackendProvider } from './componentes/security';
+import { ComoAyudarComponent } from './componentes/paginas/como-ayudar/como-ayudar.component';
+import { DetalleMascotaComponent } from './componentes/paginas/detalle-mascota/detalle-mascota.component';
 
 
 @NgModule({
@@ -35,12 +36,13 @@ import { JwtInterceptor, ErrorInterceptor, fakeBackendProvider } from './compone
     MascotasAdoptadasComponent,
     OrganizacionesComponent,
     QuienesSomosComponent,
-    AyudaComponent,
     RegisterComponent,
     ControlPanelComponent,
     GestionProcesoComponent,
     ReportesComponent,
-    NoticiasComponent
+    NoticiasComponent,
+    ComoAyudarComponent,
+    DetalleMascotaComponent
   ],
   imports: [
     BrowserModule,
