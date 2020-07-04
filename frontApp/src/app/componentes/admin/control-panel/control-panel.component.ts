@@ -1,0 +1,26 @@
+import { Component, OnInit } from '@angular/core';
+import { first } from 'rxjs/operators';
+import { User } from '../../models';
+import { UserService } from 'src/app/servicios';
+
+
+
+@Component({
+selector: 'app-control-panel',
+  templateUrl: './control-panel.component.html',
+  styleUrls: ['./control-panel.component.css']
+})
+export class ControlPanelComponent implements OnInit {
+    loading = false;
+    users: User[] = [];
+
+    constructor(private userService: UserService) { }
+
+    ngOnInit() {
+        this.loading = true;
+        this.userService.getAll().pipe(first()).subscribe(users => {
+            this.loading = false;
+            this.users = users;
+        });
+    }
+}

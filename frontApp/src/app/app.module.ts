@@ -6,14 +6,21 @@ import { AppComponent } from './app.component';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms'
 import { FooterComponent } from './componentes/footer/footer.component';
 import { HeaderComponent } from './componentes/header/header.component';
-import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './componentes/login/login.component';
+import { HomeComponent } from './componentes/home/home.component';
 import { AdoptarComponent } from './componentes/paginas/adoptar/adoptar.component';
 import { PonerAdopcionComponent } from './componentes/paginas/poner-adopcion/poner-adopcion.component';
 import { MascotasAdoptadasComponent } from './componentes/paginas/mascotas-adoptadas/mascotas-adoptadas.component';
 import { OrganizacionesComponent } from './componentes/paginas/organizaciones/organizaciones.component';
 import { QuienesSomosComponent } from './componentes/paginas/quienes-somos/quienes-somos.component';
 import { AyudaComponent } from './componentes/paginas/ayuda/ayuda.component';
+import { RegisterComponent } from './componentes/register/register.component';
+import { ControlPanelComponent } from './componentes/admin/control-panel/control-panel.component';
+import { GestionProcesoComponent } from './componentes/admin/gestion-proceso/gestion-proceso.component';
+import { ReportesComponent } from './componentes/admin/reportes/reportes.component';
+import { NoticiasComponent } from './componentes/paginas/noticias/noticias.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { JwtInterceptor, ErrorInterceptor, fakeBackendProvider } from './componentes/security';
 
 
 @NgModule({
@@ -28,15 +35,25 @@ import { AyudaComponent } from './componentes/paginas/ayuda/ayuda.component';
     MascotasAdoptadasComponent,
     OrganizacionesComponent,
     QuienesSomosComponent,
-    AyudaComponent
+    AyudaComponent,
+    RegisterComponent,
+    ControlPanelComponent,
+    GestionProcesoComponent,
+    ReportesComponent,
+    NoticiasComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+
+    // provider used to create fake backend
+    fakeBackendProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

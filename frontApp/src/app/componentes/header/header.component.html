@@ -15,7 +15,9 @@
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="organizaciones">Oganizaciones</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="quienesSomos">Quienes Somos</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="ayuda">Preguntas Frecuentes</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="login">Login</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="login" *ngIf="!isLogged">Login</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="controlPanel" *ngIf="isAdmin">Admin</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" (click)="logout()" *ngIf="isLogged">Logout</a></li>
             </ul>
         </div>
     </div>
