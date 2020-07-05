@@ -1,0 +1,8 @@
+#img-gpa{
+    max-width: 85%;
+}
+
+.team-member img{
+    object-fit: cover;
+}
+
