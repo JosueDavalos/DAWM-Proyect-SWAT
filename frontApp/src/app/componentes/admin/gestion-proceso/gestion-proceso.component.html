@@ -1,40 +1,196 @@
-<ul class="stepper horizontal" id="horizontal-stepper">
-  <li class="step active">
-    <div class="step-title waves-effect waves-dark">Step 1</div>
-    <div class="step-new-content">
-        <div class="row">
-        <div class="md-form col-12 ml-auto">
-          <input id="email-horizontal" type="email" class="validate form-control" required>
-          <label for="email-horizontal">Email</label>
+<!-- Para los iconos de flujo de procesos -->
+<link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css' rel='stylesheet'> 
+<!-- Para el mapa -->
+<!-- <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />  -->
+
+<div class="container-fluid" id="grad1">
+    <div class="row justify-content-center mt-0">
+        <div class="col-11 col-sm-9 col-md-9 col-lg-10 text-center p-0 mt-3 mb-2">
+            <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+                <h2><strong>Poner en adopción</strong></h2>
+                <div class="row">
+                    <div class="col-12 col-md-12">
+                        
+                        <!-- flujo de proceso -->
+                        <ul id="progressbar">
+                            <li class="active" id="dueño"><strong>Dueño</strong></li>
+                            <li id="mascota"><strong>Mascota</strong></li>
+                            <li id="motivo"><strong>Motivo</strong></li>
+                            <li id="guardar"><strong>Guardar</strong></li>
+                        </ul> 
+                    
+
+                        <!-- procesos -->
+                        <form id="msform">
+                            <fieldset>
+                                <div class="form-card">
+                                    <h2 class="fs-title mb-3">Información personal</h2> 
+                                    
+                                    <div class="from-row mx-md-n1">
+                                        <label class="col-5 d-none d-xl-inline-block" for="uname">Nombres</label>
+                                        <label class="col-5 ml-md-4 d-none d-xl-inline-block" for="ulastname">Apellidos</label> 
+                                        <label class="col-1 ml-5 d-none d-xl-inline-block px-md-1" for="gender">Genero</label> 
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-12 col-lg-5"><input type="text" name="uname" placeholder="Nombres" /></div>
+                                        <div class="col-12 col-lg-5 mx-auto"><input type="text" name="ulastname" placeholder="Apellidos" /></div>   
+                                        <div class="col-12 col-lg-1 mx-auto">
+                                            <select class="list-dt" id="gender" name="gender">
+                                                <option selected>Genero</option>
+                                                <option>Masculino</option>
+                                                <option>Femenino</option>
+                                                <option>Otros</option>
+                                            </select>
+                                        </div> 
+                                    </div>
+                                    
+                                    <div class="from-row">
+                                        <h4 class="mt-2 sm-mt-4">Contactos</h4>
+                                        <label class="col-5 d-none d-xl-inline-block" for="email">Correo</label>
+                                        <label class="col-3 ml-md-4 d-none d-xl-inline-block" for="phone">Telefono</label> 
+                                        <label class="col-3 ml-md-4 d-none d-xl-inline-block" for="celular">Celular</label> 
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-12 col-lg-5"><input type="email" name="email" placeholder="Correo" /> </div>
+                                        <div class="col-12 col-lg-3 mx-auto mx-xl-4"><input type="tel" name="phone" id="phone" placeholder="Telefono"></div>
+                                        <div class="col-12 col-lg-3 mx-auto mx-xl-0"><input type="tel" name="celular" id="celular" placeholder="Celular"></div>
+                                    </div>
+
+                                    <div class="from-row">
+                                        <label class="col-5 d-none d-xl-inline-block" for="uname">Dirección</label>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-12  col-xl-5"><input type="text" name="address" placeholder="Dirección" /></div>
+                                        <div class="col-12  col-xl-2 ml-md-auto"> <button class="btn btn-outline-dark" data-toggle="modal" data-target="#modal-mapa"> <div id="location"> Ubicación</div></button></div>
+                                    </div>
+
+                                </div> 
+                                <input type="button" name="next" class="next action-button" value="Siguiente" />
+                            </fieldset>
+
+
+                            <fieldset>
+                                <div class="form-card">
+                                    <h2 class="fs-title mb-3">Información de la mascota</h2> 
+
+                                    <div class="from-row mx-md-n1">
+                                        <label class="col-5 d-none d-xl-inline-block" for="pet-name">Nombre</label>
+                                        <label class="col-5 ml-md-4 d-none d-xl-inline-block" for="pet-age">Edad</label> 
+                                        <label class="col-1 ml-5 d-none d-xl-inline-block px-md-1" for="pet-gener">Genero</label> 
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-12 col-lg-5"> <input type="text" name="pet-name" placeholder="Nombre" />  </div>
+                                        <div class="col-12 col-lg-5 mx-auto"> <input type="number" name="pet-age" placeholder="Edad" /> </div>
+                                        <div class="col-12 col-lg-1 mx-auto">
+                                            <select class="list-dt" id="pet-gender" name="pet-gender">
+                                                <option selected>Genero</option>
+                                                <option>Macho</option>
+                                                <option>Hembra</option>
+                                            </select>
+                                        </div> 
+                                    </div>
+                                    
+                                    <div class="form-row">
+                                        <label class="col-6 d-none d-xl-inline-block" for="pet-type">Tipo</label>
+                                        <label class="col-5 ml-1 d-none d-xl-inline-block " for="pet-race">Raza</label> 
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-12 col-lg-5 ">
+                                            <input list="pets-type" name="pet-type" id="pet-type" placeholder="Tipo">
+                                            <datalist id="pets-type">
+                                            <option value="Perro"></option>
+                                            <option value="Gato"></option>
+                                            <option value="Loro"></option>
+                                            <option value="Tortuga"></option>
+                                          </datalist></div>
+
+                                          <div class="col-12 col-lg-5 mx-auto">
+                                            <input list="type-races" name="type-race" id="type-race" placeholder="Raza">
+                                            <datalist id="type-races">
+                                            <option value="Labrador"></option>
+                                            <option value="Schnauzer"></option>
+                                            <option value="Chiguagua"></option>
+                                            <option value="Pitbull"></option>
+                                          </datalist></div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <i class="fa fa-camera-retro fa-2x"></i>
+                                        <form action="" method="post" enctype="multipart/form-data">
+                                                <input type="file" name="picture" id="picture" />
+                                        </form>
+                                        <!-- <h6 id="pet-images"></h6> -->
+                                    </div>
+
+                                </div> 
+                                <input type="button" name="previous" class="previous action-button-previous" value="Atrás" /> 
+                                <input type="button" name="next" class="next action-button" value="Siguiente"/>
+                            </fieldset>
+
+                            <fieldset>
+                                <div class="form-card">
+                                    <div class="form-group">
+                                        <h2 class="fs-title mb-3">Motivo de la adopción</h2>
+                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Motivo"></textarea>
+                                    </div>
+                                </div>
+                                <input type="button" name="previous" class="previous action-button-previous" value="Atrás" /> 
+                                <input type="button" name="save" class="next action-button" value="Guardar"/>
+                            </fieldset>
+
+                            <fieldset>
+                                <div class="form-card">
+                                    <h2 class="fs-title text-center">Guardado con exito !</h2> <br><br>
+                                    <div class="row justify-content-center">
+                                        <div class="col-6 col-lg-2"> <img src="https://img.icons8.com/color/96/000000/ok--v2.png" class="fit-image"> </div>
+                                    </div> <br><br>
+                                    <div class="row justify-content-center">
+                                        <div class="col-7 text-center">
+                                            <h5>Adopción registrada</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="button" name="finish" class="submit action-button" value="Finalizar"/>
+                            </fieldset>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal" id="modal-mapa" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" id="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Ubicación</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+        <p>Aqui va el mapa</p>
+            <!-- <form>
+                <label for="latitude">Latitude:</label>
+                <input id="latitude" type="text" />
+                <label for="longitude">Longitude:</label>
+                <input id="longitude" type="text" />
+                :: <a href="#" onclick="map.zoomOut(3, {animate:true})">zoom out</a> :: 
+                :: <a href="#" onclick="map.zoomIn(3, {animate:true})">zoom in</a>
+            </form>
+            <div id="map"></div>
+            <script>
+                console.log("Si se puede");
+            </script> -->
+      
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-success">Guardar</button>
         </div>
       </div>
-      <div class="step-actions">
-        <button class="waves-effect waves-dark btn btn-sm btn-primary next-step" data-feedback="someFunction21">CONTINUE</button>
-      </div>
     </div>
-  </li>
-  <li class="step">
-    <div class="step-title waves-effect waves-dark">Step 2</div>
-    <div class="step-new-content">
-      <div class="row">
-        <div class="md-form col-12 ml-auto">
-          <input id="password-horizontal" type="password" class="validate form-control" required>
-          <label for="password-horizontal">Your password</label>
-        </div>
-      </div>
-      <div class="step-actions">
-        <button class="waves-effect waves-dark btn btn-sm btn-primary next-step" data-feedback="someFunction21">CONTINUE</button>
-        <button class="waves-effect waves-dark btn btn-sm btn-secondary previous-step">BACK</button>
-      </div>
-    </div>
-  </li>
-  <li class="step">
-    <div class="step-title waves-effect waves-dark">Step 3</div>
-    <div class="step-new-content">
-      Finish!
-      <div class="step-actions">
-        <button class="waves-effect waves-dark btn-sm btn btn-primary m-0 mt-4" type="button">SUBMIT</button>
-      </div>
-    </div>
-  </li>
-</ul>
+  </div>
