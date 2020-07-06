@@ -1,9 +1,16 @@
-<!-- Para los iconos de flujo de procesos -->
-<link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css' rel='stylesheet'> 
-<!-- Para el mapa -->
-<!-- <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />  -->
+<!DOCTYPE html>
 
-<div class="container-fluid" id="grad1">
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <!-- Para los iconos de flujo de procesos -->
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css' rel='stylesheet'> 
+    <!-- Para el mapa -->
+    <!-- <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />  -->
+    <title>AdoptMe</title>
+</head>
+
+<div class="container-fluid">
     <div class="row justify-content-center mt-0">
         <div class="col-11 col-sm-9 col-md-9 col-lg-10 text-center p-0 mt-3 mb-2">
             <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
@@ -32,8 +39,8 @@
                                         <label class="col-1 ml-5 d-none d-xl-inline-block px-md-1" for="gender">Genero</label> 
                                     </div>
                                     <div class="form-row">
-                                        <div class="col-12 col-lg-5"><input type="text" name="uname" placeholder="Nombres" /></div>
-                                        <div class="col-12 col-lg-5 mx-auto"><input type="text" name="ulastname" placeholder="Apellidos" /></div>   
+                                        <div class="col-12 col-lg-5"><input type="text" id="uname" name="uname" placeholder="Nombres" /></div>
+                                        <div class="col-12 col-lg-5 mx-auto"><input id="ulastname" type="text" name="ulastname" placeholder="Apellidos" /></div>   
                                         <div class="col-12 col-lg-1 mx-auto">
                                             <select class="list-dt" id="gender" name="gender">
                                                 <option selected>Genero</option>
@@ -51,7 +58,7 @@
                                         <label class="col-3 ml-md-4 d-none d-xl-inline-block" for="celular">Celular</label> 
                                     </div>
                                     <div class="form-row">
-                                        <div class="col-12 col-lg-5"><input type="email" name="email" placeholder="Correo" /> </div>
+                                        <div class="col-12 col-lg-5"><input type="email" id="email"  name="email" placeholder="Correo" /> </div>
                                         <div class="col-12 col-lg-3 mx-auto mx-xl-4"><input type="tel" name="phone" id="phone" placeholder="Telefono"></div>
                                         <div class="col-12 col-lg-3 mx-auto mx-xl-0"><input type="tel" name="celular" id="celular" placeholder="Celular"></div>
                                     </div>
@@ -61,7 +68,9 @@
                                     </div>
                                     <div class="form-row">
                                         <div class="col-12  col-xl-5"><input type="text" name="address" placeholder="Dirección" /></div>
-                                        <div class="col-12  col-xl-2 ml-md-auto"> <button class="btn btn-outline-dark" data-toggle="modal" data-target="#modal-mapa"> <div id="location"> Ubicación</div></button></div>
+                                        <div class="col-12  col-xl-2 ml-md-auto"> 
+                                            <button id="location" class="btn btn-outline-dark" data-toggle="modal" data-target="#modal-mapa"> Ubicación</button>
+                                        </div>
                                     </div>
 
                                 </div> 
@@ -76,11 +85,11 @@
                                     <div class="from-row mx-md-n1">
                                         <label class="col-5 d-none d-xl-inline-block" for="pet-name">Nombre</label>
                                         <label class="col-5 ml-md-4 d-none d-xl-inline-block" for="pet-age">Edad</label> 
-                                        <label class="col-1 ml-5 d-none d-xl-inline-block px-md-1" for="pet-gener">Genero</label> 
+                                        <label class="col-1 ml-5 d-none d-xl-inline-block px-md-1" for="pet-gender">Genero</label> 
                                     </div>
                                     <div class="form-row">
-                                        <div class="col-12 col-lg-5"> <input type="text" name="pet-name" placeholder="Nombre" />  </div>
-                                        <div class="col-12 col-lg-5 mx-auto"> <input type="number" name="pet-age" placeholder="Edad" /> </div>
+                                        <div class="col-12 col-lg-5"> <input type="text" id="pet-name" name="pet-name" placeholder="Nombre" />  </div>
+                                        <div class="col-12 col-lg-5 mx-auto"> <input type="number" id="pet-age" name="pet-age" placeholder="Edad" /> </div>
                                         <div class="col-12 col-lg-1 mx-auto">
                                             <select class="list-dt" id="pet-gender" name="pet-gender">
                                                 <option selected>Genero</option>
@@ -91,13 +100,13 @@
                                     </div>
                                     
                                     <div class="form-row">
-                                        <label class="col-6 d-none d-xl-inline-block" for="pet-type">Tipo</label>
-                                        <label class="col-5 ml-1 d-none d-xl-inline-block " for="pet-race">Raza</label> 
+                                        <label class="col-6 d-none d-xl-inline-block">Tipo</label>
+                                        <label class="col-5 ml-1 d-none d-xl-inline-block ">Raza</label> 
                                     </div>
                                     <div class="form-row">
                                         <div class="col-12 col-lg-5 ">
-                                            <input list="pets-type" name="pet-type" id="pet-type" placeholder="Tipo">
-                                            <datalist id="pets-type">
+                                            <input list="pet-types" name="pet-type" id="pet-type" placeholder="Tipo">
+                                            <datalist id="pet-types">
                                             <option value="Perro"></option>
                                             <option value="Gato"></option>
                                             <option value="Loro"></option>
@@ -115,10 +124,8 @@
                                     </div>
 
                                     <div class="form-row">
-                                        <i class="fa fa-camera-retro fa-2x"></i>
-                                        <form action="" method="post" enctype="multipart/form-data">
-                                                <input type="file" name="picture" id="picture" />
-                                        </form>
+                                        <div class="col-1"><i class="fa fa-camera-retro fa-2x"></i></div>
+                                        <div class="col"><input type="file" name="picture" id="picture" /></div>
                                         <!-- <h6 id="pet-images"></h6> -->
                                     </div>
 
@@ -142,7 +149,7 @@
                                 <div class="form-card">
                                     <h2 class="fs-title text-center">Guardado con exito !</h2> <br><br>
                                     <div class="row justify-content-center">
-                                        <div class="col-6 col-lg-2"> <img src="https://img.icons8.com/color/96/000000/ok--v2.png" class="fit-image"> </div>
+                                        <div class="col-6 col-lg-2"> <img src="https://img.icons8.com/color/96/000000/ok--v2.png" class="fit-image" alt="Guarda exitoso"> </div>
                                     </div> <br><br>
                                     <div class="row justify-content-center">
                                         <div class="col-7 text-center">
@@ -194,3 +201,5 @@
       </div>
     </div>
   </div>
+
+  </html>
