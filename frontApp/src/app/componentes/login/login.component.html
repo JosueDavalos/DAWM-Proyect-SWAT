@@ -1,34 +1,69 @@
-﻿<div class="top-content" style="height: 100%;z-index: 5;background-image: url('../../../assets/img/map.png');       
-        background-repeat: no-repeat;background-size: 100% 100%;z-index: -1;height: 100%;">
+﻿<!DOCTYPE html>
 
-</div>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>AdoptMe</title>
+</head>
 
-<div class="inner-bg">
-    <img src="../../../assets/img/LOGO_GPA.png" style="width: 250px;margin-bottom: 25px;" />
-    <div class="card">
-        <div class="card-body">
-            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
-                    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-                        <div *ngIf="f.username.errors.required">Username is required</div>
-                    </div>
+
+<div id="login-container" class="container col-6 border border-light mb-5 mt-5" >
+    <div class="row">
+        <div class="col-12 text-center">
+            <img src="../../../assets/img/LOGO_GPA.png"/>
+        </div>
+
+        <div class="col-12 text-center">
+            <h2>Registrate con</h2>
+        </div>
+            
+        <div class="row mx-auto mb-4 mt-3">
+            <a href="#" class="btn btn-facebook mr-3 ml-3"><i class="fa fa-facebook"></i> Facebook</a>
+            <a href="#" class="btn btn-light mr-3 ml-3"><i class="fa fa-google"></i> Google</a>
+            <a href="#" class="btn btn-twitter mr-3 ml-3"><i class="fa fa-twitter"></i> Twitter</a>
+        </div>
+    </div> 
+    
+    <div class="row mx-auto mb-5">
+        <div class="col-8 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                        <div class="form-group">
+                            <label for="username" class="font-weight-bold">Usuario</label>
+                            <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                            <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                                <div *ngIf="f.username.errors.required">Username is required</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="font-weight-bold">Contraseña</label> <a id="forget-pwd" href="#" class=""> La olvidaste?</a>
+                            <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                <div *ngIf="f.password.errors.required">Password is required</div>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="row">
+                            <button [disabled]="loading" class="btn btn-primary mx-auto font-weight-bold">
+                                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                                Iniciar Sesion
+                            </button>
+                            
+                            <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+                        </div>
+                    </form>
                 </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                        <div *ngIf="f.password.errors.required">Password is required</div>
-                    </div>
-                </div>
-                <button [disabled]="loading" class="btn btn-primary">
-                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-                    Login
-                </button>
-                
-                <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
-            </form>
+            </div>
         </div>
     </div>
-</div>            
+
+    <div class="row mb-4">
+        <div class="col-12 text-center">
+            <span class="txt2">Not a member?</span>
+            <a href="#" class="txt2 bo1">Sign up now</a>
+        </div>
+    </div>
+               
+</div>

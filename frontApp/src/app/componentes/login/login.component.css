@@ -1,41 +1,30 @@
-.inner-bg{
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-.social-login{
-    margin-top: 0px;
-}
-button.btn{
-    background: #ed1c24;
-    font-weight: 500;
-}
-button.btn:focus{
-    background: #ed1c24;
-    font-weight: 500;
-}
-.form-top{
-    background: #9c9c9c;
-    border-radius: 10px;
-}
-.form-bottom{
-    background: rgba(0, 0, 0, 0.15);
-    padding-bottom: 25px;
-    /*border-radius: 10px;*/
-}
-.form-box{
-    margin-top: 15px;
-}
-button.btn{
-    height: 40px;
-    line-height: 0px;
-    position: relative;
-
+img{
+    max-width: 20%;
 }
 
+.btn-facebook{
+    background-color: #3b5998;
+    color: white;
+}
+
+.btn-twitter{
+    background-color: #00acee;
+    color: white;
+}
+
+html{
+    background-color: #f7f8f8;
+}
+
+#login-container{
+    background-color: white;
+}
+
+.btn-primary{
+    background-color: #333333;
+    border: #333333;
+}
+
+#forget-pwd{
+    color:gray;
+}
