@@ -1,1 +1,53 @@
-<p>adoptar works!</p>
+
+<section id="header-page" class="col-12">
+    <h2 class="text-center">¡Adopta una mascota!</h2>
+</section>
+
+<section id="filtros" class="col-12 d-flex flex-column align-items-center">
+    <form class="col-8 d-flex justify-content-center">
+        <p class="text-center">
+            <label for="tipo">Tipo</label>
+            <select name="tipo" id="tipo">
+                <option value="">--</option>
+                <option *ngFor="let tipo of tipos" value="{{tipo.tipo}}">{{tipo.tipo}}</option>
+            </select>
+        </p>
+        <p class="text-center">
+            <label for="raza">Raza</label>
+            <select name="raza" id="raza">
+                <option value="">--</option>
+                <option *ngFor="let raza of razas" value="{{raza.raza}}">{{raza.raza}}</option>
+            </select>
+        </p>
+        <p class="text-center">
+            <label for="etapa">Etapa</label>
+            <select name="etapa" id="etapa">
+                <option value="">--</option>
+                <option *ngFor="let etapa of etapas" value="{{etapa.etapa}}">{{etapa.etapa}}</option>
+            </select>
+        </p>
+        <p class="text-center">
+            <label for="sector">Sector</label>
+            <select name="sector" id="sector">
+                <option value="">--</option>
+                <option *ngFor="let sector of sectores" value="{{sector.sector}}">{{sector.sector}}</option>
+            </select>
+        </p>
+    </form>
+    <button class="btn btn-primary">Buscar</button>
+    <h4 id="mensaje"></h4>
+    
+</section>
+
+<section id="lista-mascotas" class="col-12">
+    <h3>Mascotas</h3>
+    <div class="card d-flex flex-row" *ngFor="let mascota of mascotas">
+        <img src="../../../../assets/img/perro.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Nombre: {{mascota.nombre}}</h5>
+          <p class="card-text">Tipo: {{mascota.tipo}}</p>
+          <p class="card-text">Raza: {{mascota.raza}}</p>
+        </div>
+        <a href="#" class="btn btn-secondary d-flex align-items-center"><i class="fas fa-file-alt"></i></a>
+    </div>
+</section>
