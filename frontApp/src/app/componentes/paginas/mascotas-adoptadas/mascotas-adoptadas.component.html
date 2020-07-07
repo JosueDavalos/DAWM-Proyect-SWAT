@@ -1,1 +1,41 @@
-<p>mascotas-adoptadas works!</p>
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>AdoptMe</title>
+</head>
+
+<section id="information">
+    <div class="container">
+        <div class="text">
+            <h1 class="section-heading text-uppercase">Mascotas Adoptadas</h1>
+        </div>
+
+    <table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Sexo</th>
+        <th scope="col">Edad(años)</th>
+        <th scope="col">Raza</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let animal of animales index as i">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ animal.nombre }}</td>
+        <td>
+        <img [src]="'assets/img/iconos/animales/'+ animal.picture + '.png'" class="mr-2" style="width: 20px" alt="animal" />
+        <!--img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag" class="mr-2" style="width: 20px"-->
+        {{ animal.tipo }}
+        </td>
+        <td>{{ animal.sexo }}</td>
+        <td>{{ animal.edad | number }}</td>
+        <td>{{ animal.raza }}</td>
+
+    </tr>
+    </tbody>
+    </table>
