@@ -40,14 +40,16 @@
 </section>
 
 <section id="lista-mascotas" class="col-12">
-    <h3>Mascotas</h3>
-    <div class="card d-flex flex-row" *ngFor="let mascota of mascotas">
-        <img src="../../../../assets/img/perro.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Nombre: {{mascota.nombre}}</h5>
-          <p class="card-text">Tipo: {{mascota.tipo}}</p>
-          <p class="card-text">Raza: {{mascota.raza}}</p>
+    <div class="container">
+        <h3>Mascotas</h3>
+        <div class="card d-flex flex-row" *ngFor="let mascota of mascotas">
+            <img src="../../../../assets/img/perro.jpg" alt="Card image cap">
+            <div class="card-body">
+            <h5 class="card-title">Nombre: {{mascota.nombre}}</h5>
+            <p class="card-text">Tipo: {{mascota.tipo}}</p>
+            <p class="card-text">Raza: {{mascota.raza}}</p>
+            </div>
+            <a href="#" class="btn btn-secondary d-flex align-items-center"><i class="fas fa-file-alt"></i></a>
         </div>
-        <a href="#" class="btn btn-secondary d-flex align-items-center"><i class="fas fa-file-alt"></i></a>
     </div>
 </section>
