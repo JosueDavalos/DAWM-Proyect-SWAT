@@ -7,23 +7,27 @@ import { Router, NavigationStart } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  ngOnInit(): void {
-    
-  }
+
   title = 'AdoptMe';
   showHead: boolean = false;
+
+  ngOnInit(): void {
+
+  }
+ 
 
   constructor(private router: Router) {
     // on route change to '/login', set the variable showHead to false
       router.events.forEach((event) => {
         if (event instanceof NavigationStart) {
           if (event['url'] == '/login') {
-            this.showHead = false;
+            this.showHead = true;
           } else {
             // console.log("NU")
             this.showHead = true;
           }
         }
       });
+
     }
 }

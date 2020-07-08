@@ -1,25 +1,42 @@
-<!-- Navigation-->
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+
+<nav class="navbar navbar-expand-lg fixed-top" id="mainNav"> 
     <div class="container">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="#">
+            <img src="../../../assets/img/LOGO_GPA_2.png" alt="Logo GPA">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
             Menu
             <i class="fas fa-bars ml-1"></i>
         </button>
-        <div class="collapse navbar-collapse text-center" id="navbarResponsive">
-            <ul class="navbar-nav text-uppercase">
-                <li class="nav-item"><a class="nav-link js-scroll-trigger text-dark font-weight-bold" href="">Inicio</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger text-dark font-weight-bold" href="adoptar" *ngIf="!isAdmin && !isOrganizer">Adoptar</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger text-dark font-weight-bold" href="ponerAdopcion" *ngIf="!isAdmin && !isOrganizer">Poner en Adopción</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger text-dark font-weight-bold" href="adoptadas" *ngIf="!isAdmin && !isOrganizer && !isVolunteer">Mascotas Adoptadas</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger text-dark font-weight-bold" href="organizaciones" *ngIf="!isAdmin && !isOrganizer && !isVolunteer">Oganizaciones</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger text-dark font-weight-bold" href="quienesSomos" *ngIf="!isAdmin && !isOrganizer && !isVolunteer">Quienes Somos</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger text-dark font-weight-bold" href="controlPanel" *ngIf="isAdmin">Admin</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger text-dark font-weight-bold" href="gestionProcesos" *ngIf="isAdmin">Gestionar Procesos</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger text-dark font-weight-bold" href="reporteGrafico" *ngIf="isAdmin">Reporte Graficos</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger text-dark font-weight-bold" href="comoAyudar" *ngIf="!isAdmin && !isVolunteer">Como Ayudar</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger text-dark font-weight-bold" href="login" *ngIf="!isLogged">Login</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger text-dark font-weight-bold" (click)="logout()" *ngIf="isLogged">Logout</a></li>
-            </ul>
+
+        <div class="container">
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger text-dark font-weight-bold" href="#home">Inicio</a></li>
+                    <li class="nav-item" *ngIf="!isAdmin && !isOrganizer"><a class="nav-link js-scroll-trigger text-dark font-weight-bold" href="adoptar">Adoptar</a></li>
+                    <li class="nav-item" *ngIf="!isAdmin && !isOrganizer"><a class="nav-link js-scroll-trigger text-dark font-weight-bold" href="ponerAdopcion">Poner en Adopción</a></li>
+                    <li class="nav-item" *ngIf="!isAdmin && !isOrganizer && !isVolunteer"><a class="nav-link js-scroll-trigger text-dark font-weight-bold" href="adoptadas">Mascotas Adoptadas</a></li>
+                    <li class="nav-item" *ngIf="!isAdmin && !isOrganizer && !isVolunteer"><a class="nav-link js-scroll-trigger text-dark font-weight-bold" href="organizaciones">Oganizaciones</a></li>
+                    <li class="nav-item" *ngIf="!isAdmin && !isOrganizer && !isVolunteer"><a class="nav-link js-scroll-trigger text-dark font-weight-bold" href="quienesSomos">Quienes Somos</a></li>
+                    <li class="nav-item" *ngIf="isAdmin"><a class="nav-link js-scroll-trigger text-dark font-weight-bold" href="controlPanel">Admin</a></li>
+
+                    <li class="nav-item dropdown" *ngIf="isAdmin">
+                        <a class="nav-link dropdown-toggle js-scroll-trigger text-dark font-weight-bold" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Gestionar Procesos
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item js-scroll-trigger text-dark font-weight-bold" href="gestionProcesos">Poner en adopción</a>
+                        <a class="dropdown-item js-scroll-trigger text-dark font-weight-bold" href="#">Another action</a>
+                        <a class="dropdown-item js-scroll-trigger text-dark font-weight-bold" href="#">Something else here</a> 
+                        </div>
+                    </li> 
+
+                    <li class="nav-item" *ngIf="isAdmin"><a class="nav-link js-scroll-trigger text-dark font-weight-bold" href="reporteGrafico" >Reporte Graficos</a></li>
+                    <li class="nav-item" *ngIf="!isAdmin && !isVolunteer"><a class="nav-link js-scroll-trigger text-dark font-weight-bold" href="comoAyudar">Como Ayudar</a></li>
+                    <li class="nav-item" *ngIf="!isLogged"><a class="nav-link js-scroll-trigger text-dark font-weight-bold" href="login">Iniciar</a></li>
+                    <li class="nav-item" *ngIf="isLogged"><a class="nav-link js-scroll-trigger text-dark font-weight-bold" href="" (click)="logout()">Salir</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 </nav>
