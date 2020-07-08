@@ -10027,6 +10027,13 @@ p {
     padding: 5rem 0;
   }
 }
+
+@media (max-width: 767px) {
+  section {
+    padding: 3rem 0;
+  }
+}
+
 ::-moz-selection {
   background: #fed136;
   text-shadow: none;
