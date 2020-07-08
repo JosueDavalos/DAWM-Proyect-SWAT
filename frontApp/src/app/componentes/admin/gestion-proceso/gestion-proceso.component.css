@@ -172,9 +172,9 @@ select.list-dt:focus {
 }
 
 /* ver si borrar */
-#pet-images:before {
+#pet-picture:before {
     font-family: FontAwesome;
-    content: "\f03e"; 
+    content: "\f083"; 
     font-size: 250%;
 }
 
@@ -235,4 +235,9 @@ label{
 
 #map {
     height: 460px;
+}
+
+#ponerAdopcion{
+    min-height: 640px;
+    height: 80%;
 }
