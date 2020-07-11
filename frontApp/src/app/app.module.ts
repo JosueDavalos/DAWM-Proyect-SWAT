@@ -42,7 +42,7 @@ import { DetalleMascotaComponent } from './componentes/paginas/detalle-mascota/d
     ReportesComponent,
     NoticiasComponent,
     ComoAyudarComponent,
-    DetalleMascotaComponent
+    DetalleMascotaComponent,
   ],
   imports: [
     BrowserModule,
