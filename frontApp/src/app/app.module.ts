@@ -22,6 +22,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { JwtInterceptor, ErrorInterceptor, fakeBackendProvider } from './componentes/security';
 import { ComoAyudarComponent } from './componentes/paginas/como-ayudar/como-ayudar.component';
 import { DetalleMascotaComponent } from './componentes/paginas/detalle-mascota/detalle-mascota.component';
+import { DetalleInlineComponent } from './componentes/paginas/detalle-inline/detalle-inline.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { DetalleMascotaComponent } from './componentes/paginas/detalle-mascota/d
     ReportesComponent,
     NoticiasComponent,
     ComoAyudarComponent,
-    DetalleMascotaComponent
+    DetalleMascotaComponent,
+    DetalleInlineComponent
   ],
   imports: [
     BrowserModule,

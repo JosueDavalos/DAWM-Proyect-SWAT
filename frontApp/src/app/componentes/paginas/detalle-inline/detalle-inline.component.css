@@ -1,0 +1,13 @@
+img{
+    width: 175px;
+    height: auto;
+}
+
+.carousel-indicators li{
+    background-color: black;
+}
+
+.carousel-item.active{
+    display: flex;
+    justify-content: center;
+}

@@ -99,6 +99,15 @@ export class AdoptarComponent implements OnInit {
       motivo : 'No tengo suficiente espacio en mi casa'
     }
   ];
+
+  toggleDetails(id){
+    if(document.getElementById(id).getAttribute("class") == "content"){
+      document.getElementById(id).className += " content-shown";
+    }else{
+      document.getElementById(id).className = "content";
+    }
+      
+  }
   constructor() { }
 
   ngOnInit(): void {

@@ -1,0 +1,26 @@
+<div class="card-body col-6">
+    <h5 class="card-title">Nombre: {{mascota.nombre}}</h5>
+    <p class="card-text">Tipo: {{mascota.tipo}}</p>
+    <p class="card-text">Raza: {{mascota.raza}}</p>
+    <p class="card-text">Edad: {{mascota.edad}}</p>
+    <p class="card-text">Contacto: {{mascota.contacto}}</p>
+    <p class="card-text">Motivo: {{mascota.motivo}}</p>
+</div>
+<div id="carouselExampleIndicators{{mascota.id}}" class="carousel slide col-6" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li [attr.data-target]="'#carouselExampleIndicators' + mascota.id" data-slide-to="0" class="active"></li>
+      <li [attr.data-target]="'#carouselExampleIndicators' + mascota.id" data-slide-to="1"></li>
+      <li [attr.data-target]="'#carouselExampleIndicators' + mascota.id" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block" src="../../../../assets/img/perro.jpg" alt="First slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block" src="../../../../assets/img/perro.jpg" alt="Second slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block" src="../../../../assets/img/perro.jpg" alt="Third slide">
+      </div>
+    </div>
+</div>
