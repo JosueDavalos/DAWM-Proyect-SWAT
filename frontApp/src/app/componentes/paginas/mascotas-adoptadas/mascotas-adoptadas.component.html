@@ -24,18 +24,19 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let animal of animales index as i">
+    <tr *ngFor="let animal of animals index as i">
+        
         <th scope="row">{{ i + 1 }}</th>
-        <td>{{ animal.nombre }}</td>
         <td>
-        <img [src]="'assets/img/iconos/animales/'+ animal.picture + '.png'" class="mr-2" style="width: 20px" alt="animal" />
-        <!--img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag" class="mr-2" style="width: 20px"-->
+            <a routerLink="/detail/{{animal.id}}">{{ animal.nombre }}</a>
+        </td>
+        <td>
+        <img [src]="'assets/img/iconos/animales/'+ animal.picture + '.png'" class="mr-2"  alt="animal" />
         {{ animal.tipo }}
         </td>
         <td>{{ animal.sexo }}</td>
         <td>{{ animal.edad | number }}</td>
         <td>{{ animal.raza }}</td>
-
     </tr>
     </tbody>
     </table>
