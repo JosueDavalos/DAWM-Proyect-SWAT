@@ -8,7 +8,11 @@
         <meta name="author" content="" />
         <title>AdoptMe</title>
         <link rel="icon" type="image/png" href="assets/img/dog.png" />
-        
+
+
+        <!-- Chart.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
+        <script src="assets/js/reporte_graficos.js"></script>
         <!-- Font Awesome icons (free version)-->
         <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css' rel='stylesheet'  crossorigin="anonymous"> 
         <!-- Google fonts-->
@@ -35,7 +39,7 @@
 
 
     </head>
-    <body id="page-top" style="width: 100%; height: 100%;margin: 0px;" data-spy="scroll" data-target="#navbar">
+    <body id="page-top" style="width: 100%; height: 100%;margin: 0px;" onload="reportes_graficos()" data-spy="scroll" data-target="#navbar">
         <app-root></app-root>
     </body>
 </html>
