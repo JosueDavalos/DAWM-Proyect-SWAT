@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Animal } from '../../models/animal';
 
 @Component({
   selector: 'app-detalle-inline',
@@ -6,8 +7,12 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./detalle-inline.component.css']
 })
 export class DetalleInlineComponent implements OnInit {
-  @Input() mascota: Object;
+  @Input() mascota: Animal;
   constructor() { }
+
+  adoptar(){
+    
+  }
 
   ngOnInit(): void {
   }

@@ -8,7 +8,10 @@ export const ANIMALS: Animal[] = [
       raza: 'mestizo',
       sexo: 'Macho',
       picture: 'gato',
-      id: 1
+      id: 1,
+      contacto : "0998871624",
+      motivo : 'No tengo suficiente espacio en mi casa',
+      images : [],
     },
     {
       nombre: 'Amanda',
@@ -17,7 +20,10 @@ export const ANIMALS: Animal[] = [
       raza: 'mestizo',
       sexo: 'Hembra',
       picture: 'gato',
-      id: 2
+      id: 2,
+      contacto : "0998871624",
+      motivo : 'No tengo suficiente espacio en mi casa',
+      images : [],
     },
     {
       nombre: 'Mota',
@@ -26,7 +32,10 @@ export const ANIMALS: Animal[] = [
       raza: 'mestizo',
       sexo: 'Macho',
       picture: 'perro',
-      id: 3
+      id: 3,
+      contacto : "0998871624",
+      motivo : 'No tengo suficiente espacio en mi casa',
+      images : [],
     },
     {
       nombre: 'Claudio',
@@ -35,6 +44,9 @@ export const ANIMALS: Animal[] = [
       raza: 'mestizo',
       sexo: 'Macho',
       picture: 'perro',
-      id: 4
+      id: 4,
+      contacto : "0998871624",
+      motivo : 'No tengo suficiente espacio en mi casa',
+      images : [],
     }
   ];
