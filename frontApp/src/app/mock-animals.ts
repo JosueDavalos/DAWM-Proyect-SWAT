@@ -8,7 +8,9 @@ export const ANIMALS: Animal[] = [
       raza: 'mestizo',
       sexo: 'Macho',
       picture: 'gato',
-      id: 1
+      id: 1,
+      motivo: 'No tengo suficiente espacio',
+      contacto: '0996704850'
     },
     {
       nombre: 'Amanda',
@@ -17,7 +19,9 @@ export const ANIMALS: Animal[] = [
       raza: 'mestizo',
       sexo: 'Hembra',
       picture: 'gato',
-      id: 2
+      id: 2,
+      motivo: 'No tengo suficiente espacio',
+      contacto: '0996704850'
     },
     {
       nombre: 'Mota',
@@ -26,7 +30,9 @@ export const ANIMALS: Animal[] = [
       raza: 'mestizo',
       sexo: 'Macho',
       picture: 'perro',
-      id: 3
+      id: 3,
+      motivo: 'Mi familia se enfermo',
+      contacto: '0996704850'
     },
     {
       nombre: 'Claudio',
@@ -35,6 +41,8 @@ export const ANIMALS: Animal[] = [
       raza: 'mestizo',
       sexo: 'Macho',
       picture: 'perro',
-      id: 4
+      id: 4,
+      motivo: 'Tengo alergia',
+      contacto: '0996704850'
     }
   ];

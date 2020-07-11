@@ -7,4 +7,6 @@ export interface Animal {
     sexo: string;
     picture: string;
     id: number;
+    contacto: string;
+    motivo: string;
 }

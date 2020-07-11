@@ -1,0 +1,66 @@
+img{
+    width: 175px;
+    height: auto;
+}
+
+.carousel-indicators li{
+    background-color: black;
+}
+
+.carousel-item.active{
+    display: flex;
+    justify-content: center;
+}
+
+div > button {
+    padding: 30px;
+    background-color: #eee;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+
+  }
+button p{
+    font-weight: bold;
+}
+.card-title{
+    text-align: center;
+    padding: 20px 10px 5px ;
+}
+
+.p {
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid;
+
+}
+
+.h5 > p{
+    color: #6c757d;
+}
+
+
+div#tipo p{
+    color: #00ffe9;
+    font-weight: bold;
+    font-size: large;
+}
+
+div.card-body div{
+    padding: 10px;
+}
+
+div.card-body img{
+    width: 20px;
+}
+
+
+div.container{
+    padding: 20px 10px;
+}
+
+div.card{
+    padding:50px;
+    border-style: none;
+
+}
