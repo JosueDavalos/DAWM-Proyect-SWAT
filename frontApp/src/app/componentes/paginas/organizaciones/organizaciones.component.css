@@ -1,0 +1,126 @@
+#header-page{
+    padding-bottom: 3rem;
+}
+
+#filtros{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+#filtros form{
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 3px #000000 solid;
+    border-radius: 5px;
+    /*background: #000000;*/
+}
+body{
+    background-color: lightblue;
+    text-align:center
+}
+#filtros form p{
+    margin: 0;
+    padding: 0;
+}
+
+#filtros form p label{
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 0;
+}
+
+select{
+    width: 8rem;
+}
+
+@media (max-width: 886px){
+    #filtros form{
+        flex-direction: column;
+        align-items: center;
+    }
+    #filtros form p label{
+        width: 48px;
+    }
+    
+}
+
+#lista-organizaciones{
+    padding-top: 0;
+    
+}
+
+
+#lista-organizaciones div {
+    display: inline-block;  
+    flex-wrap: wrap;    
+    text-align: center;
+}
+
+#lista-organizaciones div img{
+    width: 230px;
+    height: auto;
+    padding: 10px;
+}
+
+
+
+#lista-organizaciones div div div {
+    margin-left:5em;
+    border-style: solid;
+    border-color: #92a8d1;
+}
+
+#lista-organizacion div div div div{
+    height: auto;
+}
+
+#lista-organizaciones div{
+    padding: 5px;
+    margin-bottom: 15px;
+    
+}
+
+#lista-organizaciones .overlay{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+    display: none;
+}
+.popup{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    background: #fff;
+    width: 450px;
+    height: 220px;
+    z-index: 2;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.close-btn{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 30px;
+    height: 30px;
+    background: #222;
+    color: #fff;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 50%;
+}
+.overlay.active{
+    display: block;
+}
+.popup.active{
+    transition: all 300ms ease-in-out;
+    transform: translate(-50%,-50%) scale(1);
+}
