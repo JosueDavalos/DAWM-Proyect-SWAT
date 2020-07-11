@@ -62,5 +62,15 @@ div.container{
 div.card{
     padding:50px;
     border-style: none;
+}
+@media (max-width: 768px){
+    #information div{
+        flex-direction: column;
+        align-items: center;
+    }
 
+    .card-body{
+        max-width: 100%!important;
+    }
+    
 }

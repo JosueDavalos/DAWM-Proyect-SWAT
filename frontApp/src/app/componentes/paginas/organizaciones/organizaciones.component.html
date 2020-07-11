@@ -1,1 +1,41 @@
-<p>organizaciones works!</p>
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+     
+    <title>AdoptMe</title>
+</head>
+
+<section id="adoptar" class="col-12">
+    <h2 class="text-center">¡Nuestras Organizaciones!</h2>
+</section>
+
+
+
+<section id="lista-organizaciones" class="col-12">
+    <div class="col-12">
+        <div class="overlay"></div>
+
+        <h3>Organizaciones</h3>
+        <div class="col-12">
+            
+            <div *ngFor="let organizacion of organizaciones" onclick="toogleInfo()" id="tod">
+              
+                    <h5 class="card-title">{{organizacion.nombre}}</h5><br>
+                    <p class="card-text">Tipo: {{organizacion.tipo}}</p><br>
+                    <p class="card-text">Contacto: {{organizacion.contacto}}</p><br>
+                    
+                
+                    <img src={{organizacion.imagen}} alt="Card image cap"><br>
+
+                    <div id="popup">
+                        <div class="close-btn" onclick="toogleInfo()">&times;</div>
+                        <p class="card-text">Informacion: {{organizacion.informacion}}</p>
+                    </div>
+            </div>
+        </div>
+
+        
+    </div>
+</section>

@@ -11,3 +11,10 @@ img{
     display: flex;
     justify-content: center;
 }
+
+@media (max-width: 768px){
+    .card-body{
+        max-width: 100%!important;
+    }
+    
+}

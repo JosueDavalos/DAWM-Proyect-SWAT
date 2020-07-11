@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ANIMALS } from '../../../mock-animals';
 
 @Component({
   selector: 'app-adoptar',
@@ -70,44 +71,20 @@ export class AdoptarComponent implements OnInit {
     }
   ];
 
-  mascotas : Object[] = [
-    {
-      id : 0,
-      nombre : 'Tommy',
-      edad : 8,
-      tipo : 'Perro',
-      raza : 'Schnauzer',
-      contacto : '0998871624',
-      motivo : 'No tengo suficiente espacio en mi casa'
-    },
-    {
-      id : 1,
-      nombre : 'Michi',
-      edad : 3,
-      tipo : 'Gato',
-      raza : 'Persian',
-      contacto : '0998871624',
-      motivo : 'No tengo suficiente espacio en mi casa'
-    },
-    {
-      id : 2,
-      nombre : 'Firulais',
-      edad : 2,
-      tipo : 'Perro',
-      raza : 'Pug',
-      contacto : '0998871624',
-      motivo : 'No tengo suficiente espacio en mi casa'
-    }
-  ];
+  mascotas = ANIMALS;
 
   toggleDetails(id){
     if(document.getElementById(id).getAttribute("class") == "content"){
       document.getElementById(id).className += " content-shown";
     }else{
       document.getElementById(id).className = "content";
-    }
-      
+    }  
   }
+
+  adoptar(){
+    
+  }
+
   constructor() { }
 
   ngOnInit(): void {

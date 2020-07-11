@@ -9,8 +9,9 @@ export const ANIMALS: Animal[] = [
       sexo: 'Macho',
       picture: 'gato',
       id: 1,
-      motivo: 'No tengo suficiente espacio',
-      contacto: '0996704850'
+      contacto : '0998871624',
+      motivo : 'No tengo suficiente espacio en mi casa',
+      images : [],
     },
     {
       nombre: 'Amanda',
@@ -20,8 +21,9 @@ export const ANIMALS: Animal[] = [
       sexo: 'Hembra',
       picture: 'gato',
       id: 2,
-      motivo: 'No tengo suficiente espacio',
-      contacto: '0996704850'
+      contacto : '0998871624',
+      motivo : 'No tengo suficiente espacio en mi casa',
+      images : [],
     },
     {
       nombre: 'Mota',
@@ -31,8 +33,9 @@ export const ANIMALS: Animal[] = [
       sexo: 'Macho',
       picture: 'perro',
       id: 3,
-      motivo: 'Mi familia se enfermo',
-      contacto: '0996704850'
+      contacto :'0998871624',
+      motivo : 'No tengo suficiente espacio en mi casa',
+      images : [],
     },
     {
       nombre: 'Claudio',
@@ -42,7 +45,8 @@ export const ANIMALS: Animal[] = [
       sexo: 'Macho',
       picture: 'perro',
       id: 4,
-      motivo: 'Tengo alergia',
-      contacto: '0996704850'
+      contacto : '0998871624',
+      motivo : 'No tengo suficiente espacio en mi casa',
+      images : [],
     }
   ];
