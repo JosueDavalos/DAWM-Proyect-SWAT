@@ -1,1 +1,20 @@
+<section id="information">
+    <div class="container">
+        <div class="text">
+            <h1 class="section-heading text-uppercase">{{animal.nombre}}</h1>
+        </div>
+        <div *ngIf="animal">
+            <div>
+                <span>tipo: </span>{{animal.tipo}}
+            </div>
+            <div>
+                <span>raza: </span>{{animal.raza}}
+            </div>
+            <div>
+                <span>edad: </span>{{animal.edad}} años
+            </div>
+            <button (click)="goBack()">ATRAS</button>
+        </div>
+    </div>
+</section>
 

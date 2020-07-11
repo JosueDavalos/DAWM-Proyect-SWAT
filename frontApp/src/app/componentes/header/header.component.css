@@ -9,3 +9,14 @@
 .nav-link.active {
     color: rgba(0, 0, 0, 0.9) !important;
   }
+
+#logo{
+  min-height: 32px !important;
+}
+
+@media screen and (max-width: 1199px){
+  .nav-link{
+    font-size: 0.77rem !important;
+  }
+}
+

@@ -26,7 +26,7 @@ const routes: Routes = [
   { path: 'gestionProcesos', component: GestionProcesoComponent },
   { path: 'reporteGrafico', component: ReportesComponent },
   { path: 'comoAyudar', component: ComoAyudarComponent },
-  { path: 'detalleMascota', component: DetalleMascotaComponent },
+  { path: 'detail/:id', component: DetalleMascotaComponent },
 ];
 
 @NgModule({
