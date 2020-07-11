@@ -6,37 +6,39 @@
     <meta charset="utf-8" />
     <title>AdoptMe</title>
 </head>
-<section id="information">
-    <div class="container-fluid" >
-        <div class="text">
-            <h1 class="section-heading text-uppercase">Mascotas Adoptadas</h1>
-        </div>
-
-    <table class="table table-striped" id="tabla-adoptados">
-    <thead>
-    <tr>
-        <th scope="col">#</th>
-        <th scope="col">Nombre</th>
-        <th scope="col">Tipo</th>
-        <th scope="col">Sexo</th>
-        <th scope="col">Edad (años)</th>
-        <th scope="col">Raza</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let animal of animals index as i">
-        
-        <th scope="row">{{ i + 1 }}</th>
-        <td>
-            <a routerLink="/detail/{{animal.id}}">{{ animal.nombre }}</a>
-        </td>
-        <td>
-        <img [src]="'assets/img/iconos/animales/'+ animal.picture + '.png'" class="mr-2"  alt="animal" />
-        {{ animal.tipo }}
-        </td>
-        <td>{{ animal.sexo }}</td>
-        <td>{{ animal.edad | number }}</td>
-        <td>{{ animal.raza }}</td>
-    </tr>
-    </tbody>
-    </table>
+    <div class="container" >
+        <section id="encabezado">
+            <div class="text">
+                <h1 class="section-heading text-uppercase">Mascotas Adoptadas</h1>
+            </div>
+        </section>
+        <table class="table table-striped" id="tabla-adoptados">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Sexo</th>
+            <th scope="col">Edad (años)</th>
+            <th scope="col">Raza</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let animal of animals index as i">
+            
+            <th scope="row">{{ i + 1 }}</th>
+            <td>
+                <a routerLink="/detail/{{animal.id}}">{{ animal.nombre }}</a>
+            </td>
+            <td>
+            <img [src]="'assets/img/iconos/animales/'+ animal.picture + '.png'" class="mr-2"  alt="animal" />
+            {{ animal.tipo }}
+            </td>
+            <td>{{ animal.sexo }}</td>
+            <td>{{ animal.edad | number }}</td>
+            <td>{{ animal.raza }}</td>
+        </tr>
+        </tbody>
+        </table>
+        <!--a href="#information">Ir hacia arriba</a-->
+    </div>
