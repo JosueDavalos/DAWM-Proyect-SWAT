@@ -7,7 +7,7 @@ function bar_cantidad_adopciones(){
             labels: ['Perro', 'Gato', 'Pericos', 'Totuga', 'Loro', 'Cerdo'],
             datasets: [{
                 label: 'Cantidad de adopciones',
-                data: [12, 19, 3, 5, 2, 3],
+                data: [12, 19, 3, 5, 2, 4],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.5)',
                     'rgba(54, 162, 235, 0.5)',

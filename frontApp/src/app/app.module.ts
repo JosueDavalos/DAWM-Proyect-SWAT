@@ -23,6 +23,8 @@ import { JwtInterceptor, ErrorInterceptor, fakeBackendProvider } from './compone
 import { ComoAyudarComponent } from './componentes/paginas/como-ayudar/como-ayudar.component';
 import { DetalleMascotaComponent } from './componentes/paginas/detalle-mascota/detalle-mascota.component';
 import { DetalleInlineComponent } from './componentes/paginas/detalle-inline/detalle-inline.component';
+import { SolicitudesAdopcionComponent } from './componentes/admin/solicitudes-adopcion/solicitudes-adopcion.component';
+
 
 
 @NgModule({
@@ -44,7 +46,8 @@ import { DetalleInlineComponent } from './componentes/paginas/detalle-inline/det
     NoticiasComponent,
     ComoAyudarComponent,
     DetalleMascotaComponent,
-    DetalleInlineComponent
+    DetalleInlineComponent,
+    SolicitudesAdopcionComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,41 @@
+<section id="solicitudesAdopcion" > 
+    <div class="container">
+        <h2 class="section-heading mb-4">Solicitudes de adopción</h2>
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Cedula</th>
+                <th scope="col">Nombres</th>
+                <th scope="col">Apellidos</th>
+                <th scope="col">Edad</th>
+                <th scope="col">Genero</th>
+                <th scope="col">Direccion</th>
+                <th scope="col">Cuidad</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Celular</th>
+                <th scope="col">Mascota</th>
+
+              </tr>
+            </thead>
+            
+            <tbody>
+                <tr *ngFor="let solicitud of solicitudes">
+                    <th scope="row">{{solicitud.id}}</th>
+                    <td>{{solicitud.cedula}}</td>
+                    <td>{{solicitud.nombres}}</td>
+                    <td>{{solicitud.apellidos}}</td>
+                    <td>{{solicitud.edad}}</td>
+                    <td>{{solicitud.genero}}</td>
+                    <td>{{solicitud.direccion}}</td>
+                    <td>{{solicitud.ciudad}}</td>
+                    <td>{{solicitud.telefono}}</td>
+                    <td>{{solicitud.celular}}</td>
+                    <td>{{solicitud.mascota}}</td>
+                </tr>
+            </tbody>
+
+
+          </table>
+    </div>
+</section>

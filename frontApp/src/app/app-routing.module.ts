@@ -11,6 +11,9 @@ import { ComoAyudarComponent } from './componentes/paginas/como-ayudar/como-ayud
 import { DetalleMascotaComponent } from './componentes/paginas/detalle-mascota/detalle-mascota.component';
 import { GestionProcesoComponent } from './componentes/admin/gestion-proceso/gestion-proceso.component';
 import { ReportesComponent } from './componentes/admin/reportes/reportes.component';
+import { SolicitudesAdopcionComponent } from './componentes/admin/solicitudes-adopcion/solicitudes-adopcion.component';
+import { RegisterComponent } from './componentes/register/register.component';
+
 
 
 const routes: Routes = [
@@ -26,6 +29,9 @@ const routes: Routes = [
   { path: 'reporteGrafico', component: ReportesComponent },
   { path: 'comoAyudar', component: ComoAyudarComponent },
   { path: 'detail/:id', component: DetalleMascotaComponent },
+  { path: 'solicitudesAdopcion', component: SolicitudesAdopcionComponent},
+  { path: 'registrar', component: RegisterComponent},
+
 ];
 
 @NgModule({

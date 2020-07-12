@@ -26,12 +26,12 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item js-scroll-trigger text-dark font-weight-bold" href="gestionProcesos">Poner en adopción</a>
-                        <a class="dropdown-item js-scroll-trigger text-dark font-weight-bold" href="#">Solicitudes de adopción</a>
+                        <a class="dropdown-item js-scroll-trigger text-dark font-weight-bold" href="solicitudesAdopcion">Solicitudes de adopción</a>
                         <a class="dropdown-item js-scroll-trigger text-dark font-weight-bold" href="#">Modificar ficha de adopción</a> 
                         </div>
                     </li> 
 
-                    <li class="nav-item" *ngIf="isAdmin"><a class="nav-link js-scroll-trigger text-dark font-weight-bold" href="reporteGrafico" >Reporte Graficos</a></li>
+                    <li class="nav-item" *ngIf="isAdmin"><a class="nav-link js-scroll-trigger text-dark font-weight-bold" href="reporteGrafico" >Reportes Gráficos</a></li>
                     <li class="nav-item" *ngIf="!isAdmin && !isVolunteer"><a class="nav-link js-scroll-trigger text-dark font-weight-bold" href="comoAyudar">Como Ayudar</a></li>
                     <li class="nav-item" *ngIf="!isLogged"><a class="nav-link js-scroll-trigger text-dark font-weight-bold" href="login">Iniciar</a></li>
                     <li class="nav-item" *ngIf="isLogged"><a class="nav-link js-scroll-trigger text-dark font-weight-bold" href="" (click)="logout()">Salir</a></li>
