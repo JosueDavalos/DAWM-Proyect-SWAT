@@ -7,11 +7,14 @@ img{
     width:100%;
 
 }
-/*
-h1{
-    color:#7c3c21;
+#encabezado{
+  padding: 50px 0 15px 0 ;
 }
-*/
+h1 {
+  padding: 25px 0 10px 0;
+  text-align: center;
+
+}
 .table-striped>tbody>tr:nth-child(odd)>td, 
 .table-striped>tbody>tr:nth-child(odd)>th {
    background-color:#e8e4e1; 
@@ -22,7 +25,7 @@ a {
     color: #3b6978;
     font-weight: bold;
   }
-
+  
   div > button {
     padding: 30px;
     background-color: #eee;
@@ -32,11 +35,5 @@ a {
     cursor: pointer;
     font: icon; 
   }
-/*
-    text-align: center;
-    justify-content: center;
-    padding: 2ex;
-    width:100%;
 
-*/
 
