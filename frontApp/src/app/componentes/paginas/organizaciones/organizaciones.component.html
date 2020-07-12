@@ -8,7 +8,7 @@
 </head>
 
 <section id="adoptar" class="col-12">
-    <h2 class="text-center">¡Nuestras Organizaciones!</h2>
+    <br>
 </section>
 
 
@@ -17,22 +17,22 @@
     <div class="col-12">
         <div class="overlay"></div>
 
-        <h3>Organizaciones</h3>
+        <h2 class="text-center">¡Nuestras Organizaciones!</h2><br>
         <div class="col-12">
             
             <div *ngFor="let organizacion of organizaciones" onclick="toogleInfo()" id="tod">
               
-                    <h5 class="card-title">{{organizacion.nombre}}</h5><br>
-                    <p class="card-text">Tipo: {{organizacion.tipo}}</p><br>
-                    <p class="card-text">Contacto: {{organizacion.contacto}}</p><br>
+                    <h4 class="card-title">{{organizacion.nombre}}</h4><br>
+                    <p class="card-text"><b>Tipo: </b> {{organizacion.tipo}}</p><br>
+                    <p class="card-text"><b>Contacto: </b> {{organizacion.contacto}}</p><br>
                     
                 
                     <img src={{organizacion.imagen}} alt="Card image cap"><br>
 
-                    <div id="popup">
+                    <!--div id="popup">
                         <div class="close-btn" onclick="toogleInfo()">&times;</div>
                         <p class="card-text">Informacion: {{organizacion.informacion}}</p>
-                    </div>
+                    </div-->
             </div>
         </div>
 

@@ -72,7 +72,7 @@ export class OrganizacionesComponent implements OnInit,AfterViewInit  {
 
   constructor(private elementRef: ElementRef) { }
   ngAfterViewInit(): void {
-    this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = 'lightblue';
+    this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = '#e8e4e1';
   }
 
   ngOnInit(): void {

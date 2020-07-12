@@ -67,7 +67,8 @@ select{
 #lista-organizaciones div div div {
     margin-left:5em;
     border-style: solid;
-    border-color: #92a8d1;
+    border-color: #204051;
+    background-color: #f9c49a;
 }
 
 #lista-organizacion div div div div{
