@@ -20,7 +20,7 @@
             </thead>
             
             <tbody>
-                <tr *ngFor="let solicitud of solicitudes">
+                <tr *ngFor="let solicitud of solicitudes" data-toggle="modal" data-target="#modal-solicitud">
                     <th scope="row">{{solicitud.id}}</th>
                     <td>{{solicitud.cedula}}</td>
                     <td>{{solicitud.nombres}}</td>
@@ -39,3 +39,44 @@
           </table>
     </div>
 </section>
+
+
+<div class="modal" id="modal-solicitud" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered" id="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Información de la Solicitud</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-6">
+              <h5>Solicitante</h5>
+              <label for="">Cedula</label><br>
+              <label for="">Nombres</label><br>
+              <label for="">Apellidos</label><br>
+              <label for="">Nombres</label><br>
+              <label for="">Edad</label>
+            </div>
+            <div class="col-6">
+              <h5>Macota</h5>
+              <label for="">Nombre</label><br>
+              <label for="">Nombres</label><br>
+              <label for="">Apellidos</label><br>
+              <label for="">Nombres</label><br>
+              <label for="">Edad</label>
+            </div>
+          </div>
+        </div>
+    
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-success">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>

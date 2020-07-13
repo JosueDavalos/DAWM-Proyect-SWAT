@@ -33,14 +33,23 @@
                                         <h2 class="fs-title mb-3">Información personal</h2> 
                                         
                                         <div class="from-row mx-md-n1">
-                                            <label class="col-5 d-none d-xl-inline-block" for="uname">Nombres</label>
-                                            <label class="col-5 ml-md-4 d-none d-xl-inline-block" for="ulastname">Apellidos</label> 
-                                            <label class="col-1 ml-5 d-none d-xl-inline-block px-md-1" for="gender">Genero</label> 
+                                            <label class="col-3 d-none d-xl-inline-block">Cedula</label> 
+                                            <label class="col-4 ml-4 d-none d-xl-inline-block" for="uname">Nombres</label>
+                                            <label class="col-4 ml-4 d-none d-xl-inline-block" for="ulastname">Apellidos</label> 
                                         </div>
                                         <div class="form-row">
-                                            <div class="col-12 col-lg-5"><input type="text" id="uname" name="uname" placeholder="Nombres" /></div>
-                                            <div class="col-12 col-lg-5 mx-auto"><input id="ulastname" type="text" name="ulastname" placeholder="Apellidos" /></div>   
-                                            <div class="col-12 col-lg-1 mx-auto">
+                                            <div class="col-12 col-lg-3"><input type="text" id="cedula" name="user-cedula" placeholder="Cédula" /></div>
+                                            <div class="col-12 col-lg-4 ml-lg-4"><input type="text" id="uname" name="uname" placeholder="Nombres" /></div>
+                                            <div class="col-12 col-lg-4 ml-lg-4"><input id="ulastname" type="text" name="ulastname" placeholder="Apellidos" /></div>   
+                                        </div>
+                                        
+                                        <div class="form-row">
+                                            <label class="col-1 ml-lg-1 d-none d-xl-inline-block">Edad</label>
+                                            <label class="col-2  ml-lg-5 d-none d-xl-inline-block" for="gender">Genero</label> 
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-6 col-lg-1 ml-lg-0 user-age"> <input type="number" id="user-age" name="user-age" placeholder="Edad" /> </div>
+                                            <div class="col-6 col-lg-1 ml-lg-5">
                                                 <select class="list-dt" id="gender" name="gender">
                                                     <option selected>Genero</option>
                                                     <option>Masculino</option>
@@ -49,7 +58,7 @@
                                                 </select>
                                             </div> 
                                         </div>
-                                        
+
                                         <div class="from-row">
                                             <h4 class="mt-2 sm-mt-4">Contactos</h4>
                                             <label class="col-5 d-none d-xl-inline-block" for="email">Correo</label>
@@ -64,10 +73,12 @@
     
                                         <div class="from-row">
                                             <label class="col-5 d-none d-xl-inline-block" for="uname">Dirección</label>
+                                            <label class="col-5 ml-lg-4 d-none d-xl-inline-block" for="user-cuidad">Cuidad</label>
                                         </div>
                                         <div class="form-row">
-                                            <div class="col-12  col-xl-5"><input type="text" name="address" placeholder="Dirección" /></div>
-                                            <div class="col-12  col-xl-2 ml-md-auto"> 
+                                            <div class="col-12 col-xl-5"><input type="text" name="address" placeholder="Dirección" /></div>
+                                            <div class="col-12 col-lg-3 ml-lg-4"><input type="text" id="user-cuidad" name="user-cuidad" placeholder="Cuidad" /></div>
+                                            <div class="col-12 col-xl-2 ml-md-auto"> 
                                                 <button id="location" class="btn btn-outline-dark" data-toggle="modal" data-target="#modal-mapa"> Ubicación</button>
                                             </div>
                                         </div>

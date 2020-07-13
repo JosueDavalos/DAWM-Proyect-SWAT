@@ -106,7 +106,7 @@ select.list-dt {
     outline: 0;
     border-bottom: 1px solid #ccc;
     padding: 2px 5px 3px 5px;
-    margin: 2px
+    margin: 2px;
 }
 
 select.list-dt:focus {
@@ -241,3 +241,18 @@ label{
     min-height: 640px;
     height: 80%;
 }
+
+
+@media (min-width: 990px){
+    #user-age{
+        width: 110% !important;
+    }
+}
+@media (min-width: 990px){
+    #user-age{
+        width: 155% !important;
+    }
+    #gender{
+        width: 275% !important;
+    }
+} 
