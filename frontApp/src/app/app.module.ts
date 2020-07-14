@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {FormsModule,ReactiveFormsModule} from '@angular/forms'
+import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { FooterComponent } from './componentes/footer/footer.component';
 import { HeaderComponent } from './componentes/header/header.component';
 import { LoginComponent } from './componentes/login/login.component';

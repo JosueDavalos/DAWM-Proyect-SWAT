@@ -55,7 +55,7 @@ select{
 }
 
 #lista-mascotas div a{
-    font-size: 50px;
+    font-size: 50pxx;
 }
 
 #lista-mascotas div{
@@ -91,9 +91,12 @@ select{
         max-width: 100%!important;
     }
     
-    
-}
 
+}
+a h5{
+    font-size: larger;
+    font-weight: bold;
+}
 img{
     width: 150px;
     padding: 15px;
