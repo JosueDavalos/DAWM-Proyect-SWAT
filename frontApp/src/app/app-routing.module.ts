@@ -28,7 +28,7 @@ const routes: Routes = [
   { path: 'gestionProcesos', component: GestionProcesoComponent },
   { path: 'reporteGrafico', component: ReportesComponent },
   { path: 'comoAyudar', component: ComoAyudarComponent },
-  { path: 'detail/:id', component: DetalleMascotaComponent },
+  { path: 'detalle-mascota/:id', component: DetalleMascotaComponent },
   { path: 'solicitudesAdopcion', component: SolicitudesAdopcionComponent},
   { path: 'registrar', component: RegisterComponent},
 
