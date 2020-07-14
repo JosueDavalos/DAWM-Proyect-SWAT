@@ -14,7 +14,11 @@
     border-radius: 5px;
     /*background: #000000;*/
 }
-
+a {
+    text-decoration: none;
+    color: #3b6978;
+    font-weight: bold;
+  }
 #filtros form p{
     margin: 0;
     padding: 0;
@@ -87,4 +91,16 @@ select{
         max-width: 100%!important;
     }
     
+    
+}
+
+img{
+    width: 150px;
+    padding: 15px;
+}
+.card-body{
+    padding-left: 50px ;
+}
+.card {
+    margin-bottom: .75rem;
 }

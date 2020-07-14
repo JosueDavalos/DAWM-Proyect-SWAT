@@ -9,28 +9,28 @@
             <label for="tipo">Tipo</label>
             <select name="tipo" id="tipo">
                 <option value="">--</option>
-                <option *ngFor="let tipo of tipos" value="{{tipo.tipo}}">{{tipo.tipo}}</option>
+                <option *ngFor="let tipo of tipos" value="{{tipo}}">{{tipo}}</option>
             </select>
         </p>
         <p class="text-center">
             <label for="raza">Raza</label>
             <select name="raza" id="raza">
                 <option value="">--</option>
-                <option *ngFor="let raza of razas" value="{{raza.raza}}">{{raza.raza}}</option>
+                <option *ngFor="let raza of razas" value="{{raza}}">{{raza}}</option>
             </select>
         </p>
         <p class="text-center">
             <label for="etapa">Etapa</label>
             <select name="etapa" id="etapa">
                 <option value="">--</option>
-                <option *ngFor="let etapa of etapas" value="{{etapa.etapa}}">{{etapa.etapa}}</option>
+                <option *ngFor="let etapa of etapas" value="{{etapa}}">{{etapa}}</option>
             </select>
         </p>
         <p class="text-center">
             <label for="sector">Sector</label>
             <select name="sector" id="sector">
                 <option value="">--</option>
-                <option *ngFor="let sector of sectores" value="{{sector.sector}}">{{sector.sector}}</option>
+                <option *ngFor="let sector of sectores" value="{{sector}}">{{sector}}</option>
             </select>
         </p>
     </form>
@@ -38,21 +38,31 @@
     <h4 id="mensaje"></h4>
     
 </section>
+<!--div id="search-component">
+    <h4><label for="search-box">Buscar por raza</label></h4>
+    <input #searchBox id="search-box" input="search(searchBox.value)"/>
+    <ul class="search-result">
+        <li *ngFor="let animal of animals$ | async">
+            <a routerLink="/detail/{{hero.id}}">
+                {{hero.name}}
+              </a>
+        </li>
+    </ul>
+</div-->
 
-<section id="lista-mascotas" class="col-12">
+<section id="lista-animals" class="col-12">
     <div class="container">
-        <h3>Mascotas</h3>
-        <div *ngFor="let mascota of mascotas" class="card">
+        <div *ngFor="let mascota of animals" class="card">
             <div class="d-flex flex-row">
                 <img src="../../../../assets/img/perro.jpg" alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title">Nombre: {{mascota.nombre}}</h5>
+                    <a routerLink="/detalle-mascota/{{mascota.id}}">
+                        <h5 class="card-title">{{mascota.nombre}}</h5>
+                    </a>
                     <p class="card-text">Tipo: {{mascota.tipo}}</p>
                     <p class="card-text">Raza: {{mascota.raza}}</p>
                 </div>
-                <a class="btn btn-secondary d-flex align-items-center" (click)="toggleDetails(mascota.id)"><i class="fa fa-wpforms"></i></a>
             </div>
-            <app-detalle-inline [mascota]="mascota" id="{{mascota.id}}" class="content"></app-detalle-inline>
             
         </div>
         
