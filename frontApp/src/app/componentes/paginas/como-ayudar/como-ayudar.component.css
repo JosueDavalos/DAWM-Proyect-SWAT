@@ -1,0 +1,54 @@
+#lista-noticias h2{
+    padding-top: 10px;
+    
+}
+
+
+
+#lista-noticias div img{
+    width: 230px;
+    height: auto;
+    padding: 10px;
+}
+#lista-noticias div {
+    display: inline-block;  
+    flex-wrap: wrap;    
+    text-align: center;
+}
+
+
+#lista-noticias div div div {
+    margin-left:5em;
+    margin-right:5em;
+    border-style: solid;
+    border-color: #204051;
+    background-color: #f9c49a;
+    margin-bottom: 15px;
+}
+
+#lista-noticias div div div div{
+    height: auto;
+}
+.example-card {
+    max-width: 400px;
+    position: absolute;
+}
+  
+.example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+}
+#mat{
+    padding: 10px;
+    margin-bottom: 150px;
+    margin-left: 50px;
+    margin-right: 50px;
+    position: relative;
+}   
+#imgCard{
+    width: 300px;
+    height: auto;
+    position: relative;
+    margin-left: 39px;
+    margin-top: 10px;
+}

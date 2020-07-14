@@ -24,7 +24,9 @@ import { ComoAyudarComponent } from './componentes/paginas/como-ayudar/como-ayud
 import { DetalleMascotaComponent } from './componentes/paginas/detalle-mascota/detalle-mascota.component';
 import { DetalleInlineComponent } from './componentes/paginas/detalle-inline/detalle-inline.component';
 import { SolicitudesAdopcionComponent } from './componentes/admin/solicitudes-adopcion/solicitudes-adopcion.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -54,7 +56,10 @@ import { SolicitudesAdopcionComponent } from './componentes/admin/solicitudes-ad
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatButtonModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
