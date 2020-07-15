@@ -1,7 +1,67 @@
 <section id="solicitudesAdopcion" > 
     <div class="container">
         <h2 class="section-heading mb-4">Solicitudes de adopción</h2>
-        <table class="table table-striped">
+
+
+        <form id="buscador" >
+          <div class="form-card">
+            <div class="form-row">
+              <div class="col-2">
+                <label for="tipo">Cedula</label>
+                  <input list="pet-types" name="pet-type" id="pet-type" placeholder="Tipo">
+                  <datalist id="pet-types">
+                  <option *ngFor="let tipo of tipos" value="{{tipo.tipo}}"></option>
+                  </datalist>
+              </div>
+              <div class="col-2">
+                <label for="">Nombres</label>
+                  <input list="pet-types" name="pet-type" id="pet-type" placeholder="Tipo">
+                  <datalist id="pet-types">
+                  <option *ngFor="let raza of razas" value="{{raza.raza}}"></option>
+                  </datalist>
+              </div>
+              <div class="col-2">
+                <label for="tipo">Genero</label>
+                  <input list="pet-types" name="pet-type" id="pet-type" placeholder="Tipo">
+                  <datalist id="pet-types">
+                  <option *ngFor="let tipo of tipos" value="{{tipo.tipo}}"></option>
+                  </datalist>
+              </div>
+              <div class="col-2">
+                <label for="tipo">Cuidad</label>
+                  <input list="pet-types" name="pet-type" id="pet-type" placeholder="Tipo">
+                  <datalist id="pet-types">
+                  <option *ngFor="let tipo of tipos" value="{{tipo.tipo}}"></option>
+                  </datalist>
+              </div>
+              
+                <button class="btn btn-primary">Buscar</button>
+                  <h4 id="mensaje"></h4>
+
+              </div>
+
+              <div class="form-row">
+                <div class="col-2">
+                  <label for="tipo">Tipo</label>
+                    <input list="pet-types" name="pet-type" id="pet-type" placeholder="Tipo">
+                    <datalist id="pet-types">
+                    <option *ngFor="let tipo of tipos" value="{{tipo.tipo}}"></option>
+                    </datalist>
+                </div>
+                <div class="col-2">
+                  <label for="tipo">Mascota</label>
+                    <input list="pet-types" name="pet-type" id="pet-type" placeholder="Tipo">
+                    <datalist id="pet-types">
+                    <option *ngFor="let tipo of tipos" value="{{tipo.tipo}}"></option>
+                    </datalist>
+                </div>
+              </div>
+            </div>
+        </form>
+
+
+
+        <table class="table table-striped mt-4">
             <thead>
               <tr>
                 <th scope="col">#</th>
@@ -20,7 +80,7 @@
             </thead>
             
             <tbody>
-                <tr *ngFor="let solicitud of solicitudes" data-toggle="modal" data-target="#modal-solicitud">
+                <tr class="solicitud" *ngFor="let solicitud of solicitudes" data-toggle="modal" data-target="#modal-solicitud">
                     <th scope="row">{{solicitud.id}}</th>
                     <td>{{solicitud.cedula}}</td>
                     <td>{{solicitud.nombres}}</td>

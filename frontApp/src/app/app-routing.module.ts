@@ -25,7 +25,6 @@ const routes: Routes = [
   { path: 'quienesSomos', component: QuienesSomosComponent },
   { path: 'login', component: LoginComponent },
   { path: 'controlPanel', component: ControlPanelComponent },
-  { path: 'gestionProcesos', component: GestionProcesoComponent },
   { path: 'reporteGrafico', component: ReportesComponent },
   { path: 'comoAyudar', component: ComoAyudarComponent },
   { path: 'detail/:id', component: DetalleMascotaComponent },

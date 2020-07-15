@@ -2,3 +2,15 @@
     max-width: 80%;
     height: 50%;
 }
+
+.solicitud{
+    cursor: pointer;
+}
+
+input{
+    width: 50% !important;
+}
+
+#buscador{
+    border: 2px #aaa solid;
+}
