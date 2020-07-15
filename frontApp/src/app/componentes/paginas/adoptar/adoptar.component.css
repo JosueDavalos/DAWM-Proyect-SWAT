@@ -14,7 +14,11 @@
     border-radius: 5px;
     /*background: #000000;*/
 }
-
+a {
+    text-decoration: none;
+    color: #3b6978;
+    font-weight: bold;
+  }
 #filtros form p{
     margin: 0;
     padding: 0;
@@ -51,7 +55,7 @@ select{
 }
 
 #lista-mascotas div a{
-    font-size: 50px;
+    font-size: 50pxx;
 }
 
 #lista-mascotas div{
@@ -87,4 +91,19 @@ select{
         max-width: 100%!important;
     }
     
+
+}
+a h5{
+    font-size: larger;
+    font-weight: bold;
+}
+img{
+    width: 150px;
+    padding: 15px;
+}
+.card-body{
+    padding-left: 50px ;
+}
+.card {
+    margin-bottom: .75rem;
 }
