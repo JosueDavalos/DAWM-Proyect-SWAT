@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
     private authenticationService: AuthenticationService
   ) { 
     this.currentUser = this.authenticationService.currentUserValue;
+
     this.introJS.setOptions({
       steps: [
       {
@@ -28,12 +29,12 @@ export class HomeComponent implements OnInit {
          position: 'bottom'
       },
       {
-         element: '#step2',
+         element: '#step3',
          intro: "Ok, wasn't that fun?",
          position: 'right'
       },
       {
-         element: '#step3',
+         element: '#step2',
          intro: "let's keep going",
          position: 'top'
       },
@@ -45,10 +46,11 @@ export class HomeComponent implements OnInit {
    ],
    showProgress: true
   });
+    
   }
 
   ngOnInit(): void {
-    this.introJS.start();
+    
     this.loading = true;
         this.userService.getById(this.currentUser.id).pipe(first()).subscribe(user => {
             this.loading = false;
@@ -56,7 +58,11 @@ export class HomeComponent implements OnInit {
         });
   }
 
-  
+  ejecutarTuto(){
+    this.introJS.start();
+    console.log("asd");
+    
+  }
 
 
 
