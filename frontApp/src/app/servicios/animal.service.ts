@@ -4,7 +4,7 @@ import { Observable, of } from 'rxjs';
 // The AnimalService could get animal data from anywhere—a
 // web service, local storage, or a mock data source.'
 import { Animal } from '../componentes/models/animal';
-
+// it instantiates the AnimalService class to provide the service. (make available to the dependecy injection)
 @Injectable({
   providedIn: 'root'
 })
