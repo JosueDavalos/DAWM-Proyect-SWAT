@@ -10,58 +10,55 @@ import * as introJs from 'intro.js/intro.js';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  introJS = introJs();
+ introJS = introJs();
   loading = false;
   currentUser: User;
   userFromApi: User;
-  
+
   constructor(
     private userService: UserService,
     private authenticationService: AuthenticationService
-  ) { 
+  ) {
     this.currentUser = this.authenticationService.currentUserValue;
 
     this.introJS.setOptions({
       steps: [
       {
          element: '#step1',
-         intro: 'Welcome to your new app!',
+         intro: 'Adopta un corazón',
          position: 'bottom'
       },
       {
-         element: '#step3',
-         intro: "Ok, wasn't that fun?",
-         position: 'right'
+        element: '#step2',
+        intro: 'Estos son nuestros servicios',
+        position: 'top'
       },
       {
-         element: '#step2',
-         intro: "let's keep going",
-         position: 'top'
+        element: '#step3',
+        intro: 'Nuestros patrocinadores',
+        position: 'top'
       },
       {
-         element: '#step4',
-         intro: 'More features, more fun.',
-         position: 'right'
+        element: '#step4',
+        intro: 'Contáctate con nosotros',
+        position: 'bottom'
       }
    ],
    showProgress: true
   });
-    
+
   }
 
   ngOnInit(): void {
-    
     this.loading = true;
-        this.userService.getById(this.currentUser.id).pipe(first()).subscribe(user => {
+    this.userService.getById(this.currentUser.id).pipe(first()).subscribe(user => {
             this.loading = false;
             this.userFromApi = user;
         });
   }
 
-  ejecutarTuto(){
+  callIntro(){
     this.introJS.start();
-    console.log("asd");
-    
   }
 
 
