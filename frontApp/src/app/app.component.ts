@@ -7,12 +7,10 @@ import { Router, NavigationStart } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-
   title = 'AdoptMe';
   showHead: boolean = false;
 
   ngOnInit(): void {
-
   }
  
 
