@@ -18,7 +18,7 @@ export class ComoAyudarComponent implements OnInit {
     },
     {
       id : 0,
-      nombre : 'Noticia 1',
+      nombre : 'Noticia 2',
       imagen : "../../../../assets/img/companyEjem.jpg",
       tipo : 'Sin fines de lucro',
       contacto : '0998871624',
@@ -26,7 +26,7 @@ export class ComoAyudarComponent implements OnInit {
     },
     {
       id : 0,
-      nombre : 'Noticia 1',
+      nombre : 'Noticia 13',
       imagen : "../../../../assets/img/companyEjem.jpg",
       tipo : 'Sin fines de lucro',
       contacto : '0998871624',

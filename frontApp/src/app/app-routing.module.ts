@@ -13,14 +13,16 @@ import { GestionProcesoComponent } from './componentes/admin/gestion-proceso/ges
 import { ReportesComponent } from './componentes/admin/reportes/reportes.component';
 import { SolicitudesAdopcionComponent } from './componentes/admin/solicitudes-adopcion/solicitudes-adopcion.component';
 import { RegisterComponent } from './componentes/register/register.component';
+import { PonerAdopcionComponent } from './componentes/paginas/poner-adopcion/poner-adopcion.component';
 
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'adoptar', component: AdoptarComponent },
-  { path: 'ponerAdopcion', component: GestionProcesoComponent }, // component: PonerAdopcionComponent },
+  { path: 'gestionProcesos', component: GestionProcesoComponent }, // component: PonerAdopcionComponent },
   { path: 'adoptadas', component: MascotasAdoptadasComponent },
+  { path: 'ponerAdopcion', component: PonerAdopcionComponent },
   { path: 'organizaciones', component: OrganizacionesComponent },
   { path: 'quienesSomos', component: QuienesSomosComponent },
   { path: 'login', component: LoginComponent },
