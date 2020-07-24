@@ -22,7 +22,7 @@ export class ComoAyudarComponent implements OnInit {
       imagen : "../../../../assets/img/donation.png",
       tipo : 'Sin fines de lucro',
       contacto : '0998871624',
-      informacion : 'Puedes donar a traves de cuentas digitales, para asi ayudar a nuestras acciones.'
+      informacion : 'Puedes donar a traves de cuentas digitales, para así ayudar a nuestras acciones.'
     },
     {
       id : 0,
@@ -30,7 +30,7 @@ export class ComoAyudarComponent implements OnInit {
       imagen : "../../../../assets/img/adoptas.jpg",
       tipo : 'Sin fines de lucro',
       contacto : '0998871624',
-      informacion : 'Puedes adoptar y darle un hogar a estos animalitos. Para que tengan una vida contenta'
+      informacion : 'Puedes adoptar y darle un hogar a estos animalitos. Para que tengan una vida llena de amor'
     },
     {
       id : 0,
