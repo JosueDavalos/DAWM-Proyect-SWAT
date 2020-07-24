@@ -28,6 +28,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { AdministrarUsuarioComponent } from './componentes/admin/control-panel/administarUsuarios/administarUsuario.component';
+import { AdministrarAnimalesComponent } from './componentes/admin/control-panel/administarAnimales/administarAnimales.component';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { AdministrarUsuarioComponent } from './componentes/admin/control-panel/a
     DetalleMascotaComponent,
     DetalleInlineComponent,
     SolicitudesAdopcionComponent,
-    AdministrarUsuarioComponent
+    AdministrarUsuarioComponent,
+    AdministrarAnimalesComponent
   ],
   imports: [
     BrowserModule,

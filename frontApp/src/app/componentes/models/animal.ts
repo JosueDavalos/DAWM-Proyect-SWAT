@@ -1,5 +1,5 @@
 // simulating the server
-export interface Animal {
+export class Animal {
     id: number;
     nombre: string;
     tipo: string;

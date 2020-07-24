@@ -34,13 +34,16 @@ export class AdministrarUsuarioComponent implements OnInit {
           .subscribe( data => {
             this.users = this.users.filter(u => u !== user);
           })*/
+          const index: number = this.users.indexOf(user);
+          this.users.splice(index,1);
+
       };
     
-      editUser(user: User): void {
-        window.localStorage.removeItem("editUserId");
-        window.localStorage.setItem("editUserId", user.id.toString());
+    updateUser(): void {
+        //window.localStorage.removeItem("editUserId");
+        //window.localStorage.setItem("editUserId", user.id.toString());
         //this.router.navigate(['edit-user']);
-      };
+    };
     
       addUser(): void {
         //this.router.navigate(['add-user']);

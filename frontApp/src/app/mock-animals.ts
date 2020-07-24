@@ -137,7 +137,7 @@ export const ANIMALS: Animal[] = [
       nombre: 'Claudio',
       tipo: 'perro',
       edad: 2,
-      raza: 'mestizo',
+      raza: 'schnauzer',
       sexo: 'Macho',
       picture: 'perro',
       id: 12,
