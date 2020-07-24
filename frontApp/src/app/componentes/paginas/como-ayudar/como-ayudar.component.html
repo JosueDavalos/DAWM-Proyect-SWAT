@@ -10,59 +10,31 @@
 
 
 
-<section id="lista-noticias" class="col-12">
-    <div class="col-12">
-        <h2 class="text-center">¡Como Ayudar!</h2><br>
-    </div>
-    <div class="vc_row wpb_row vc_row-fluid vc_custom_1440643202607"><div class="wpb_column vc_column_container vc_col-sm-3"><div class="wpb_wrapper">
+<section id="cards">
+  <h2 class="text-center">¿Como puedes ayudar?</h2><br><br><br><br>
+  <div *ngFor="let arre of arreglo" onclick="toogleInfo()" id="tod">
+    <mat-card class="example-card" id="mat">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{arre.nombre}}</mat-card-title>
+        <!--mat-card-subtitle>Dog Breed</mat-card-subtitle-->
+      </mat-card-header>
+      <div id="imgId">
+          <img id="imgCard" mat-card-image src={{arre.imagen}} alt="Photo of a Shiba Inu">
+      </div>
+      
+      <mat-card-content>
+        <p>
+          {{arre.informacion}}
+        </p>
+      </mat-card-content>  
+    </mat-card>
+  </div>
+  
 
-    </div></div><div class="wpb_column vc_column_container vc_col-sm-3"><div class="wpb_wrapper">
-      <div class="wpb_single_image wpb_content_element vc_align_center  vc_custom_1466482385105">
-        
-        <figure class="wpb_wrapper vc_figure">
-          <div class="vc_single_image-wrapper   vc_box_border_grey"><img width="445" height="279" src="http://www.pae.ec/wp-content/uploads/2015/08/foto-sennora-con-perrito-PAE.jpg" class="vc_single_image-img attachment-full" alt="Voluntariado - PAE"></div>
-        </figure>
-      </div>
-    </div></div><div class="wpb_column vc_column_container vc_col-sm-3"><div class="wpb_wrapper">
-      <div class="wpb_single_image wpb_content_element vc_align_center  vc_custom_1442791186250">
-        
-        <figure class="wpb_wrapper vc_figure">
-          <div class="vc_single_image-wrapper   vc_box_border_grey"><img width="445" height="279" src="../../../../assets/img/voluntariado-2.png" class="vc_single_image-img attachment-full" alt="Voluntariado - PAE"></div>
-        </figure>
-      </div>
-    </div></div><div class="wpb_column vc_column_container vc_col-sm-3"><div class="wpb_wrapper">
-      <div class="wpb_single_image wpb_content_element vc_align_center  vc_custom_1442317451844">
-        
-        <figure class="wpb_wrapper vc_figure">
-          <div class="vc_single_image-wrapper   vc_box_border_grey"><img width="445" height="279" src="../../../../assets/img/voluntariado-2.png" class="vc_single_image-img attachment-full" alt="Voluntariado - PAE"></div>
-        </figure>
-      </div>
-    </div></div></div>
 </section>
 
 
-
-    <!--mat-card class="example-card" id="mat">
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>Shiba Inu</mat-card-title>
-          <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-        </mat-card-header>
-        <div id="imgId">
-            <img id="imgCard" mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-        </div>
-        
-        <mat-card-content>
-          <p>
-            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-            bred for hunting.
-          </p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-button>LIKE</button>
-          <button mat-button>SHARE</button>
-        </mat-card-actions>
-    </mat-card-->
+    
     
 

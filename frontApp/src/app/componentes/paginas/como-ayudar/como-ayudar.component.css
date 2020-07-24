@@ -1,16 +1,16 @@
-#lista-noticias h2{
+#top h2{
     padding-top: 10px;
     
 }
 
 
 
-#lista-noticias div img{
+#top div img{
     width: 230px;
     height: auto;
     padding: 10px;
 }
-#lista-noticias div {
+#top div {
     display: inline-block;  
     flex-wrap: wrap;    
     text-align: center;
@@ -19,7 +19,7 @@
 
 
 
-#lista-noticias div div div div{
+#top div div div div{
     height: auto;
 }
 .example-card {
@@ -33,7 +33,7 @@
 }
 #mat{
     padding: 10px;
-    margin-bottom: 150px;
+    margin-bottom: 50px;
     margin-left: 50px;
     margin-right: 50px;
     position: relative;
@@ -45,35 +45,16 @@
     margin-left: 39px;
     margin-top: 10px;
 }
-.full-width-boxed .vc_row, .sidebar-double .vc_row, .sidebar-left .vc_row, .sidebar-right .vc_row {
-    padding-left: 0;
-    padding-right: 0;
+#cards div{
+    display: inline-block;  
+    flex-wrap: wrap;    
+    text-align: center;
 }
-.vc_custom_1440643202607 {
-    padding-top: 30px !important;
-    padding-bottom: 30px !important;
+#cards{
+    background-image: url("../../../../assets/img/banner.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-
-.vc_row {
-    margin-bottom: 0!important;
-    visibility: visible;
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 10px;
-    padding-right: 10px;
-    overflow: hidden;
-}
-.wpb_button, .wpb_content_element, .wpb_row, ul.wpb_thumbnails-fluid>li {
-    margin-bottom: 35px;
-}
-.vc_row {
-    margin-left: -15px;
-    margin-right: -15px;
-}
-*, :after, :before {
-    box-sizing: border-box;
-}
-user agent stylesheet
-div {
-    display: block;
+#cards h2{
+    color: white;
 }

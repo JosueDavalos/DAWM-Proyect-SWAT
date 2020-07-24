@@ -7,30 +7,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ComoAyudarComponent implements OnInit {
 
-  noticias : Object[] = [
+  arreglo : Object[] = [
     {
       id : 0,
-      nombre : 'Noticia 1',
-      imagen : "../../../../assets/img/companyEjem.jpg",
+      nombre : 'Donación de insumos',
+      imagen : "../../../../assets/img/taza.jpg",
       tipo : 'Sin fines de lucro',
       contacto : '0998871624',
-      informacion : 'Somos una organizacion con la idea de la la la land'
+      informacion : 'Puedes colaborar por medio de donaciones de insumos, productos y servicios.'
     },
     {
       id : 0,
-      nombre : 'Noticia 2',
-      imagen : "../../../../assets/img/companyEjem.jpg",
+      nombre : 'Donación de dinero',
+      imagen : "../../../../assets/img/donation.png",
       tipo : 'Sin fines de lucro',
       contacto : '0998871624',
-      informacion : 'Somos una organizacion con la idea de la la la land'
+      informacion : 'Puedes donar a traves de cuentas digitales, para asi ayudar a nuestras acciones.'
     },
     {
       id : 0,
-      nombre : 'Noticia 13',
-      imagen : "../../../../assets/img/companyEjem.jpg",
+      nombre : '¡Adopta!',
+      imagen : "../../../../assets/img/adoptas.jpg",
       tipo : 'Sin fines de lucro',
       contacto : '0998871624',
-      informacion : 'Somos una organizacion con la idea de la la la land'
+      informacion : 'Puedes adoptar y darle un hogar a estos animalitos. Para que tengan una vida contenta'
+    },
+    {
+      id : 0,
+      nombre : 'Inu 4',
+      imagen : "../../../../assets/img/adoptas.jpg",
+      tipo : 'Sin fines de lucro',
+      contacto : '0998871624',
+      informacion : 'Puedes colaborar por medio de donaciones de insumos, productos y servicios.'
     }
   ];
 
