@@ -1,0 +1,34 @@
+<div class="col-md-6 user-container">
+    <br><br><br>
+    <h2 style="margin: auto"> Administrar Usuarios</h2>
+    <br>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th></th>
+        <th class="hidden">Id</th>
+        <th>Username</th>
+        <th>Password</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Role</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of users">
+        <td> <button class="btn btn-success" id="editar" (click)="editUser(user)" style="margin-left: 20px;"></button></td>
+        <td class="hidden">{{user.id}}</td>
+        <td><input type="text" value={{user.username}} size="10"/></td>
+        <td><input type="text" value={{user.password}} size="10"/></td>
+        <td><input type="text" value={{user.firstName}} size="10"/></td>
+        <td><input type="text" value={{user.lastName}} size="10"/></td>
+        <td><input type="text" value={{user.role}} size="10"/></td>
+
+        <td><button class="btn btn-success" id="eliminar" (click)="deleteUser(user)">X</button></td>
+         
+        
+      </tr>
+      </tbody>
+    </table>
+    <button class="btn btn-danger" style="width:100px" (click)="addUser()"> Add User</button>
+  </div>

@@ -15,6 +15,7 @@ import { SolicitudesAdopcionComponent } from './componentes/admin/solicitudes-ad
 import { RegisterComponent } from './componentes/register/register.component';
 import { PonerAdopcionComponent } from './componentes/paginas/poner-adopcion/poner-adopcion.component';
 import { NoticiasComponent } from './componentes/paginas/noticias/noticias.component';
+import { AdministrarUsuarioComponent } from './componentes/admin/control-panel/administarUsuarios/administarUsuario.component';
 
 
 
@@ -34,6 +35,7 @@ const routes: Routes = [
   { path: 'solicitudesAdopcion', component: SolicitudesAdopcionComponent},
   { path: 'registrar', component: RegisterComponent},
   { path: 'noticias', component: NoticiasComponent},
+  { path: 'administrar/usuario' ,component:AdministrarUsuarioComponent}
 
 ];
 

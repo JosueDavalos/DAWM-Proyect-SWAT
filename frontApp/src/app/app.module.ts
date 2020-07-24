@@ -27,6 +27,7 @@ import { SolicitudesAdopcionComponent } from './componentes/admin/solicitudes-ad
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { AdministrarUsuarioComponent } from './componentes/admin/control-panel/administarUsuarios/administarUsuario.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { MatButtonModule } from '@angular/material/button';
     ComoAyudarComponent,
     DetalleMascotaComponent,
     DetalleInlineComponent,
-    SolicitudesAdopcionComponent
+    SolicitudesAdopcionComponent,
+    AdministrarUsuarioComponent
   ],
   imports: [
     BrowserModule,

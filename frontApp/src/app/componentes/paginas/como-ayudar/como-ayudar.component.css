@@ -58,3 +58,6 @@
 #cards h2{
     color: white;
 }
+#cards div mat-card{
+    background-color: white;
+}
