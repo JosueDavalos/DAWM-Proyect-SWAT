@@ -1,4 +1,11 @@
 
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>AdoptMe</title>
+</head>
 
 <header>    
     <nav class="navbar navbar-expand-lg fixed-top" id="mainNav"> 
@@ -35,10 +42,10 @@
                         <!-- <li class="nav-item" *ngIf="!isAdmin && !isOrganizer && !isVolunteer"><a class="nav-link js-scroll-trigger text-dark font-weight-bold" href="noticias">Noticias</a></li> -->
                         <li class="nav-item" *ngIf="!isAdmin && !isOrganizer && !isVolunteer"><a class="nav-link js-scroll-trigger text-dark font-weight-bold" href="quienesSomos">Quienes Somos</a></li>
                         <li class="nav-item dropdown" *ngIf="isAdmin">
-                            <a class="nav-link dropdown-toggle js-scroll-trigger text-dark font-weight-bold" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle js-scroll-trigger text-dark font-weight-bold" id="navbarAdministrar" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Administrar
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu" aria-labelledby="navbarAdministrar">
                             <a class="dropdown-item js-scroll-trigger text-dark font-weight-bold" href="controlPanel">Control Panel</a>
                             <a class="dropdown-item js-scroll-trigger text-dark font-weight-bold" href="administrar/usuario">Usuarios</a>
                             <a class="dropdown-item js-scroll-trigger text-dark font-weight-bold" href="administrar/animales">Animales</a>
@@ -46,10 +53,10 @@
                         </li>
 
                         <li class="nav-item dropdown" *ngIf="isAdmin">
-                            <a class="nav-link dropdown-toggle js-scroll-trigger text-dark font-weight-bold" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle js-scroll-trigger text-dark font-weight-bold" id="navbarGestionar" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Gestionar Procesos
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu" aria-labelledby="navbarGestionar">
                             <a class="dropdown-item js-scroll-trigger text-dark font-weight-bold" href="gestionProcesos">Poner en adopción</a>
                             <a class="dropdown-item js-scroll-trigger text-dark font-weight-bold" href="solicitudesAdopcion">Solicitudes de adopción</a>
                             <a class="dropdown-item js-scroll-trigger text-dark font-weight-bold" href="#">Modificar ficha de adopción</a> 

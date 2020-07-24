@@ -1,3 +1,77 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>AdoptMe</title>
+</head>
+
 <section>
-    <p>register works!</p>
+    <div class="container">
+
+        <div class="container-fluid" id="ponerAdopcion">
+            <div class="row justify-content-center">
+                <div class="col-11 col-sm-9 col-md-9 col-lg-10 text-center card-solicitud">
+                    <form id="msform">
+                        <fieldset>
+                            <div class="form-card">
+                                <h2 class="fs-title mb-3">Información personal</h2> 
+                                
+                                <div class="from-row mx-md-n1">
+                                    <label class="col-3 d-none d-xl-inline-block">Cedula</label> 
+                                    <label class="col-4 ml-4 d-none d-xl-inline-block" for="uname">Nombres</label>
+                                    <label class="col-4 ml-4 d-none d-xl-inline-block" for="ulastname">Apellidos</label> 
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-12 col-lg-3"><input type="text" id="cedula" name="user-cedula" placeholder="Cédula" /></div>
+                                    <div class="col-12 col-lg-4 ml-lg-4"><input type="text" id="uname" name="uname" placeholder="Nombres" /></div>
+                                    <div class="col-12 col-lg-4 ml-lg-4"><input id="ulastname" type="text" name="ulastname" placeholder="Apellidos" /></div>   
+                                </div>
+                                
+                                <div class="form-row">
+                                    <label class="col-3 ml-lg-1 d-none d-xl-inline-block">Fecha Nacimiento</label>
+                                    <label class="col-2  d-none d-xl-inline-block" for="gender">Genero</label> 
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-7 col-lg-2 ml-lg-0 user-age"> <input type="text" onfocus="(this.type='date')" id="user-age" name="user-age" placeholder="Fecha Nacimiento" /> </div>
+                                    <div class="col-5 col-lg-1 ml-lg-5">
+                                        <select class="list-dt" id="gender" name="gender">
+                                            <option selected>Genero</option>
+                                            <option>Masculino</option>
+                                            <option>Femenino</option>
+                                            <option>Otros</option>
+                                        </select>
+                                    </div> 
+                                </div>
+
+                                <div class="from-row">
+                                    <h4 class="mt-2 sm-mt-4">Contactos</h4>
+                                    <label class="col-5 d-none d-xl-inline-block" for="email">Correo</label>
+                                    <label class="col-3 ml-md-4 d-none d-xl-inline-block" for="phone">Telefono</label> 
+                                    <label class="col-3 ml-md-4 d-none d-xl-inline-block" for="celular">Celular</label> 
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-12 col-lg-5"><input type="email" id="email"  name="email" placeholder="Correo" /> </div>
+                                    <div class="col-12 col-lg-3 mx-auto mx-xl-4"><input type="tel" name="phone" id="phone" placeholder="Telefono"></div>
+                                    <div class="col-12 col-lg-3 mx-auto mx-xl-0"><input type="tel" name="celular" id="celular" placeholder="Celular"></div>
+                                </div>
+
+                                <div class="from-row">
+                                    <label class="col-5 d-none d-xl-inline-block" for="uname">Dirección</label>
+                                    <label class="col-5 ml-lg-4 d-none d-xl-inline-block" for="user-cuidad">Cuidad</label>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-12 col-xl-5"><input type="text" name="address" placeholder="Dirección" /></div>
+                                    <div class="col-12 col-lg-3 ml-lg-4"><input type="text" id="user-cuidad" name="user-cuidad" placeholder="Cuidad" /></div>
+                                    <button type="button" class="btn btn-success ml-5 col-1 col-sm-2 ">Registrar</button>
+                                </div>
+                            </div> 
+                        </fieldset>
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
