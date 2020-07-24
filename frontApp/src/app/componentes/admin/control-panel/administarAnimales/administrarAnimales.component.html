@@ -1,42 +1,55 @@
-<div class="col-md-6 user-container">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>GPA</title>
+  <meta charset="utf-8"/>
+</head>
+
+<div class="col-md-12 user-container">
     <br><br><br>
     <h2 style="margin: auto"> Administrar Mascotas</h2>
     <br>
-    <div id="botones">
-        <button class="btn btn-danger" style="width:100px" (click)="addUser()"> Add Mascota a Adoptar</button>
-        <button class="btn btn-success" id="editar" (click)="updateUser()" style="margin-left: 20px;"></button>
-    </div>
     
-    <table class="table table-striped">
-      <thead>
-      <tr>
-        <th class="hidden">Id</th>
-        <th>Nombre</th>
-        <th>Tipo</th>
-        <th>Edad</th>
-        <th>Raza</th>
-        <th>Sexo</th>
-        <th>contacto</th>
-        <th>Motivo</th>
-      </tr>
-      </thead>
-      <tbody>
-        
-      <tr *ngFor="let animal of animals">
-        <td class="hidden">{{animal.id}}</td>
-        <td><input type="text" value={{animal.nombre}} size="10"/></td>
-        <td><input type="text" value={{animal.tipo}} size="10"/></td>
-        <td><input type="text" value={{animal.edad}} size="10"/></td>
-        <td><input type="text" value={{animal.raza}} size="10"/></td>
-        <td><input type="text" value={{animal.sexo}} size="10"/></td>
-        <td><input type="text" value={{animal.contacto}} size="10"/></td>
-        <td><input type="text" value={{animal.motivo}} size="10"/></td>
+    <div id="botones">
+      <button class="btn btn-danger" style="width:100px" (click)="addUser()"> Add User</button>
+      <button class="btn btn-success" id="editar" (click)="updateUser()" style="margin-left: 20px;"></button>
+    </div>
 
-        <td><button class="btn btn-success" id="eliminar" (click)="deleteUser(animal)">X</button></td>
-         
-        
-      </tr>
-      </tbody>
-    </table>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th class="hidden">Id</th>
+            <th>Nombre</th>
+            <th>Tipo</th>
+            <th>Edad</th>
+            <th>Raza</th>
+            <th>Sexo</th>
+            <th>contacto</th>
+            <th>Motivo</th>
+            <th>Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr *ngFor="let animal of animals">
+            <td class="hidden">{{animal.id}}</td>
+            <td><input type="text" value={{animal.nombre}} size="10"/></td>
+            <td><input type="text" value={{animal.tipo}} size="10" /></td>
+            <td><input type="text" value={{animal.edad}} size="10"/></td>
+            <td><input type="text" value={{animal.raza}} size="10"/></td>
+            <td><input type="text" value={{animal.sexo}} size="10"/></td>
+            <td><input type="text" value={{animal.contacto}} size="10"/></td>
+            <td><input type="text" value={{animal.motivo}} size="30"/></td>
+    
+            <td>
+              <button class="btn btn-success" id="eliminar" (click)="deleteUser(animal)">X</button>
+          </td>
+            
+            
+          </tr>
+        </tbody>
+     </table>
+
+    
     
   </div>

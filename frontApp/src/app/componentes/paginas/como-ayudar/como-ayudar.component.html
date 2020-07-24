@@ -12,23 +12,22 @@
 
 <section id="cards">
   <h2 class="text-center">¿Como puedes ayudar?</h2><br><br><br><br>
-  <div *ngFor="let arre of arreglo" onclick="toogleInfo()" id="tod">
-    <mat-card class="example-card" id="mat">
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>{{arre.nombre}}</mat-card-title>
-        <!--mat-card-subtitle>Dog Breed</mat-card-subtitle-->
-      </mat-card-header>
-      <div id="imgId">
-          <img id="imgCard" mat-card-image src={{arre.imagen}} alt="Photo of a Shiba Inu">
-      </div>
+  <div id="tod" *ngFor="let arre of arreglo" onclick="toogleInfo()">
+    <div class="example-card" id="mat">
+        <mat-card-header>
+          <mat-card-title>{{arre.nombre}}</mat-card-title>
+          <!--mat-card-subtitle>Dog Breed</mat-card-subtitle-->
+        </mat-card-header>
+        <div id="imgId">
+            <img id="imgCard" src={{arre.imagen}} alt="Photo">
+        </div>
       
-      <mat-card-content>
-        <p>
-          {{arre.informacion}}
-        </p>
-      </mat-card-content>  
-    </mat-card>
+        <mat-card-content>
+          <p>
+            {{arre.informacion}}
+          </p>
+        </mat-card-content>  
+    </div>
   </div>
   
 

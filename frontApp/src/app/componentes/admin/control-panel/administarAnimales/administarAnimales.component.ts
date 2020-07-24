@@ -25,7 +25,7 @@ export class AdministrarAnimalesComponent implements OnInit {
         this.loading = true;
         this.animals = ANIMALS;
     }
-    deleteUser(user: Animal): void {
+    public deleteUser(user: Animal): void {
         /*this.userService.deleteUser(user.id)
           .subscribe( data => {
             this.users = this.users.filter(u => u !== user);
@@ -35,13 +35,13 @@ export class AdministrarAnimalesComponent implements OnInit {
 
       };
     
-    updateUser(): void {
+      public updateUser(): void {
         //window.localStorage.removeItem("editUserId");
         //window.localStorage.setItem("editUserId", user.id.toString());
         //this.router.navigate(['edit-user']);
     };
     
-      addUser(): void {
+    public addUser(): void {
         //this.router.navigate(['add-user']);
         this.animals.unshift(this.newTodo);
         this.newTodo = new Animal;

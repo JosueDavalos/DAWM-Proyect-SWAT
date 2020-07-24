@@ -57,7 +57,8 @@
 }
 #cards h2{
     color: white;
+    
 }
-#cards div mat-card{
+#cards div div{
     background-color: white;
 }

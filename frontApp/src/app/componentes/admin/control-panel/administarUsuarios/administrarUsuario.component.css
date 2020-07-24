@@ -24,3 +24,6 @@ div table td #eliminar{
 #botones{
     align-content: center;
 }
+input {
+    height: 100%;
+}

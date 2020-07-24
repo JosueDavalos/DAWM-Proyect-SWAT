@@ -12,6 +12,14 @@ div table td #eliminar{
     text-align: center;
     font-size: 0.65rem;
 }
+#addNuevo{
+    font-size: 12px;
+    flex-wrap: wrap;
+    width: 30px;
+}
+input {
+    height: 100%;
+}
 #editar{
     background-image: url( 
         'https://img.icons8.com/carbon-copy/2x/save.png'); 
@@ -23,4 +31,8 @@ div table td #eliminar{
 }
 #botones{
     align-content: center;
+}
+.container{
+    text-align: center;
+    width: 100%;
 }
