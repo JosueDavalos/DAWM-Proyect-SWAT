@@ -1,0 +1,26 @@
+div table td{
+    margin-left: 50px;
+}
+div table td button{
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+div table td #eliminar{
+    background-color: red;
+    width: 30px; 
+    height: 30px; 
+    text-align: center;
+    font-size: 0.65rem;
+}
+#editar{
+    background-image: url( 
+        'https://img.icons8.com/carbon-copy/2x/save.png'); 
+        background-size: cover; 
+        width: 30px; 
+        height: 30px; 
+        font-size: 2rem; 
+    background-color: lightblue;
+}
+#botones{
+    align-content: center;
+}

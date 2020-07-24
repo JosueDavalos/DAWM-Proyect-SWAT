@@ -16,6 +16,7 @@ import { RegisterComponent } from './componentes/register/register.component';
 import { PonerAdopcionComponent } from './componentes/paginas/poner-adopcion/poner-adopcion.component';
 import { NoticiasComponent } from './componentes/paginas/noticias/noticias.component';
 import { AdministrarUsuarioComponent } from './componentes/admin/control-panel/administarUsuarios/administarUsuario.component';
+import { AdministrarAnimalesComponent } from './componentes/admin/control-panel/administarAnimales/administarAnimales.component';
 
 
 
@@ -35,7 +36,8 @@ const routes: Routes = [
   { path: 'solicitudesAdopcion', component: SolicitudesAdopcionComponent},
   { path: 'registrar', component: RegisterComponent},
   { path: 'noticias', component: NoticiasComponent},
-  { path: 'administrar/usuario' ,component:AdministrarUsuarioComponent}
+  { path: 'administrar/usuario' ,component:AdministrarUsuarioComponent},
+  { path: 'administrar/animales', component:AdministrarAnimalesComponent}
 
 ];
 
