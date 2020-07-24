@@ -26,11 +26,19 @@
                         </div>
                         <div id="edad">
                             <img [src]="'assets/img/iconos/detalles_mascota/calendario.png'" class="mr-2"  alt="calendario" />
-                            {{animal.edad}} años
+                            {{animal.edad}} año(s)
                         </div>
                         <div id="sexo">
                             <img [src]="'assets/img/iconos/detalles_mascota/genero.png'" class="mr-2"  alt="simbolos de genero" />
                             {{animal.sexo | titlecase}}
+                        </div>
+                        <div id="vacuna">
+                            <img [src]="'assets/img/iconos/detalles_mascota/vacuna.png'" class="mr-2"  alt="simbolos de vacuna" />
+                            {{animal.vacunas | titlecase}}
+                        </div>
+                        <div id="esterilizado">
+                            <img [src]="'assets/img/iconos/detalles_mascota/bisturi.png'" class="mr-2"  alt="simbolos de esterilizacion" />
+                            {{animal.esterilizado | titlecase}}
                         </div>
                     </div>
                 </div>

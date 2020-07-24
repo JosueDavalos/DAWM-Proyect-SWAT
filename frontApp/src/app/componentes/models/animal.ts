@@ -10,4 +10,6 @@ export class Animal {
     contacto: string;
     motivo: string;
     images: string[];
+    esterilizado: string;
+    vacunas: string;
 }

@@ -6,12 +6,14 @@ export const ANIMALS: Animal[] = [
       tipo: 'gato',
       edad: 1,
       raza: 'mestizo',
-      sexo: 'Macho',
+      sexo: 'Persa',
       picture: 'gato',
       id: 1,
       contacto : '0998871624',
       motivo : 'No tengo suficiente espacio en mi casa',
       images : [],
+      esterilizado: 'Esterilizado',
+      vacunas: 'Última vacuna 27/08/19'
     },
     {
       nombre: 'Amanda',
@@ -24,18 +26,25 @@ export const ANIMALS: Animal[] = [
       contacto : '0998871624',
       motivo : 'No tengo suficiente espacio en mi casa',
       images : [],
+      esterilizado: 'Esterilizado',
+      vacunas: 'Última vacuna 03/08/18'
+
     },
     {
       nombre: 'Mota',
       tipo: 'perro',
       edad: 1,
-      raza: 'mestizo',
+      raza: 'Pug',
       sexo: 'Macho',
       picture: 'perro',
       id: 3,
       contacto :'0998871624',
       motivo : 'No tengo suficiente espacio en mi casa',
       images : [],
+      esterilizado: 'Esterilizado',
+      vacunas: 'Sin vacunas'
+
+
     },
     {
       nombre: 'Claudio',
@@ -48,6 +57,9 @@ export const ANIMALS: Animal[] = [
       contacto : '0998871624',
       motivo : 'No tengo suficiente espacio en mi casa',
       images : [],
+      esterilizado: 'No esterilizado',
+      vacunas: 'Última vacuna 1/12/20'
+
     },
     {
       nombre: 'Ramses',
@@ -60,6 +72,9 @@ export const ANIMALS: Animal[] = [
       contacto : '0998871624',
       motivo : 'No tengo suficiente espacio en mi casa',
       images : [],
+      esterilizado: 'Esterilizado',
+      vacunas: 'Última vacuna 1/10/20'
+
     },
     {
       nombre: 'Mechi',
@@ -72,6 +87,9 @@ export const ANIMALS: Animal[] = [
       contacto : '0998871624',
       motivo : 'No tengo suficiente espacio en mi casa',
       images : [],
+      esterilizado: 'Esterilizado',
+      vacunas: 'Última vacuna 1/07/19'
+
     },
     {
       nombre: 'Menique',
@@ -84,6 +102,8 @@ export const ANIMALS: Animal[] = [
       contacto :'0998871624',
       motivo : 'No tengo suficiente espacio en mi casa',
       images : [],
+      esterilizado: 'Esterilizado',
+      vacunas: 'Sin vacunas'
     },
     {
       nombre: 'Jumbo',
@@ -96,6 +116,9 @@ export const ANIMALS: Animal[] = [
       contacto : '0998871624',
       motivo : 'No tengo suficiente espacio en mi casa',
       images : [],
+      esterilizado: 'Esterilizado',
+      vacunas: 'Última vacuna 07/08/18'
+
     },
     {
       nombre: 'Juanito',
@@ -108,6 +131,9 @@ export const ANIMALS: Animal[] = [
       contacto : '0998871624',
       motivo : 'No tengo suficiente espacio en mi casa',
       images : [],
+      esterilizado: 'Esterilizado',
+      vacunas: 'Última vacuna 01/07/20'
+
     },
     {
       nombre: 'Amanda',
@@ -120,18 +146,24 @@ export const ANIMALS: Animal[] = [
       contacto : '0998871624',
       motivo : 'No tengo suficiente espacio en mi casa',
       images : [],
+      esterilizado: 'Esterilizado',
+      vacunas: 'Sin vacunas'
+
     },
     {
       nombre: 'Mota',
       tipo: 'perro',
       edad: 1,
-      raza: 'mestizo',
+      raza: 'pug',
       sexo: 'Macho',
       picture: 'perro',
       id: 11,
       contacto :'0998871624',
       motivo : 'No tengo suficiente espacio en mi casa',
       images : [],
+      esterilizado: 'no esterilizado',
+      vacunas: 'Sin vacunas'
+
     },
     {
       nombre: 'Claudio',
@@ -144,5 +176,8 @@ export const ANIMALS: Animal[] = [
       contacto : '0998871624',
       motivo : 'No tengo suficiente espacio en mi casa',
       images : [],
+      esterilizado: 'no esterilizado',
+      vacunas: 'Última vacuna 1/09/19'
+      
     }
   ];
