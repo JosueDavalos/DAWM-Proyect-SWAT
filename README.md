@@ -5,6 +5,9 @@ Es necesario instalar los siguientes paquetes:
 ''''''''''''''''''''''''''''
 npm install @angular/localize --save
 ''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''
+npm install --save-dev @angular-devkit/build-angular
+''''''''''''''''''''''''''''
 
 Para ejecutar el front, se debe navegar a la carpeta frontApp y ejecutar como proyecto de Angular por medio del comando:
 
