@@ -12,7 +12,7 @@ div table td #eliminar{
     text-align: center;
     font-size: 0.65rem;
 }
-div table td #editar{
+#editar{
     background-image: url( 
         'https://img.icons8.com/carbon-copy/2x/save.png'); 
         background-size: cover; 
@@ -20,4 +20,7 @@ div table td #editar{
         height: 30px; 
         font-size: 2rem; 
     background-color: lightblue;
+}
+#botones{
+    align-content: center;
 }
