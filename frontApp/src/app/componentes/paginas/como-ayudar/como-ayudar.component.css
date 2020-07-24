@@ -34,8 +34,8 @@
 #mat{
     padding: 10px;
     margin-bottom: 50px;
-    margin-left: 30px;
-    margin-right: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
     position: relative;
 }   
 #imgCard{
@@ -49,4 +49,12 @@
     display: inline-block;  
     flex-wrap: wrap;    
     text-align: center;
+}
+#cards{
+    background-image: url("../../../../assets/img/banner.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#cards h2{
+    color: white;
 }

@@ -10,7 +10,7 @@ export class ComoAyudarComponent implements OnInit {
   arreglo : Object[] = [
     {
       id : 0,
-      nombre : 'Shiba Inu',
+      nombre : 'Donación de insumos',
       imagen : "../../../../assets/img/taza.jpg",
       tipo : 'Sin fines de lucro',
       contacto : '0998871624',
@@ -18,7 +18,7 @@ export class ComoAyudarComponent implements OnInit {
     },
     {
       id : 0,
-      nombre : 'Inu 2',
+      nombre : 'Donación de dinero',
       imagen : "../../../../assets/img/donation.png",
       tipo : 'Sin fines de lucro',
       contacto : '0998871624',
@@ -26,7 +26,7 @@ export class ComoAyudarComponent implements OnInit {
     },
     {
       id : 0,
-      nombre : 'Inu 3',
+      nombre : '¡Adopta!',
       imagen : "../../../../assets/img/adoptas.jpg",
       tipo : 'Sin fines de lucro',
       contacto : '0998871624',
@@ -35,22 +35,6 @@ export class ComoAyudarComponent implements OnInit {
     {
       id : 0,
       nombre : 'Inu 4',
-      imagen : "../../../../assets/img/adoptas.jpg",
-      tipo : 'Sin fines de lucro',
-      contacto : '0998871624',
-      informacion : 'Puedes colaborar por medio de donaciones de insumos, productos y servicios.'
-    },
-    {
-      id : 0,
-      nombre : 'Inu 5',
-      imagen : "../../../../assets/img/adoptas.jpg",
-      tipo : 'Sin fines de lucro',
-      contacto : '0998871624',
-      informacion : 'Puedes colaborar por medio de donaciones de insumos, productos y servicios.'
-    },
-    {
-      id : 0,
-      nombre : 'Inu 6',
       imagen : "../../../../assets/img/adoptas.jpg",
       tipo : 'Sin fines de lucro',
       contacto : '0998871624',
