@@ -9,7 +9,6 @@
         <title>GPA</title>
         <link rel="icon" type="image/png" href="assets/img/LOGO_GPA_2.png" />
 
-
         <!-- Chart.js -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
         <script src="assets/js/reporte_graficos.js"></script>
@@ -33,17 +32,18 @@
         <script src="assets/js/gestion-proceso.component.js"></script>
         <!-- <script src="https://kit.fontawesome.com/a98e0a73da.js" crossorigin="anonymous"></script> -->
         <!-- admin, para el mapa -->
-        <!-- <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-        <script src="assets/js/mapa.js"></script> -->
+        <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+        <script src="assets/js/mapa.js"></script>
         <!--intro.js-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.7.0/introjs.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.7.0/intro.min.js"></script>
 
 
-            <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-    <body id="page-top" style="width: 100%; height: 100%;margin: 0px;" onload="reportes_graficos()" data-spy="scroll" data-target="#navbar" class="mat-typography">
+    <body id="page-top" style="width: 100%; height: 100%;margin: 0px;" onload="reportes_graficos(), load_map()" data-spy="scroll" data-target="#navbar" class="mat-typography">
         <app-root></app-root>
     </body>
 </html>

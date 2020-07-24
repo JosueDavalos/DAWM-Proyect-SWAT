@@ -10493,22 +10493,20 @@ section#contact {
 section#contact .section-heading {
   color: #fff;
 }
-section#contact form#contactForm .form-group {
-  margin-bottom: 1.5rem;
-}
+
 section#contact form#contactForm .form-group input,
 section#contact form#contactForm .form-group textarea {
-  padding: 1.25rem;
+  padding: 1rem;
 }
 section#contact form#contactForm .form-group input.form-control {
   height: auto;
 }
 section#contact form#contactForm .form-group-textarea {
-  height: 100%;
+  height: auto;
 }
 section#contact form#contactForm .form-group-textarea textarea {
   height: 100%;
-  min-height: 10rem;
+  min-height: 12.9rem;
 }
 section#contact form#contactForm p.help-block {
   margin: 0;

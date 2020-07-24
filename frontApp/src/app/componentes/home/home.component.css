@@ -4,3 +4,18 @@
 #step1{
     margin: 0 .75rem;
 }
+
+
+#noticias img {
+    max-height: 80vh;
+    object-fit: cover;
+}
+
+.carousel-caption{
+    background-color:rgba(46, 49, 49, 0.45) !important;
+    color: aliceblue !important;
+}
+
+/* #dopt{
+    margin-top: 5%;
+} */

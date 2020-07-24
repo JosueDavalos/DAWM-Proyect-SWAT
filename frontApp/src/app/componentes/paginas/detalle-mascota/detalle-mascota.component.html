@@ -3,7 +3,6 @@
 
         <div *ngIf="animal">
             <div class="card">
-                
                 <img class="card-img-top mx-auto" src="../../../../assets/img/perro.jpg" alt="Imagen de la mascota">
                 <div class="card-body col-sm-12">
                     <h5 id="nombre" class="card-title">{{animal.nombre | titlecase}}</h5>
@@ -26,8 +25,31 @@
 
                 <div class="col-12">
                     <button (click)="goBack()">atrás</button>
+                    <button data-toggle="modal" data-target="#modal-solicitud">Adoptar</button>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+
+<div class="modal" id="modal-solicitud" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" id="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Ubicación</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <p>hola wolrd</p>
+      
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-success">Guardar</button>
+        </div>
+      </div>
+    </div>
+</div>

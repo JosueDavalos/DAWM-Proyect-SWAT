@@ -3,8 +3,6 @@
 <html lang="es">
 <head>
     <meta charset="utf-8" />
-     <!-- Para el mapa -->
-    <!-- <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />  -->
     <title>AdoptMe</title>
 </head>
 
@@ -44,11 +42,11 @@
                                         </div>
                                         
                                         <div class="form-row">
-                                            <label class="col-1 ml-lg-1 d-none d-xl-inline-block">Edad</label>
+                                            <label class="col-2 ml-lg-1 d-none d-xl-inline-block">Fecha Nacimiento</label>
                                             <label class="col-2  ml-lg-5 d-none d-xl-inline-block" for="gender">Genero</label> 
                                         </div>
                                         <div class="form-row">
-                                            <div class="col-6 col-lg-1 ml-lg-0 user-age"> <input type="number" id="user-age" name="user-age" placeholder="Edad" /> </div>
+                                            <div class="col-6 col-lg-2 ml-lg-0 user-age"> <input type="text" onfocus="(this.type='date')" id="user-age" name="user-age" placeholder="Fecha Nacimiento" /> </div>
                                             <div class="col-6 col-lg-1 ml-lg-5">
                                                 <select class="list-dt" id="gender" name="gender">
                                                     <option selected>Genero</option>
@@ -189,7 +187,6 @@
               </button>
             </div>
             <div class="modal-body">
-            <p>Aqui va el mapa</p>
                 <!-- <form>
                     <label for="latitude">Latitude:</label>
                     <input id="latitude" type="text" />
@@ -197,11 +194,8 @@
                     <input id="longitude" type="text" />
                     :: <a href="#" onclick="map.zoomOut(3, {animate:true})">zoom out</a> :: 
                     :: <a href="#" onclick="map.zoomIn(3, {animate:true})">zoom in</a>
-                </form>
+                </form> -->
                 <div id="map"></div>
-                <script>
-                    console.log("Si se puede");
-                </script> -->
           
             </div>
             <div class="modal-footer">

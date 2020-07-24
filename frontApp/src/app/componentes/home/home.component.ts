@@ -15,6 +15,10 @@ export class HomeComponent implements OnInit {
   currentUser: User;
   userFromApi: User;
 
+
+
+  
+
   constructor(
     private userService: UserService,
     private authenticationService: AuthenticationService
@@ -49,16 +53,45 @@ export class HomeComponent implements OnInit {
 
   }
 
+  
+
   ngOnInit(): void {
-    this.loading = true;
-    this.userService.getById(this.currentUser.id).pipe(first()).subscribe(user => {
-            this.loading = false;
-            this.userFromApi = user;
-        });
+    this.get_countries();
+
+    // this.loading = true;
+    // this.userService.getById(this.currentUser.id).pipe(first()).subscribe(user => {
+    //         this.loading = false;
+    //         this.userFromApi = user;
+    //     });
+
   }
 
   callIntro(){
     this.introJS.start();
+  }
+
+  get_countries(){
+    fetch('https://sgr-ecuador.carto.com:443/api/v2/sql?q=select * from public.provincias')
+    .then(function(resultado){
+        return resultado.json();
+      })
+      .then(function(provincias) {
+
+        let plantilla = '';
+        for (let prov of provincias['rows']){
+          let provincia = prov['dpa_despro'];
+          
+          plantilla = plantilla + `
+             <option value="${provincia}"></option>
+            `;
+        }
+        document.getElementById('cities').innerHTML = plantilla;
+    })
+    .catch(err => { throw err });
+  };
+
+  capitalize(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
 
