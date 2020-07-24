@@ -30,9 +30,9 @@ export class AdoptarComponent implements OnInit {
   }
 
   buscar() {
-    /*let tipo = document.getElementById("tipo").value;
-    let raza = document.getElementById("raza").value;
-    let etapa = document.getElementById("etapa").value;
+    let tipo = (<HTMLSelectElement>document.getElementById("tipo")).value;
+    let raza = (<HTMLSelectElement>document.getElementById("raza")).value;
+    let etapa = (<HTMLSelectElement>document.getElementById("etapa")).value;
     // let sector = document.getElementById("sector").value;
     this.animals = [];
     for (let animal of this.allAnimals) {
@@ -45,7 +45,7 @@ export class AdoptarComponent implements OnInit {
         this.animals.push(animal);
       }
     }
-*/
+
   }
 
   reiniciar() {
