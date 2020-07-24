@@ -10,15 +10,15 @@ export class OrganizacionesComponent implements OnInit,AfterViewInit  {
   organizaciones : Object[] = [
     {
       id : 0,
-      nombre : 'Organizacion 1',
+      nombre : 'Organización 1',
       imagen : "../../../../assets/img/companyEjem.jpg",
       tipo : 'Sin fines de lucro',
       contacto : '0998871624',
-      informacion : 'Somos una organizacion con la idea de la la la land'
+      informacion : 'Somos una Organización con la idea de la la la land'
     },
     {
       id : 0,
-      nombre : 'Organizacion 2',
+      nombre : 'Organización 2',
       imagen : "../../../../assets/img/logo2Ejem.jpg",
       tipo : 'Sin fines de lucro',
       contacto : '0998871624',
@@ -26,7 +26,7 @@ export class OrganizacionesComponent implements OnInit,AfterViewInit  {
     },
     {
       id : 0,
-      nombre : 'Organizacion 3',
+      nombre : 'Organización 3',
       imagen : "../../../../assets/img/logoEjem.jpg",
       tipo : 'Sin fines de lucro',
       contacto : '0998871624',
@@ -34,35 +34,35 @@ export class OrganizacionesComponent implements OnInit,AfterViewInit  {
     },
     {
       id : 0,
-      nombre : 'Organizacion 4',
+      nombre : 'Organización 4',
       imagen : "../../../../assets/img/logo2Ejem.jpg",
       tipo : 'Sin fines de lucro',
       contacto : '0998871624',
       informacion : '...'
     },{
       id : 0,
-      nombre : 'Organizacion 5',
+      nombre : 'Organización 5',
       imagen : "../../../../assets/img/companyEjem.jpg",
       tipo : 'Sin fines de lucro',
       contacto : '0998871624',
       informacion : '...'
     },{
       id : 0,
-      nombre : 'Organizacion 6',
+      nombre : 'Organización 6',
       imagen : "../../../../assets/img/logoEjem.jpg",
       tipo : 'Sin fines de lucro',
       contacto : '0998871624',
       informacion : '...'
     },{
       id : 0,
-      nombre : 'Organizacion 7',
+      nombre : 'Organización 7',
       imagen : "../../../../assets/img/logo2Ejem.jpg",
       tipo : 'Sin fines de lucro',
       contacto : '0998871624',
       informacion : '...'
     },{
       id : 0,
-      nombre : 'Organizacion 8',
+      nombre : 'Organización 8',
       imagen : "../../../../assets/img/logoEjem.jpg",
       tipo : 'Sin fines de lucro',
       contacto : '0998871624',
