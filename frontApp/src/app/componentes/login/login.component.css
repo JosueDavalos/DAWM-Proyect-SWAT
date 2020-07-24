@@ -23,8 +23,18 @@ html{
 .btn-primary{
     background-color: #333333;
     border: #333333;
+    margin: 10px;
 }
 
 #forget-pwd{
     color:gray;
+}
+#errorCont{
+  
+  align-items: center;
+   margin: 50px;
+}
+#botones{
+    display: flex;
+  justify-content: center;
 }
