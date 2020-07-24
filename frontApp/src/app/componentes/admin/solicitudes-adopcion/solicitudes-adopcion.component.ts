@@ -13,7 +13,7 @@ export class SolicitudesAdopcionComponent implements OnInit {
       id: 1,
       cedula: "099195204",
       nombres: "Josue",
-      apellidos: "Davalos Carrera",
+      apellidos: "Dávalos Carrera",
       genero: "Masculino",
       edad: 21,
       correo: "jedavalo@espol.edu.ec",
