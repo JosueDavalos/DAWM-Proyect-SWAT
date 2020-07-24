@@ -33,13 +33,13 @@ export class HomeComponent implements OnInit {
          position: 'bottom'
       },
       {
-        element: '#step2',
-        intro: 'Estos son nuestros servicios',
+        element: '#noticias',
+        intro: 'Historias de nuestros adoptados',
         position: 'top'
       },
       {
         element: '#step3',
-        intro: 'Nuestros patrocinadores',
+        intro: 'Estos son nuestros servicios',
         position: 'top'
       },
       {
