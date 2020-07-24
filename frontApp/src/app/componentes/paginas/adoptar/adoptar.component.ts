@@ -30,7 +30,7 @@ export class AdoptarComponent implements OnInit {
   }
 
   buscar() {
-    let tipo = document.getElementById("tipo").value;
+    /*let tipo = document.getElementById("tipo").value;
     let raza = document.getElementById("raza").value;
     let etapa = document.getElementById("etapa").value;
     // let sector = document.getElementById("sector").value;
@@ -45,7 +45,7 @@ export class AdoptarComponent implements OnInit {
         this.animals.push(animal);
       }
     }
-
+*/
   }
 
   reiniciar() {
