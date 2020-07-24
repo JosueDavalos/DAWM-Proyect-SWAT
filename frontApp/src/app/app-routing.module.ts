@@ -14,6 +14,7 @@ import { ReportesComponent } from './componentes/admin/reportes/reportes.compone
 import { SolicitudesAdopcionComponent } from './componentes/admin/solicitudes-adopcion/solicitudes-adopcion.component';
 import { RegisterComponent } from './componentes/register/register.component';
 import { PonerAdopcionComponent } from './componentes/paginas/poner-adopcion/poner-adopcion.component';
+import { NoticiasComponent } from './componentes/paginas/noticias/noticias.component';
 
 
 
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path: 'detalle-mascota/:id', component: DetalleMascotaComponent },
   { path: 'solicitudesAdopcion', component: SolicitudesAdopcionComponent},
   { path: 'registrar', component: RegisterComponent},
+  { path: 'noticias', component: NoticiasComponent},
 
 ];
 
