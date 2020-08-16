@@ -90,10 +90,10 @@ WSGI_APPLICATION = 'gpaRestApi.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'gpa_db',
-        'USER': 'user_gpa',
-        'PASSWORD': '12345678',
-        'HOST': 'db4free.net',
+        'NAME': 'bf09uuc21jbn152os7pv',
+        'USER': 'uag8tc1uie2rhbzq',
+        'PASSWORD': 'K58XLSPk5F8diYp4cLpF',
+        'HOST': 'bf09uuc21jbn152os7pv-mysql.services.clever-cloud.com',
         'PORT': '3306',
     }
 }
