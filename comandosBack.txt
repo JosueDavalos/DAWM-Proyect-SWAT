@@ -1,0 +1,26 @@
+pip install djangorestframework
+
+pip install pymysql
+
+
+'''solo si da errores de cryptography'''
+pip install cryptography
+
+
+'''Class X has no objects'''
+'''Configuracion VisualCode'''
+
+pip install pylint-django
+
+'''En VisualCode
+ctrl+sft+P 
+Preferences: Configure Language Specific Settings
+Python
+'''
+
+'''Insertar codigo:
+
+"python.linting.pylintArgs": [
+        "--load-plugins=pylint_django",
+    ]
+'''
