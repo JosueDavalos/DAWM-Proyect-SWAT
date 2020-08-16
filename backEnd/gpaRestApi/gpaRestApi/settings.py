@@ -90,10 +90,10 @@ WSGI_APPLICATION = 'gpaRestApi.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'gpa',
-        'USER': 'root',
-        'PASSWORD': '657365',
-        'HOST': '127.0.0.1',
+        'NAME': 'gpa_db',
+        'USER': 'user_gpa',
+        'PASSWORD': '12345678',
+        'HOST': 'db4free.net',
         'PORT': '3306',
     }
 }
