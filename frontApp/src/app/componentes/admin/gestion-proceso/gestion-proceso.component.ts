@@ -11,6 +11,7 @@ export class GestionProcesoComponent implements OnInit {
    }
 
   ngOnInit(): void {
+
   }
 
 
