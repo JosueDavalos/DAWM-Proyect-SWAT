@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 1. Instalar librerias
     pip install djangorestframework
     pip install pymysql
@@ -19,6 +20,22 @@
 3. correr en la consola: python manage.py migrate
 
 ADICIONAL
+=======
+pip install djangorestframework
+
+pip install pymysql
+
+
+'''solo si da errores de cryptography'''
+pip install cryptography
+
+
+'''Class X has no objects'''
+'''Configuracion VisualCode'''
+
+pip install pylint-django
+
+>>>>>>> b4caf57cc1a021be4936f731f30b573ac753b008
 '''En VisualCode
 ctrl+sft+P 
 Preferences: Configure Language Specific Settings
