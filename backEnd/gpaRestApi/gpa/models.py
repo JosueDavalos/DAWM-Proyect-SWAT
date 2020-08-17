@@ -1,17 +1,54 @@
 from django.db import models
 
 # Create your models here.
-class Usuario(models.Model):
-    cedula = models.CharField(max_length=10, blank=False, default='',primary_key=True)
+from django.db import models
+
+# Create your models here.
+class Persona(models.Model):
+    CARGOS = (
+        ('A', 'Admin'),
+        ('V', 'Voluntario'),
+        ('O', 'Organizador'),
+        ('E', 'Externo'),
+    )
+
+    cedula = models.CharField(max_length=10, blank=False, primary_key=True)
     nombre = models.CharField(max_length=30, blank=False, default='')
     apellido = models.CharField(max_length=30, blank=False, default='')
     sexo = models.CharField(max_length=10, blank=False, default='')
-    cargo = models.CharField(max_length=30, blank=False, default='')
+    cargo = models.CharField(max_length=1, blank=False, choices=CARGOS)
     fechaNacimiento = models.DateField()
     direccion = models.CharField(max_length=200, blank=False, default='')
     telefono = models.IntegerField(blank=False, default=1)
     email = models.EmailField(max_length=254)
+
+class Usuario(models.Model):
+    id = models.AutoField(primary_key=True)
+    user = models.CharField(max_length=70, blank=False)
+    password = models.CharField(max_length=70, blank=False, default='')
+    persona = models.ForeignKey(Persona, on_delete=models.CASCADE)
     active = models.BooleanField(default=False)
+
+class Recurso(models.Model):
+    id = models.AutoField(primary_key=True)
+    tipo = models.CharField(max_length=30, blank=False, default='')
+    nombre = models.CharField(max_length=30, blank=False, default='')
+    descripcion = models.CharField(max_length=200, blank=False, default='')
+
+class Organizacion(models.Model):
+    id = models.AutoField(primary_key=True)
+    tipo = models.CharField(max_length=30, blank=False, default='')
+    nombre = models.CharField(max_length=30, blank=False, default='')
+    descripcion = models.CharField(max_length=200, blank=False, default='')
+    ubicacion = models.CharField(max_length=200, blank=False, default='')
+    contacto = models.IntegerField(blank=False, default=1)
+
+class Donacion(models.Model):
+    id = models.AutoField(primary_key=True)
+    idOrganizacion = models.ForeignKey(Organizacion, on_delete=models.CASCADE)
+    idRecurso = models.ForeignKey(Recurso, on_delete=models.CASCADE)
+    fecha = models.DateField()
+    costo = models.FloatField(blank=False, default=1)
 
 
 class EnfermedadAnimal(models.Model):
@@ -22,7 +59,7 @@ class EnfermedadAnimal(models.Model):
     duracion = models.IntegerField()
 
 class Medicina(models.Model):
-    id = models.AutoField(primary_key=True) #PONER FK BRYAN
+    id = models.ForeignKey(Recurso, on_delete=models.CASCADE,primary_key=True) 
     fechaCompra = models.DateField(null=False)
     costo = models.DecimalField(max_digits=6, decimal_places=2, null= False)
 
@@ -52,15 +89,35 @@ class Animal(models.Model):
     color = models.CharField(max_length=10)
     # ubicacion = models.CharField(max_length=200, null=False) #REVISAR SI VA ESTO
     descripcion = models.CharField(max_length=200)#REVISAR SI VA ESTO
-    dueno = models.ForeignKey(Usuario, on_delete=models.CASCADE, default='9999999999') #SI SE CAMBIA LA TABLA USUARIO MODIFICAR ESTO
+    dueno = models.ForeignKey(Persona, on_delete=models.CASCADE) #SI SE CAMBIA LA TABLA USUARIO MODIFICAR ESTO
     historial = models.ForeignKey(HistorialMedico, on_delete=models.SET_NULL, null=True)
     estado = models.ForeignKey(EstadoAnimal, on_delete=models.SET_NULL, null=True)
 
 
+class Adopcion(models.Model):
+    id = models.AutoField(primary_key=True)
+    idUsuario = models.ForeignKey(Persona, on_delete=models.CASCADE)
+    idAnimal = models.ForeignKey(Animal, on_delete=models.CASCADE)
+    fecha = models.DateField()
+
+class Ubicacion(models.Model):
+    lat = models.FloatField(blank=False, default=1)
+    long = models.FloatField(blank=False, default=1)
+
+
+
+
 class FormularioPonerAdopcion(models.Model):
     id = models.AutoField(primary_key=True)
-    user = models.ForeignKey(Usuario, on_delete=models.CASCADE, default='9999999999') #SI SE CAMBIA LA TABLA USUARIO MODIFICAR ESTO
+    user = models.ForeignKey(Persona, on_delete=models.CASCADE) #SI SE CAMBIA LA TABLA USUARIO MODIFICAR ESTO
     animal = models.ForeignKey(Animal, on_delete=models.CASCADE)
     motivo = models.CharField(max_length=400, null=False)
     fecha = models.DateTimeField(auto_now_add=True, blank=True)
-    ubicacion = models.CharField(max_length=20) #PONER FK BRYAN
+    ubicacion = models.ForeignKey(Ubicacion, on_delete=models.SET_NULL, null=True) 
+
+
+
+
+
+
+

@@ -1,11 +1,11 @@
 from rest_framework import serializers 
-from gpa.models import Usuario
+from gpa.models import Persona
  
  
-class UsuarioSerializer(serializers.ModelSerializer):
+class PersonaSerializer(serializers.ModelSerializer):
  
     class Meta:
-        model = Usuario
+        model = Persona
         fields = ('cedula',
                   'nombre',
                   'apellido',
@@ -14,5 +14,4 @@ class UsuarioSerializer(serializers.ModelSerializer):
                   'fechaNacimiento',
                   'direccion',
                   'telefono',
-                  'email',
-                  'active')
+                  'email')
