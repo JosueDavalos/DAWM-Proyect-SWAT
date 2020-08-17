@@ -8,7 +8,7 @@ from rest_framework import status
 from gpa.models import Persona
 from gpa.serializers import PersonaSerializer
  
- 
+#Personas
 @csrf_exempt
 def user_list(request):
     #GET list, POST new, DELETE ALL
