@@ -2,7 +2,7 @@
     pip install djangorestframework
     pip install pymysql
     pip install mysqlclient
-
+    pip install django-cors-headers
 
     '''solo si da errores de cryptography'''
     pip install cryptography
