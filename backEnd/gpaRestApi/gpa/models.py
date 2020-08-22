@@ -59,9 +59,10 @@ class EnfermedadAnimal(models.Model):
     duracion = models.IntegerField()
 
 class Medicina(models.Model):
-    id = models.ForeignKey(Recurso, on_delete=models.CASCADE,primary_key=True) 
+    id = models.AutoField(primary_key=True)
+    recurso = models.ForeignKey(Recurso, on_delete=models.CASCADE) 
     fechaCompra = models.DateField(null=False)
-    costo = models.DecimalField(max_digits=6, decimal_places=2, null= False)
+    costo = models.DecimalField(max_digits=6, decimal_places=2)
 
 class HistorialMedico(models.Model):
     id = models.AutoField(primary_key=True)
