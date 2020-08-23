@@ -26,7 +26,7 @@ Si se lo ejecuta de forma local en el puerto 4200 por defecto.
 Es necesario instalar los siguientes paquetes:
 
 ```
-pip install djangorestframework pymysql mysqlclient django-cors-headers cryptography
+pip install djangorestframework pymysql mysqlclient django-cors-headers cryptography Pillow
 ```
 
 ## Ejecución del servidor
