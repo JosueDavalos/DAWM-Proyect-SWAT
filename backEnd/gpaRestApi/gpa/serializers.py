@@ -53,6 +53,16 @@ class OrganizacionSerializer(serializers.ModelSerializer):
                   'contacto', 
                   )
 
+class FormularioPonerAdopcionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = FormularioPonerAdopcion
+        fields = (
+                  'user',
+                  'animal',
+                  'motivo',
+                  'fecha',
+                  'ubicacion'
+                  )
 
 #Cargar datos a la base
 def load_data():

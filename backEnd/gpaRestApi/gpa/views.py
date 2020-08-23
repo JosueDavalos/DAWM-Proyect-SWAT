@@ -6,10 +6,9 @@ from rest_framework.parsers import JSONParser
 from rest_framework import status
 from django.shortcuts import get_object_or_404
  
-from gpa.models import Persona, Animal, Organizacion
+from gpa.models import Persona, Animal, Organizacion, FormularioPonerAdopcion
 from django.contrib.auth.models import User
-from gpa.serializers import PersonaSerializer, UsuarioSerializer, AnimalSerializer, OrganizacionSerializer
- 
+from gpa.serializers import PersonaSerializer, UsuarioSerializer, AnimalSerializer, OrganizacionSerializer, FormularioPonerAdopcionSerializer
 #Personas
 '''
         /persona
@@ -47,12 +46,8 @@ def person_list(request):
 '''
 @csrf_exempt 
 def person_detail(request, pk):
+    user = get_object_or_404(Persona, pk=pk)
     
-    try: 
-        user = Persona.objects.get(pk=pk) 
-    except Persona.DoesNotExist: 
-        return HttpResponse(status=status.HTTP_404_NOT_FOUND) 
- 
     if request.method == 'GET': 
         user_serializer = PersonaSerializer(user) 
         return JsonResponse(user_serializer.data) 
@@ -214,3 +209,46 @@ def organizacion_list(request):
         Organizacion.objects.all().delete()
         return HttpResponse("All Organizations has been deleted",status=status.HTTP_204_NO_CONTENT)
  
+@csrf_exempt 
+def organizacion_detail(request, pk):
+    organizacion = get_object_or_404(Organizacion, pk=pk)
+    
+    if request.method == 'GET': 
+        organizacion_serializer = OrganizacionSerializer(organizacion) 
+        return JsonResponse(organizacion_serializer.data) 
+ 
+    elif request.method == 'DELETE': 
+        organizacion.delete()
+        return HttpResponse("Organizacion %s has been deleted successfully" % pk ,status=status.HTTP_204_NO_CONTENT)
+
+@csrf_exempt
+def formularioPonerAdopcion_list(request):
+    # NOT YET GET MODEL BASED ERROR
+    if request.method == 'GET':
+        formulario = FormularioPonerAdopcion.objects.all()
+        formulario_serializer = FormularioPonerAdopcionSerializer(FormularioPonerAdopcion, many=True)
+        return JsonResponse(formulario_serializer.data, safe=False)
+
+    elif request.method == 'POST':
+        formulario_data = JSONParser().parse(request)
+        formulario_serializer = FormularioPonerAdopcionSerializer(data=formulario_data)
+        if formulario_serializer.is_valid():
+            formulario_serializer.save()
+            return HttpResponse('Formulario has been successfully created', status=status.HTTP_201_CREATED) 
+        return JsonResponse(formulario_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+   
+    elif request.method == 'DELETE':
+        FormularioPonerAdopcion.objects.all().delete()
+        return HttpResponse("All Formularios has been deleted",status=status.HTTP_204_NO_CONTENT)
+ 
+@csrf_exempt 
+def formularioPonerAdopcion_detail(request, pk):
+    formulario = get_object_or_404( FormularioPonerAdopcion, pk=pk)
+    # NOT YET GET MODEL BASED ERROR
+    if request.method == 'GET': 
+        formulario_serializer = FormularioPonerAdopcionSerializer(formulario) 
+        return JsonResponse(formulario_serializer.data) 
+ 
+    elif request.method == 'DELETE': 
+        formulario.delete()
+        return HttpResponse("Formulario %s has been deleted successfully" % pk ,status=status.HTTP_204_NO_CONTENT)

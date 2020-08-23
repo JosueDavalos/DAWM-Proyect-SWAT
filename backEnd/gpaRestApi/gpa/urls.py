@@ -14,8 +14,13 @@ urlpatterns = [
     #animales
     url(r'^animal/$', views.animal_list),
     url(r'^animal/(?P<pk>[0-9]+)$', views.animal_detail),
+    
     #organizacion
     url(r'^organizacion/$', views.organizacion_list),
+    url(r'^organizacion/(?P<pk>[0-9]+)$', views.organizacion_detail),
     
+    #formulario poner adopcion
+    url(r'^formularioPonerAdopcion/$', views.formularioPonerAdopcion_list),
+    url(r'^formularioPonerAdopcion/(?P<pk>[0-9]+)$', views.formularioPonerAdopcion_detail),
    
 ]
