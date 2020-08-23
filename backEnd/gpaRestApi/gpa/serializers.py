@@ -4,8 +4,7 @@ from django.contrib.auth.models import User
 
 
 
-class PersonaSerializer(serializers.ModelSerializer):
- 
+class PersonaSerializer(serializers.ModelSerializer): 
     class Meta:
         model = Persona
         fields = ('cedula',
@@ -59,19 +58,38 @@ def load_data():
     from datetime import datetime
     import pandas as pd
 
-    #USER
+    # #USER
     admin = User.objects.create_user('admin', 'jedavalo@espol.edu.ec', 'admin', is_superuser=True, is_staff=True)
-    print("Josue se crea muy bien ************************************")
     josue = User.objects.create_user('josue', 'jedavalo@espol.edu.ec', 'josue')
     bryan = User.objects.create_user('bryan', 'bryan@espol.edu.ec', 'bryan')
     erick = User.objects.create_user('erick', 'erick@espol.edu.ec', 'erick')
     eunice = User.objects.create_user('eunice', 'eunice@espol.edu.ec', 'eunice')
-    print("se han creado todos los usuarios #########################33333")
+    print("Usuarios cargados....Ok")
+
+
+    #ANIMALES
+    df = pd.read_csv('backEnd/datos/aac_shelter_cat_outcome_eng.csv')
+    df = df[df['name'].notnull()]
+    df['date_of_birth'] = ((datetime.now() - pd.to_datetime(df['date_of_birth'])).dt.days/365).astype(int)
+    l = ['name','animal_type','breed','date_of_birth','sex','Spay/Neuter','color1']
+    for data in df[l].head(100).values:
+        nombre, tipo, raza, edad, sexo, esterilizado, color = list(data) 
+        animal = Animal.objects.create(nombre=nombre, tipo=tipo, raza=raza, edad= edad, sexo=sexo, esterilizado=esterilizado, color=color)
+        animal.save()
+    print("Animales cargados....OK")
+
+    #PERSONAS
+    personas = pd.read_pickle('backEnd/datos/personas')
+    for persona in personas.values:
+        cedula, nombre, apellido, sexo, fechaNacimiento, telefono, celular, ciudad, direccion, email, cargo = list(persona) 
+        person = Persona.objects.create(cedula=cedula, nombre=nombre, apellido=apellido, sexo=sexo, fechaNacimiento=fechaNacimiento, 
+                                        telefono=telefono, celular=celular, ciudad=ciudad, direccion=direccion, email=email, cargo=cargo)
+        person.save()
+
 
     Persona.objects.create(cedula='0989195204', nombre='Josue', apellido='Davalos', sexo='Masculino', fechaNacimiento='1998-12-07', telefono='---', 
                             celular='0989195204', ciudad='Guayaquil', direccion='Ceibos', email=josue.email, cargo='A', 
                             user=User.objects.get(username='josue')).save()
-    print("se crea josue persona")
 
     Persona.objects.create(cedula='0989195205', nombre='Erick', apellido='Pulla', sexo='Masculino', fechaNacimiento='1998-12-07', telefono='---', 
                             celular='0989195204', ciudad='Guayaquil', direccion='Ceibos', email=erick.email, cargo='A', 
@@ -85,34 +103,16 @@ def load_data():
     Persona.objects.create(cedula='0989195207', nombre='Eunice', apellido='Galvez', sexo='Masculino', fechaNacimiento='1998-12-07', telefono='---', 
                             celular='0989195204', ciudad='Guayaquil', direccion='Ceibos', email=eunice.email, cargo='A', 
                             user=User.objects.get(username='eunice')).save()
-    print("todas las personas ya estan creadas")
 
-    #ANIMALES
-    df = pd.read_csv('backEnd/datos/aac_shelter_cat_outcome_eng.csv')
-    df = df[df['name'].notnull()]
-    df['date_of_birth'] = ((datetime.now() - pd.to_datetime(df['date_of_birth'])).dt.days/365).astype(int)
-    l = ['name','animal_type','breed','date_of_birth','sex','Spay/Neuter','color1']
-    print(pandas)
-    for data in df[l].head(100).values:
-        nombre, tipo, raza, edad, sexo, esterilizado, color = list(data) 
-        animal = Animal.objects.create(nombre=nombre, tipo=tipo, raza=raza, edad= edad, sexo=sexo, esterilizado=esterilizado, color=color)
-        animal.save()
-    print("animales cargados")
+    print("Personas cargadas....OK")
 
-    #PERSONAS
-    personas = pd.read_pickle('backEnd/datos/personas')
-    for persona in personas.values:
-        cedula, nombre, apellido, sexo, fechaNacimiento, telefono, celular, ciudad, direccion, email, cargo = list(persona) 
-        person = Persona.objects.create(cedula=cedula, nombre=nombre, apellido=apellido, sexo=sexo, fechaNacimiento=fechaNacimiento, 
-                                        telefono=telefono, celular=celular, ciudad=ciudad, direccion=direccion, email=email, cargo=cargo)
-        person.save()
-    print("otras personas")
     #ADOPCIONES
     adopciones = pd.read_pickle('backEnd/datos/adopciones')
     for dato in adopciones.values:
         animal, duenio, fecha= list(dato) 
         adopcion = Adopcion.objects.create(idUsuario=Persona.objects.get(pk=duenio), idAnimal=Animal.objects.get(pk=animal), fecha=fecha)
         adopcion.save()
+    print("Adopciones cargadas....OK")
 
 
     #FORMULARIO DE ADOPCION
@@ -133,11 +133,11 @@ def load_data():
                                                             motivo=motivo, fecha=fecha, ubicacion=ubi)
         formulario.save()
 
-    print("se crean formuklarios")
+    print("Formularios cargados....ok\n")
                             
 
 
 
 
-#load_data() #Desconmentar si se quiere agregar datos, cuando haces migrate tambien se corre esta linea
+### load_data() #Desconmentar si se quiere agregar datos, cuando haces migrate tambien se corre esta linea
 
