@@ -13,6 +13,7 @@ urlpatterns = [
 
     #animales
     url(r'^animal/$', views.animal_list),
+    url(r'^animal/(?P<pk>[0-9]+)$', views.animal_detail),
     #organizacion
     url(r'^organizacion/$', views.organizacion_list),
     

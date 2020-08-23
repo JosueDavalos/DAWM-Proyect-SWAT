@@ -4,6 +4,7 @@ from django.http.response import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser 
 from rest_framework import status
+from django.shortcuts import get_object_or_404
  
 from gpa.models import Persona, Animal, Organizacion
 from django.contrib.auth.models import User
@@ -180,6 +181,18 @@ def animal_list(request):
         Animal.objects.all().delete()
         return HttpResponse("All animals has been deleted",status=status.HTTP_204_NO_CONTENT)
  
+@csrf_exempt 
+def animal_detail(request, pk):
+    animal = get_object_or_404(Animal, pk=pk)
+    
+    if request.method == 'GET': 
+        animal_serializer = AnimalSerializer(animal) 
+        return JsonResponse(animal_serializer.data) 
+ 
+    elif request.method == 'DELETE': 
+        animal.delete()
+        return HttpResponse("Animal %s has been deleted successfully" % pk ,status=status.HTTP_204_NO_CONTENT)
+
 
 @csrf_exempt
 def organizacion_list(request):
