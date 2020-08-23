@@ -13,6 +13,8 @@ urlpatterns = [
 
     #animales
     url(r'^animal/$', views.animal_list),
-
+    #organizacion
+    url(r'^organizacion/$', views.organizacion_list),
+    
    
 ]

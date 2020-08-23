@@ -5,9 +5,9 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser 
 from rest_framework import status
  
-from gpa.models import Persona, Animal
+from gpa.models import Persona, Animal, Organizacion
 from django.contrib.auth.models import User
-from gpa.serializers import PersonaSerializer, UsuarioSerializer, AnimalSerializer
+from gpa.serializers import PersonaSerializer, UsuarioSerializer, AnimalSerializer, OrganizacionSerializer
  
 #Personas
 '''
@@ -167,3 +167,12 @@ def animal_list(request):
         animales = Animal.objects.all()
         animales_serializer = AnimalSerializer(animales, many=True)
         return JsonResponse(animales_serializer.data, safe=False)
+
+@csrf_exempt
+def organizacion_list(request):
+    #GET list, POST new, DELETE ALL
+    if request.method == 'GET':
+        organizaciones = Organizacion.objects.all()
+        organizaciones_serializer = OrganizacionSerializer(organizaciones, many=True)
+        return JsonResponse(organizaciones_serializer.data, safe=False)
+    

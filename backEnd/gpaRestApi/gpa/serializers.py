@@ -1,5 +1,5 @@
 from rest_framework import serializers 
-from gpa.models import Persona, Animal
+from gpa.models import Persona, Animal, Organizacion
 from django.contrib.auth.models import User
 
 
@@ -52,4 +52,14 @@ class AnimalSerializer(serializers.ModelSerializer):
                   'sexo', 
                   'esterelizado', 
                   'color'
+                  )
+
+class OrganizacionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Organizacion
+        fields = ('nombre',
+                  'tipo',
+                  'descripcion', 
+                  'ubicacion', 
+                  'contacto', 
                   )
