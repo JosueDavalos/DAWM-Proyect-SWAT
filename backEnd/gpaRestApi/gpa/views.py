@@ -5,11 +5,11 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser 
 from rest_framework import status
  
-from gpa.models import Persona,Usuario
-from gpa.serializers import PersonaSerializer,UsuarioSerializer
+from gpa.models import Persona, Animal
+from django.contrib.auth.models import User
+from gpa.serializers import PersonaSerializer, UsuarioSerializer, AnimalSerializer
  
 #Personas
-
 '''
         /persona
         GET todos
@@ -96,7 +96,7 @@ def person_list_cargo(request, cargo):
 def user_list(request):
     #GET list, POST new, DELETE ALL
     if request.method == 'GET':
-        users = Usuario.objects.all()
+        users = User.objects.all()
         users_serializer = UsuarioSerializer(users, many=True)
         return JsonResponse(users_serializer.data, safe=False)
         # In order to serialize objects, we must set 'safe=False'
@@ -106,11 +106,16 @@ def user_list(request):
         user_serializer = UsuarioSerializer(data=user_data)
         if user_serializer.is_valid():
             user_serializer.save()
-            return JsonResponse(user_serializer.data, status=status.HTTP_201_CREATED) 
+            #VER SI DE ENCUENTRA UNA FIRMA DE SERIALIZAR BIEN LA CONTRASEÑA
+            user = User.objects.get(username=user_data['username'])
+            user.set_password(user_data['password']) 
+            user.save()
+
+            return HttpResponse('User create successfully! ', status=status.HTTP_201_CREATED) 
         return JsonResponse(user_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
     elif request.method == 'DELETE':
-        Usuario.objects.all().delete()
+        User.objects.all().delete()
         return HttpResponse(status=status.HTTP_204_NO_CONTENT)
  
  
@@ -124,8 +129,8 @@ def user_list(request):
 def user_detail(request, pk):
     #GET por ID, PUT por ID, DELETE por ID
     try: 
-        user = Usuario.objects.get(pk=pk) 
-    except Usuario.DoesNotExist: 
+        user = User.objects.get(pk=pk) 
+    except User.DoesNotExist: 
         return HttpResponse(status=status.HTTP_404_NOT_FOUND) 
  
     if request.method == 'GET': 
@@ -145,3 +150,20 @@ def user_detail(request, pk):
         return HttpResponse(status=status.HTTP_204_NO_CONTENT)
  
     
+
+
+#Animales
+
+'''
+        /usuario
+        GET todos
+        Post nuevo
+        Delete ALL
+'''
+@csrf_exempt
+def animal_list(request):
+    #GET list, POST new, DELETE ALL
+    if request.method == 'GET':
+        animales = Animal.objects.all()
+        animales_serializer = AnimalSerializer(animales, many=True)
+        return JsonResponse(animales_serializer.data, safe=False)

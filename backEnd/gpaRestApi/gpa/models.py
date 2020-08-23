@@ -1,9 +1,8 @@
+# pylint: disable=too-few-public-methods
+from django.contrib.auth.models import User
 from django.db import models
 
-# Create your models here.
-from django.db import models
 
-# Create your models here.
 class Persona(models.Model):
     CARGOS = (
         ('A', 'Admin'),
@@ -21,13 +20,9 @@ class Persona(models.Model):
     direccion = models.CharField(max_length=200, blank=False, default='')
     telefono = models.IntegerField(blank=False, default=1)
     email = models.EmailField(max_length=254)
+    user = models.OneToOneField(User, on_delete=models.SET_NULL, null=True)
+    foto = models.ImageField(upload_to='users/pictures', blank=True, null=True)
 
-class Usuario(models.Model):
-    id = models.AutoField(primary_key=True)
-    user = models.CharField(max_length=70, blank=False)
-    password = models.CharField(max_length=70, blank=False, default='')
-    persona = models.ForeignKey(Persona, on_delete=models.CASCADE)
-    active = models.BooleanField(default=False)
 
 class Recurso(models.Model):
     id = models.AutoField(primary_key=True)
@@ -83,16 +78,21 @@ class Animal(models.Model):
     id = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=30)
     tipo = models.CharField(max_length=20)
-    raza = models.CharField(max_length=20)
+    raza = models.CharField(max_length=50)
     edad = models.IntegerField()
-    sexo = models.IntegerField()
-    esterilizado = models.IntegerField()
-    color = models.CharField(max_length=10)
+    sexo = models.CharField(max_length=20)
+    esterelizado = models.CharField(max_length=3)
+    color = models.CharField(max_length=20)
     # ubicacion = models.CharField(max_length=200, null=False) #REVISAR SI VA ESTO
-    descripcion = models.CharField(max_length=200)#REVISAR SI VA ESTO
-    dueno = models.ForeignKey(Persona, on_delete=models.CASCADE) #SI SE CAMBIA LA TABLA USUARIO MODIFICAR ESTO
+    # descripcion = models.CharField(max_length=200)#REVISAR SI VA ESTO
+    dueno = models.ForeignKey(Persona, on_delete=models.SET_NULL, null=True) #SI SE CAMBIA LA TABLA USUARIO MODIFICAR ESTO
     historial = models.ForeignKey(HistorialMedico, on_delete=models.SET_NULL, null=True)
     estado = models.ForeignKey(EstadoAnimal, on_delete=models.SET_NULL, null=True)
+
+    # @classmethod
+    # def create(cls, nombre, tipo, raza, edad, sexo, esterelizado, color):
+    #     animal = cls(nombre=nombre, tipo=tipo, raza=raza, edad= edad, sexo=sexo, esterelizado=esterelizado, color=color)
+    #     return animal
 
 
 class Adopcion(models.Model):
