@@ -168,6 +168,19 @@ def animal_list(request):
         animales_serializer = AnimalSerializer(animales, many=True)
         return JsonResponse(animales_serializer.data, safe=False)
 
+    elif request.method == 'POST':
+        animal_data = JSONParser().parse(request)
+        animales_serializer = AnimalSerializer(data=animal_data)
+        if animales_serializer.is_valid():
+            animales_serializer.save()
+            return HttpResponse('Animal has been successfully created', status=status.HTTP_201_CREATED) 
+        return JsonResponse(animales_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+   
+    elif request.method == 'DELETE':
+        Animal.objects.all().delete()
+        return HttpResponse("All animals has been deleted",status=status.HTTP_204_NO_CONTENT)
+ 
+
 @csrf_exempt
 def organizacion_list(request):
     #GET list, POST new, DELETE ALL
