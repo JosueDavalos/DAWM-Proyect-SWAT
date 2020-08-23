@@ -15,11 +15,13 @@ class Persona(models.Model):
     nombre = models.CharField(max_length=30, blank=False, default='')
     apellido = models.CharField(max_length=30, blank=False, default='')
     sexo = models.CharField(max_length=10, blank=False, default='')
-    cargo = models.CharField(max_length=1, blank=False, choices=CARGOS)
     fechaNacimiento = models.DateField()
+    telefono = models.CharField(max_length=12, blank=False, default='---')
+    celular = models.CharField(max_length=10, blank=False,default='---' )
+    ciudad = models.CharField(max_length=100, blank=False, default='')
     direccion = models.CharField(max_length=200, blank=False, default='')
-    telefono = models.IntegerField(blank=False, default=1)
     email = models.EmailField(max_length=254)
+    cargo = models.CharField(max_length=1, blank=False, choices=CARGOS)
     user = models.OneToOneField(User, on_delete=models.SET_NULL, null=True)
     foto = models.ImageField(upload_to='users/pictures', blank=True, null=True)
 
@@ -89,11 +91,6 @@ class Animal(models.Model):
     historial = models.ForeignKey(HistorialMedico, on_delete=models.SET_NULL, null=True)
     estado = models.ForeignKey(EstadoAnimal, on_delete=models.SET_NULL, null=True)
 
-    # @classmethod
-    # def create(cls, nombre, tipo, raza, edad, sexo, esterelizado, color):
-    #     animal = cls(nombre=nombre, tipo=tipo, raza=raza, edad= edad, sexo=sexo, esterelizado=esterelizado, color=color)
-    #     return animal
-
 
 class Adopcion(models.Model):
     id = models.AutoField(primary_key=True)
@@ -102,11 +99,9 @@ class Adopcion(models.Model):
     fecha = models.DateField()
 
 class Ubicacion(models.Model):
+    id = models.AutoField(primary_key=True)
     lat = models.FloatField(blank=False, default=1)
     long = models.FloatField(blank=False, default=1)
-
-
-
 
 class FormularioPonerAdopcion(models.Model):
     id = models.AutoField(primary_key=True)
