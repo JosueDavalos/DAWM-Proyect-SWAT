@@ -175,4 +175,16 @@ def organizacion_list(request):
         organizaciones = Organizacion.objects.all()
         organizaciones_serializer = OrganizacionSerializer(organizaciones, many=True)
         return JsonResponse(organizaciones_serializer.data, safe=False)
-    
+
+    elif request.method == 'POST':
+        org_data = JSONParser().parse(request)
+        org_serializer = OrganizacionSerializer(data=org_data)
+        if org_serializer.is_valid():
+            org_serializer.save()
+            return HttpResponse('The organization has been successfully created', status=status.HTTP_201_CREATED) 
+        return JsonResponse(org_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+   
+    elif request.method == 'DELETE':
+        Organizacion.objects.all().delete()
+        return HttpResponse("All Organizations has been deleted",status=status.HTTP_204_NO_CONTENT)
+ 
