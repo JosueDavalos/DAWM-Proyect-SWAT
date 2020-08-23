@@ -1,5 +1,5 @@
 from rest_framework import serializers 
-from gpa.models import Persona, Animal, Adopcion, FormularioPonerAdopcion, Ubicacion
+from gpa.models import Persona, Animal, Adopcion, FormularioPonerAdopcion, Ubicacion, Organizacion
 from django.contrib.auth.models import User
 
 
@@ -42,6 +42,16 @@ class AnimalSerializer(serializers.ModelSerializer):
                   'color'
                   )
 
+
+class OrganizacionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Organizacion
+        fields = ('nombre',
+                  'tipo',
+                  'descripcion', 
+                  'ubicacion', 
+                  'contacto', 
+                  )
 
 
 #Cargar datos a la base

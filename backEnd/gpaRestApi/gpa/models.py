@@ -83,7 +83,7 @@ class Animal(models.Model):
     raza = models.CharField(max_length=50)
     edad = models.IntegerField()
     sexo = models.CharField(max_length=20)
-    esterelizado = models.CharField(max_length=3)
+    esterilizado = models.CharField(max_length=3)
     color = models.CharField(max_length=20)
     # ubicacion = models.CharField(max_length=200, null=False) #REVISAR SI VA ESTO
     # descripcion = models.CharField(max_length=200)#REVISAR SI VA ESTO
