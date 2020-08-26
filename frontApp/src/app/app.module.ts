@@ -29,6 +29,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { AdministrarUsuarioComponent } from './componentes/admin/control-panel/administarUsuarios/administarUsuario.component';
 import { AdministrarAnimalesComponent } from './componentes/admin/control-panel/administarAnimales/administarAnimales.component';
+import { UserService } from './servicios';
 
 
 @NgModule({
@@ -65,11 +66,13 @@ import { AdministrarAnimalesComponent } from './componentes/admin/control-panel/
     MatCardModule,
     MatButtonModule
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+  providers: [/*{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 
     // provider used to create fake backend
-    fakeBackendProvider],
+  fakeBackendProvider*/
+  UserService,
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
