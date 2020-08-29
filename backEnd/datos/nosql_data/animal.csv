@@ -1,0 +1,101 @@
+id,nombre,tipo,raza,edad,sexo,esterilizado,color,estado
+1,Lucy,Cat,domestic shorthair,6,Female,No,blue ,perdido
+2,*Frida,Cat,domestic shorthair,6,Female,Yes,white,en_adopcion
+3,Stella Luna,Cat,domestic mediumhair,7,Female,Yes,black,colonia
+5,Elsa,Cat,domestic shorthair,6,Female,Yes,brown,en_adopcion
+7,Chester,Cat,domestic shorthair,6,Male,Yes,black,en_adopcion
+8,*Oliver,Cat,domestic shorthair,6,Male,Yes,orange,adoptado
+9,*Preston,Cat,domestic mediumhair,7,Male,Yes,black,colonia
+10,*Bumble,Cat,siamese,6,Female,No,seal,en_adopcion
+15,Pumpkin,Cat,domestic mediumhair,9,Male,Yes,orange,colonia
+16,Winnie,Cat,russian blue,10,Female,Yes,blue,perdido
+17,Snowflake,Cat,domestic shorthair,7,Male,Yes,cream ,en_adopcion
+18,Smoke,Cat,russian blue,13,Male,Yes,blue,en_adopcion
+19,*Dora,Cat,domestic shorthair,6,Female,No,Breed Specific,en_adopcion
+22,*Cosmo,Cat,domestic shorthair,7,Male,Yes,chocolate,colonia
+25,*Sophie,Cat,domestic shorthair,7,Female,Yes,Breed Specific,perdido
+27,Mischief,Cat,domestic shorthair,12,Male,Yes,blue ,adoptado
+31,*Rose,Cat,domestic shorthair,5,Female,Yes,brown,colonia
+34,*Monkey,Cat,domestic shorthair,7,Male,Yes,black,colonia
+35,Lucy,Cat,domestic longhair,5,Female,Yes,brown,en_adopcion
+36,*Mike,Cat,domestic shorthair,7,Male,Yes,orange,perdido
+37,*Magnolia,Cat,domestic shorthair,8,Female,Yes,brown,colonia
+38,*Winston,Cat,domestic shorthair,6,Male,Yes,white,perdido
+39,*Kim,Cat,domestic mediumhair,7,Male,Yes,black,colonia
+40,*Alley,Cat,domestic shorthair,7,Male,Yes,orange,colonia
+42,*Martin,Cat,domestic shorthair,6,Male,No,orange,adoptado
+45,Tiki,Cat,domestic shorthair,16,Male,Yes,black,en_adopcion
+46,*Taylor,Cat,domestic shorthair,7,Female,No,orange,perdido
+48,*Amber,Cat,domestic shorthair,14,Female,Yes,Breed Specific,adoptado
+50,Jenny,Cat,domestic shorthair,9,Female,Yes,blue,perdido
+52,*Libby,Cat,domestic shorthair,6,Female,Yes,brown,colonia
+53,Rainy,Cat,domestic shorthair,5,Female,Yes,orange ,en_adopcion
+58,*Trinity,Cat,domestic shorthair,8,Female,Yes,brown,en_adopcion
+64,*Orville,Cat,domestic shorthair,7,Male,Yes,orange ,adoptado
+65,Salem,Cat,domestic shorthair,8,Male,Yes,black,perdido
+66,*Ursula,Cat,domestic shorthair,7,Female,Yes,brown,perdido
+67,*Lily,Cat,domestic shorthair,5,Female,Yes,Breed Specific,colonia
+68,Garfield,Cat,domestic longhair,8,Male,Yes,orange,colonia
+69,Garfield,Cat,domestic shorthair,14,Male,Yes,white,perdido
+70,Mina,Cat,domestic shorthair,6,Female,Yes,blue,colonia
+71,*Michonne,Cat,domestic shorthair,6,Female,No,black,adoptado
+73,*Juliet,Cat,domestic shorthair,6,Female,Yes,Breed Specific,colonia
+75,*Twix,Cat,domestic shorthair,6,Male,Yes,blue ,en_adopcion
+78,Novio,Cat,domestic mediumhair,6,Male,No,orange,colonia
+79,*Rust,Cat,domestic shorthair,6,Female,Yes,Breed Specific,colonia
+82,Jelly Bean,Cat,domestic shorthair,7,Female,Yes,Breed Specific,perdido
+83,Cathy,Cat,domestic shorthair,6,Female,Yes,Breed Specific,adoptado
+84,*Kanga,Cat,domestic shorthair,6,Female,No,Breed Specific,en_adopcion
+85,Zane,Cat,manx,7,Male,No,brown ,colonia
+86,Ron Weasley,Cat,domestic shorthair,8,Male,Yes,orange,perdido
+88,Laurel,Cat,siamese,22,Female,Yes,lynx,en_adopcion
+90,Luna,Cat,siamese,10,Female,Yes,lynx,perdido
+91,Marley,Cat,domestic mediumhair,6,Female,Yes,Breed Specific,en_adopcion
+92,*Alice,Cat,domestic shorthair,6,Female,Yes,black,en_adopcion
+93,Cuddles,Cat,domestic shorthair,8,Male,Yes,blue,colonia
+94,*Pooh Bear,Cat,domestic shorthair,12,Male,Yes,cream,en_adopcion
+95,Tucker,Cat,domestic longhair,6,Male,No,brown,colonia
+97,*Louisa,Cat,domestic shorthair,6,Female,No,Breed Specific,adoptado
+100,*Minerva,Cat,domestic longhair,7,Female,No,black,perdido
+101,Tiney,Cat,domestic shorthair,6,Female,Yes,orange,colonia
+102,Buffy,Cat,domestic shorthair,6,Female,Yes,Breed Specific,colonia
+103,Delores,Cat,domestic shorthair,7,Female,No,Breed Specific,adoptado
+107,Julia,Cat,domestic shorthair,7,Female,Yes,white,perdido
+108,Scout,Cat,domestic shorthair,6,Male,No,blue,en_adopcion
+114,*Truffle,Cat,domestic shorthair,6,Female,Yes,Breed Specific,en_adopcion
+118,Moby Dixson,Cat,domestic shorthair,6,Male,Yes,blue,perdido
+121,Juliet,Cat,domestic shorthair,7,Female,Yes,black,colonia
+122,*Elsa,Cat,siamese,8,Male,Yes,lynx,perdido
+124,Sassy,Cat,domestic mediumhair,12,Female,No,cream,colonia
+125,Nala,Cat,domestic shorthair,8,Female,Yes,Breed Specific,adoptado
+126,Tabs,Cat,domestic shorthair,7,Female,Yes,Breed Specific,en_adopcion
+127,Kaleysee,Cat,domestic mediumhair,6,Female,Yes,Breed Specific,en_adopcion
+128,Tiger,Cat,domestic shorthair,9,Male,Yes,brown,perdido
+129,*Baxter,Cat,domestic shorthair,6,Male,Yes,brown,colonia
+133,Odessa,Cat,domestic shorthair,8,Female,Yes,orange ,adoptado
+134,Rogue Momo,Cat,domestic shorthair,10,Male,Yes,black,en_adopcion
+135,Billy,Cat,domestic mediumhair,16,Male,Yes,orange ,colonia
+136,*Suzie,Cat,domestic shorthair,6,Female,Yes,brown ,colonia
+137,Poppy,Cat,domestic shorthair,6,Female,No,black,en_adopcion
+138,Dylan,Cat,domestic shorthair,16,Male,Yes,white,adoptado
+139,*Azure,Cat,domestic shorthair,6,Female,Yes,black,perdido
+141,*Candy Corn,Cat,domestic shorthair,7,Male,Yes,black,adoptado
+142,Kitty,Cat,domestic longhair,8,Female,Yes,white,en_adopcion
+143,*Max,Cat,domestic shorthair,6,Male,No,orange ,colonia
+144,*Byron,Cat,domestic shorthair,6,Male,No,black,adoptado
+145,Sirus,Cat,domestic shorthair,7,Female,Yes,Breed Specific,adoptado
+147,*Kera,Cat,domestic shorthair,7,Female,Yes,Breed Specific,perdido
+150,*Michonne,Cat,siamese,6,Female,No,Breed Specific,adoptado
+151,*Dasher,Cat,siamese,7,Male,Yes,flame,adoptado
+152,*Taco,Cat,domestic mediumhair,8,Male,Yes,black,colonia
+155,Hero,Cat,domestic shorthair,7,Male,Yes,white,adoptado
+156,*Joe,Cat,domestic shorthair,8,Male,Yes,black,en_adopcion
+157,Buddy Buddy,Cat,domestic shorthair,14,Female,Yes,Breed Specific,colonia
+158,*Bonnie,Cat,siamese,11,Female,Yes,Breed Specific,en_adopcion
+159,*Sam,Cat,domestic shorthair,6,Male,Yes,white,adoptado
+160,*Adam,Cat,domestic shorthair,7,Male,Yes,cream,perdido
+161,*Georgia,Cat,domestic shorthair,6,Female,Yes,white,en_adopcion
+162,*Castor,Cat,domestic shorthair,6,Male,Yes,black,adoptado
+163,*Stefan,Cat,domestic shorthair,7,Male,Yes,cream,adoptado
+165,*Tina,Cat,domestic shorthair,6,Female,No,brown,en_adopcion
+166,Sage,Cat,domestic shorthair,6,Female,No,cream,adoptado
