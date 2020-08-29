@@ -9,6 +9,9 @@ from django.shortcuts import get_object_or_404
 from gpa.models import Persona, Animal, Organizacion, FormularioPonerAdopcion
 from django.contrib.auth.models import User
 from gpa.serializers import PersonaSerializer, UsuarioSerializer, AnimalSerializer, OrganizacionSerializer, FormularioPonerAdopcionSerializer
+
+
+
 #Personas
 '''
         /persona
@@ -144,8 +147,35 @@ def user_detail(request, pk):
     elif request.method == 'DELETE': 
         user.delete() 
         return HttpResponse(status=status.HTTP_204_NO_CONTENT)
- 
+
+
+@csrf_exempt
+def user_login_request(request):
+    if request.method == 'POST':
+        user_data = JSONParser().parse(request)
+        
+        '''if user_serializer.is_valid():
+            user_serializer.save()
+            #VER SI DE ENCUENTRA UNA FIRMA DE SERIALIZAR BIEN LA CONTRASEÑA
+            
+            user.set_password(user_data['password']) 
+            user.save()
+
+             '''
+        #userar = User.objects.filter(username=user_data['username'])
+        user = User.objects.get(username=user_data['username'])
+        print(user)
+        pa = (user_data['password'])
+
+        if user.check_password(pa):
+            print('hola')
+
+            return JsonResponse(user_data, safe=False)
+
+        return JsonResponse(user_serializer.errors, status=status.HTTP_404_NOT_FOUND)
     
+
+
 
 
 #Animales

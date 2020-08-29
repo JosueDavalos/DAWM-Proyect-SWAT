@@ -9,6 +9,7 @@ urlpatterns = [
 
     #usuario
     url(r'^usuario/$', views.user_list),
+    url(r'^users/authenticate$', views.user_login_request),
     # url(r'^usuario/(?P<pk>[0-9]+)$', views.user_detail),
 
     #animales

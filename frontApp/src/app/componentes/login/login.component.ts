@@ -52,7 +52,7 @@ export class LoginComponent {
     }
 
     this.loading = true;
-    this.authenticationService.login(this.f.username.value, this.f.password.value)
+    this.authenticationService.login({'username':this.f.username.value, 'password':this.f.password.value})
         .pipe(first())
         .subscribe(
             data => {
