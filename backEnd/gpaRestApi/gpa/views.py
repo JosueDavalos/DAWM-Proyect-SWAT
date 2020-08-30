@@ -164,11 +164,18 @@ def user_login_request(request):
              '''
         #userar = User.objects.filter(username=user_data['username'])
         user = User.objects.get(username=user_data['username'])
-        print(user)
-        pa = (user_data['password'])
+        
 
-        if user.check_password(pa):
-            print('hola')
+
+        if user.check_password(user_data['password']):
+            
+            user_serializer = UsuarioSerializer(user) 
+            id=user_serializer.data['id']
+
+            persona = Persona.objects.get(user=id)
+            person_serializer = PersonaSerializer(persona)
+            print(person_serializer.data)
+            user_data['role']=person_serializer.data['cargo']
 
             return JsonResponse(user_data, safe=False)
 
