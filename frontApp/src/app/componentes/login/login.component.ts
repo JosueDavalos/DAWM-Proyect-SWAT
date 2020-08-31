@@ -56,7 +56,8 @@ export class LoginComponent {
         .pipe(first())
         .subscribe(
             data => {
-                this.router.navigate([this.returnUrl]);
+              console.log(data);
+              this.router.navigate([this.returnUrl]);
             },
             error => {
                 this.error = error;
