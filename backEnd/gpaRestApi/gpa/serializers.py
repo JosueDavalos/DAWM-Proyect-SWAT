@@ -17,12 +17,15 @@ class PersonaSerializer(serializers.ModelSerializer):
                   'direccion',
                   'telefono',
                   'celular',
-                  'email')
+                  'email',
+                  'user',
+                  'foto')
 
 class UsuarioSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('username',
+        fields = ('id',
+                  'username',
                   'password',
                   'email',
                   'is_superuser',

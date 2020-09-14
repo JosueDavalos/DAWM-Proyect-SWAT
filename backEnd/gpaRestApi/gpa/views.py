@@ -154,25 +154,31 @@ def user_login_request(request):
     if request.method == 'POST':
         user_data = JSONParser().parse(request)
         
-        '''if user_serializer.is_valid():
-            user_serializer.save()
-            #VER SI DE ENCUENTRA UNA FIRMA DE SERIALIZAR BIEN LA CONTRASEÑA
-            
-            user.set_password(user_data['password']) 
-            user.save()
 
+<<<<<<< HEAD
              '''
         #userar = User.objects.filter(username=user_data['username'])
         user = User.objects.get(username=user_data['username'])
         print(user)
         pa = (user_data['password   '])
+=======
+        user = get_object_or_404(User,username=user_data['username'])
+        user_serializer = UsuarioSerializer(user) 
 
-        if user.check_password(pa):
-            print('hola')
+
+        if user.check_password(user_data['password']):
+            
+           
+            id=user_serializer.data['id']
+>>>>>>> 7f093fffad0fa867f7775b89bb6d9e8ec03f19c9
+
+            persona = Persona.objects.get(user=id)
+            person_serializer = PersonaSerializer(persona)
+            user_data['role']=person_serializer.data['cargo']
 
             return JsonResponse(user_data, safe=False)
 
-        return JsonResponse(user_serializer.errors, status=status.HTTP_404_NOT_FOUND)
+        return JsonResponse("user_serializer.errors", status=status.HTTP_404_NOT_FOUND)
     
 
 

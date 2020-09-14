@@ -9,7 +9,7 @@ export class UserService {
     constructor(private http: HttpClient) { }
 
     getAll() {
-        return this.http.get<User[]>(`${environment.apiUrl}/usuario`);
+        return this.http.get<User[]>(`${environment.apiUrl}/usuario/`);
     }
 
     getById(id: number) {
