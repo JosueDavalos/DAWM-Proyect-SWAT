@@ -165,7 +165,7 @@ def user_login_request(request):
         #userar = User.objects.filter(username=user_data['username'])
         user = User.objects.get(username=user_data['username'])
         print(user)
-        pa = (user_data['password'])
+        pa = (user_data['password   '])
 
         if user.check_password(pa):
             print('hola')
@@ -213,7 +213,15 @@ def animal_detail(request, pk):
     if request.method == 'GET': 
         animal_serializer = AnimalSerializer(animal) 
         return JsonResponse(animal_serializer.data) 
- 
+    
+    elif request.method == 'PUT':
+        data = JSONParser().parse(request)
+        serializer = AnimalSerializer(animal, data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data)
+        return JsonResponse(serializer.errors, status=400)
+
     elif request.method == 'DELETE': 
         animal.delete()
         return HttpResponse("Animal %s has been deleted successfully" % pk ,status=status.HTTP_204_NO_CONTENT)
@@ -246,6 +254,14 @@ def organizacion_detail(request, pk):
     if request.method == 'GET': 
         organizacion_serializer = OrganizacionSerializer(organizacion) 
         return JsonResponse(organizacion_serializer.data) 
+
+    elif request.method == 'PUT':
+        data = JSONParser().parse(request)
+        serializer = OrganizacionSerializer(organizacion, data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data)
+        return JsonResponse(serializer.errors, status=400)
  
     elif request.method == 'DELETE': 
         organizacion.delete()
@@ -278,6 +294,14 @@ def formularioPonerAdopcion_detail(request, pk):
     if request.method == 'GET': 
         formulario_serializer = FormularioPonerAdopcionSerializer(formulario) 
         return JsonResponse(formulario_serializer.data) 
+
+    elif request.method == 'PUT':
+        data = JSONParser().parse(request)
+        serializer = FormularioPonerAdopcionSerializer(formulario, data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data)
+        return JsonResponse(serializer.errors, status=400)
  
     elif request.method == 'DELETE': 
         formulario.delete()

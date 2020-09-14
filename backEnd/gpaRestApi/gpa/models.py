@@ -24,7 +24,8 @@ class Persona(models.Model):
     cargo = models.CharField(max_length=1, blank=False, choices=CARGOS)
     user = models.OneToOneField(User, on_delete=models.SET_NULL, null=True)
     foto = models.ImageField(upload_to='users/pictures', blank=True, null=True)
-
+    def __str__(self):
+            return self.cedula
 
 class Recurso(models.Model):
     id = models.AutoField(primary_key=True)
@@ -90,7 +91,8 @@ class Animal(models.Model):
     dueno = models.ForeignKey(Persona, on_delete=models.SET_NULL, null=True) #SI SE CAMBIA LA TABLA USUARIO MODIFICAR ESTO
     historial = models.ForeignKey(HistorialMedico, on_delete=models.SET_NULL, null=True)
     estado = models.ForeignKey(EstadoAnimal, on_delete=models.SET_NULL, null=True)
-
+    def __str__(self):
+            return self.nombre
 
 class Adopcion(models.Model):
     id = models.AutoField(primary_key=True)
@@ -110,6 +112,8 @@ class FormularioPonerAdopcion(models.Model):
     motivo = models.CharField(max_length=400, null=False)
     fecha = models.DateTimeField(auto_now_add=True, blank=True)
     ubicacion = models.ForeignKey(Ubicacion, on_delete=models.SET_NULL, null=True) 
+    def __str__(self):
+        return "user: %s\nanimal:%s" % (self.user, self.animal)
 
 
 
