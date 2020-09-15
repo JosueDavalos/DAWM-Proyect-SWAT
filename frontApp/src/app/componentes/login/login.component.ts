@@ -56,11 +56,16 @@ export class LoginComponent {
         .pipe(first())
         .subscribe(
             data => {
-              console.log(data);
               this.router.navigate([this.returnUrl]);
             },
             error => {
-                this.error = error;
+              console.log(error);
+                if(error.status==404){
+                  this.error = "Usuario o contraseña incorrecto";
+                }
+                else{
+                  this.error = "Error del servidor";
+                }
                 this.loading = false;
             });
   }

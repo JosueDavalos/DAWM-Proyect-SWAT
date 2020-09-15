@@ -153,17 +153,25 @@ def user_detail(request, pk):
 def user_login_request(request):
     if request.method == 'POST':
         user_data = JSONParser().parse(request)
-        #userar = User.objects.filter(username=user_data['username'])
-        user = User.objects.get(username=user_data['username'])
-        print(user)
-        pa = (user_data['password'])
-        persona = Persona.objects.get(user=id)
-        person_serializer = PersonaSerializer(persona)
-        user_data['role']=person_serializer.data['cargo']
+        user = get_object_or_404(User,username=user_data['username'])
+        user_serializer = UsuarioSerializer(user) 
 
-        return JsonResponse(user_data, safe=False)
 
-        return JsonResponse("user_serializer.errors", status=status.HTTP_404_NOT_FOUND)
+        if user.check_password(user_data['password']):
+            if user_data['username']=="admin":
+                user_data['role']='A'
+            else:
+                id=user_serializer.data['id']
+
+                try:
+                    persona = Persona.objects.get(user=id)             
+                except Persona.DoesNotExist:
+                    persona = None
+                person_serializer = PersonaSerializer(persona)
+                user_data['role']=person_serializer.data['cargo']
+            
+            return JsonResponse(user_data, safe=False)
+        return JsonResponse('Usuario o contraseña incorrecto',status=status.HTTP_404_NOT_FOUND,safe=False)
     
 
 
