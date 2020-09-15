@@ -1,4 +1,4 @@
-create database gpa;
+drop database gpa;
 use gpa;
 
 select * from gpa_animal;

@@ -59,26 +59,22 @@ class FormularioPonerAdopcionSerializer(serializers.ModelSerializer):
     class Meta:
         model = FormularioPonerAdopcion
         fields = (
-                  'user',
+                  'persona',
                   'animal',
                   'motivo',
                   'fecha',
-                  'ubicacion'
-                  )
+                  'ubicacion')
+        depth = 1
+
+
+
+
 
 #Cargar datos a la base
 def load_data():
     from datetime import datetime
     import pandas as pd
     import django
-
-    # #USER
-    admin = User.objects.create_user('admin', 'jedavalo@espol.edu.ec', 'admin', is_superuser=True, is_staff=True)
-    josue = User.objects.create_user('josue', 'jedavalo@espol.edu.ec', 'josue')
-    bryan = User.objects.create_user('bryan', 'bryan@espol.edu.ec', 'bryan')
-    erick = User.objects.create_user('erick', 'erick@espol.edu.ec', 'erick')
-    eunice = User.objects.create_user('eunice', 'eunice@espol.edu.ec', 'eunice')
-    print("Usuarios cargados....Ok")
 
 
     #ANIMALES
@@ -96,32 +92,12 @@ def load_data():
     personas = pd.read_pickle('backEnd/datos/personas')
     for persona in personas.values:
         cedula, nombre, apellido, sexo, fechaNacimiento, telefono, celular, ciudad, direccion, email, cargo = list(persona)
-        print(list(persona))
         try:
             person = Persona.objects.create(cedula=cedula, nombre=nombre, apellido=apellido, sexo=sexo, fechaNacimiento=fechaNacimiento, 
                                         telefono=telefono, celular=celular, ciudad=ciudad, direccion=direccion, email=email, cargo=cargo)
             person.save()
         except django.db.utils.IntegrityError:
             print("No se pudo ingresar a la persona",list(persona))
-
-
-    Persona.objects.create(cedula='0989195204', nombre='Josue', apellido='Davalos', sexo='Masculino', fechaNacimiento='1998-12-07', telefono='---', 
-                            celular='0989195204', ciudad='Guayaquil', direccion='Ceibos', email='jedavalo@espol.edu.ec', cargo='A', 
-                            user=User.objects.get(username='josue')).save()
-
-    Persona.objects.create(cedula='0989195205', nombre='Erick', apellido='Pulla', sexo='Masculino', fechaNacimiento='1998-12-07', telefono='---', 
-                            celular='0989195204', ciudad='Guayaquil', direccion='Ceibos', email='erick@espol.edu.ec', cargo='A', 
-                            user=User.objects.get(username='erick')).save()
-
-    Persona.objects.create(cedula='0989195206', nombre='Bryan', apellido='Sanchez', sexo='Masculino', fechaNacimiento='1998-12-07', telefono='---', 
-                            celular='0989195204', ciudad='Guayaquil', direccion='Ceibos', email='bryan@espol.edu.ec', cargo='A', 
-                            user=User.objects.get(username='bryan')).save()
-
-
-    Persona.objects.create(cedula='0989195207', nombre='Eunice', apellido='Galvez', sexo='Masculino', fechaNacimiento='1998-12-07', telefono='---', 
-                            celular='0989195204', ciudad='Guayaquil', direccion='Ceibos', email='eunice@espol.edu.ec', cargo='A', 
-                            user=User.objects.get(username='eunice')).save()
-
     print("Personas cargadas....OK")
 
     #ADOPCIONES
@@ -147,13 +123,38 @@ def load_data():
         ubi = Ubicacion.objects.create(lat= lat, long=long)
         ubi.save()
 
-        formulario = FormularioPonerAdopcion.objects.create(user=duenio, animal=Animal.objects.get(pk=animal),
+        formulario = FormularioPonerAdopcion.objects.create(persona=duenio, animal=Animal.objects.get(pk=animal),
                                                             motivo=motivo, fecha=fecha, ubicacion=ubi)
         formulario.save()
-
-    print("Formularios cargados....ok\n")
+    print("Formularios cargados....ok")
                             
 
+    #USER
+    admin = User.objects.create_user('admin', 'jedavalo@espol.edu.ec', 'admin', is_superuser=True, is_staff=True)
+    josue = User.objects.create_user('josue', 'jedavalo@espol.edu.ec', 'josue')
+    bryan = User.objects.create_user('bryan', 'bryan@espol.edu.ec', 'bryan')
+    erick = User.objects.create_user('erick', 'erick@espol.edu.ec', 'erick')
+    eunice = User.objects.create_user('eunice', 'eunice@espol.edu.ec', 'eunice')
+
+    Persona.objects.create(cedula='0989195204', nombre='Josue', apellido='Davalos', sexo='Masculino', fechaNacimiento='1998-12-07', telefono='---', 
+                            celular='0989195204', ciudad='Guayaquil', direccion='Ceibos', email='jedavalo@espol.edu.ec', cargo='A', 
+                            user=User.objects.get(username='josue')).save()
+
+    Persona.objects.create(cedula='0989195205', nombre='Erick', apellido='Pulla', sexo='Masculino', fechaNacimiento='1998-12-07', telefono='---', 
+                            celular='0989195204', ciudad='Guayaquil', direccion='Ceibos', email='erick@espol.edu.ec', cargo='A', 
+                            user=User.objects.get(username='erick')).save()
+
+    Persona.objects.create(cedula='0989195206', nombre='Bryan', apellido='Sanchez', sexo='Masculino', fechaNacimiento='1998-12-07', telefono='---', 
+                            celular='0989195204', ciudad='Guayaquil', direccion='Ceibos', email='bryan@espol.edu.ec', cargo='A', 
+                            user=User.objects.get(username='bryan')).save()
+
+
+    Persona.objects.create(cedula='0989195207', nombre='Eunice', apellido='Galvez', sexo='Masculino', fechaNacimiento='1998-12-07', telefono='---', 
+                            celular='0989195204', ciudad='Guayaquil', direccion='Ceibos', email='eunice@espol.edu.ec', cargo='A', 
+                            user=User.objects.get(username='eunice')).save()
+
+
+    print("Usuarios cargados....Ok\n")
 
 
 

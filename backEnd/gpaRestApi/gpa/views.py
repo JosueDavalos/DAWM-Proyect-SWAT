@@ -153,30 +153,15 @@ def user_detail(request, pk):
 def user_login_request(request):
     if request.method == 'POST':
         user_data = JSONParser().parse(request)
-        
-
-<<<<<<< HEAD
-             '''
         #userar = User.objects.filter(username=user_data['username'])
         user = User.objects.get(username=user_data['username'])
         print(user)
-        pa = (user_data['password   '])
-=======
-        user = get_object_or_404(User,username=user_data['username'])
-        user_serializer = UsuarioSerializer(user) 
+        pa = (user_data['password'])
+        persona = Persona.objects.get(user=id)
+        person_serializer = PersonaSerializer(persona)
+        user_data['role']=person_serializer.data['cargo']
 
-
-        if user.check_password(user_data['password']):
-            
-           
-            id=user_serializer.data['id']
->>>>>>> 7f093fffad0fa867f7775b89bb6d9e8ec03f19c9
-
-            persona = Persona.objects.get(user=id)
-            person_serializer = PersonaSerializer(persona)
-            user_data['role']=person_serializer.data['cargo']
-
-            return JsonResponse(user_data, safe=False)
+        return JsonResponse(user_data, safe=False)
 
         return JsonResponse("user_serializer.errors", status=status.HTTP_404_NOT_FOUND)
     
@@ -273,21 +258,27 @@ def organizacion_detail(request, pk):
         organizacion.delete()
         return HttpResponse("Organizacion %s has been deleted successfully" % pk ,status=status.HTTP_204_NO_CONTENT)
 
+
+
 @csrf_exempt
 def formularioPonerAdopcion_list(request):
     # NOT YET GET MODEL BASED ERROR
     if request.method == 'GET':
-        formulario = FormularioPonerAdopcion.objects.all()
-        formulario_serializer = FormularioPonerAdopcionSerializer(FormularioPonerAdopcion, many=True)
+        formularios = FormularioPonerAdopcion.objects.all()
+        formulario_serializer = FormularioPonerAdopcionSerializer(formularios, many=True)
         return JsonResponse(formulario_serializer.data, safe=False)
 
     elif request.method == 'POST':
         formulario_data = JSONParser().parse(request)
         formulario_serializer = FormularioPonerAdopcionSerializer(data=formulario_data)
+
         if formulario_serializer.is_valid():
-            formulario_serializer.save()
+            formulario_data['persona'] = Persona.objects.get(pk=formulario_data['persona'])
+            formulario_data['animal'] = Animal.objects.get(pk=formulario_data['animal'])
+            FormularioPonerAdopcion.objects.create(**formulario_data).save()
+
             return HttpResponse('Formulario has been successfully created', status=status.HTTP_201_CREATED) 
-        return JsonResponse(formulario_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return HttpResponse('Ocurrió un error', status=status.HTTP_400_BAD_REQUEST)
    
     elif request.method == 'DELETE':
         FormularioPonerAdopcion.objects.all().delete()

@@ -107,7 +107,7 @@ class Ubicacion(models.Model):
 
 class FormularioPonerAdopcion(models.Model):
     id = models.AutoField(primary_key=True)
-    user = models.ForeignKey(Persona, on_delete=models.CASCADE) #SI SE CAMBIA LA TABLA USUARIO MODIFICAR ESTO
+    persona = models.ForeignKey(Persona, on_delete=models.CASCADE, related_name='tracks') #SI SE CAMBIA LA TABLA USUARIO MODIFICAR ESTO
     animal = models.ForeignKey(Animal, on_delete=models.CASCADE)
     motivo = models.CharField(max_length=400, null=False)
     fecha = models.DateTimeField(auto_now_add=True, blank=True)
