@@ -96,7 +96,7 @@ class Animal(models.Model):
 
 class FotoAnimal(models.Model):
     id = models.AutoField(primary_key=True)
-    foto = models.ImageField(upload_to='users/pictures', blank=True, null=True)
+    foto = models.ImageField(upload_to='animals/pictures', blank=True, null=True)
     image = models.ForeignKey(Animal, on_delete=models.CASCADE)
 
 class Adopcion(models.Model):
