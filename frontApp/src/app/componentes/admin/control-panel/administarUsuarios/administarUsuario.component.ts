@@ -1,23 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Directive, EventEmitter, Input, Output, QueryList, ViewChildren , OnInit } from '@angular/core';
 import { first } from 'rxjs/operators';
 import { User } from '../../../models';
 import { UserService } from 'src/app/servicios';
+import { Persona } from 'src/app/componentes/models/persona';
 
 
 
 @Component({
-selector: 'app-administrar-usuarios',
-  templateUrl: './administrarUsuario.component.html',
-  styleUrls: ['./administrarUsuario.component.css']
-})
+  selector: 'app-administrar-usuarios',
+    templateUrl: './administrarUsuario.component.html',
+    styleUrls: ['./administrarUsuario.component.css']
+  })
 
 //Las varibales que tengo asi son las que puedo usar en el html
 export class AdministrarUsuarioComponent implements OnInit {
+  
     loading = false;
 
-    newTodo: User;
+    newTodo: Persona;
+    //users: Persona[] = [];
 
-    users: User[] = [];
+
+    public dataList: Array<Persona>=[];
 
     constructor(private userService: UserService) { }
 
@@ -25,17 +29,20 @@ export class AdministrarUsuarioComponent implements OnInit {
         this.loading = true;
         this.userService.getAll().pipe(first()).subscribe(users => {
             this.loading = false;
-            this.users = users;
-            console.log(this.users);
+            const i=0;
+            users.forEach(element => {
+              element.id=i+users.indexOf(element)+1;
+              this.dataList.push(element);
+            });
         });
     }
-    public deleteUser(user: User): void {
+    public deleteUser(user: Persona): void {
         /*this.userService.deleteUser(user.id)
           .subscribe( data => {
             this.users = this.users.filter(u => u !== user);
           })*/
-          const index: number = this.users.indexOf(user);
-          this.users.splice(index,1);
+          const index: number = this.dataList.indexOf(user);
+          this.dataList.splice(index,1);
 
       };
     
@@ -47,7 +54,10 @@ export class AdministrarUsuarioComponent implements OnInit {
     
       public addUser(): void {
         //this.router.navigate(['add-user']);
-        this.users.unshift(this.newTodo);
-        this.newTodo = new User;
+        this.dataList.unshift(this.newTodo);
+        this.newTodo = new Persona;
       };
+
+
+ 
 }

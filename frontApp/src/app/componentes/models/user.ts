@@ -4,8 +4,8 @@ export class User {
     id: number;
     username: string;
     password: string;
-    firstName: string;
-    lastName: string;
-    role: Role;
+    nombre: string;
+    apellido: string;
+    cargo: Role;
     token?: string;
 }

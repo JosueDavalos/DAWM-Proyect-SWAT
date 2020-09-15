@@ -19,7 +19,7 @@ import { GestionProcesoComponent } from './componentes/admin/gestion-proceso/ges
 import { ReportesComponent } from './componentes/admin/reportes/reportes.component';
 import { NoticiasComponent } from './componentes/paginas/noticias/noticias.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { JwtInterceptor, ErrorInterceptor, fakeBackendProvider } from './componentes/security';
+import { JwtInterceptor, ErrorInterceptor } from './componentes/security';
 import { ComoAyudarComponent } from './componentes/paginas/como-ayudar/como-ayudar.component';
 import { DetalleMascotaComponent } from './componentes/paginas/detalle-mascota/detalle-mascota.component';
 import { DetalleInlineComponent } from './componentes/paginas/detalle-inline/detalle-inline.component';
@@ -30,6 +30,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { AdministrarUsuarioComponent } from './componentes/admin/control-panel/administarUsuarios/administarUsuario.component';
 import { AdministrarAnimalesComponent } from './componentes/admin/control-panel/administarAnimales/administarAnimales.component';
 import { UserService } from './servicios';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { SortDirective } from './directive/sort.directive';
+
 
 
 @NgModule({
@@ -54,7 +57,8 @@ import { UserService } from './servicios';
     DetalleInlineComponent,
     SolicitudesAdopcionComponent,
     AdministrarUsuarioComponent,
-    AdministrarAnimalesComponent
+    AdministrarAnimalesComponent,
+    SortDirective
   ],
   imports: [
     BrowserModule,

@@ -39,7 +39,7 @@ export class AuthenticationService {
         return this.http.post<User>(`${environment.apiUrl}/users/authenticate`,JSON.stringify(user))
             .pipe(map(user => {
 
-                if (user.role) {
+                if (user.cargo) {
 
                     localStorage.setItem('currentUser', JSON.stringify(user));
                     this.currentUserSubject.next(user);

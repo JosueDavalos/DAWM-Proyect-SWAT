@@ -159,7 +159,7 @@ def user_login_request(request):
 
         if user.check_password(user_data['password']):
             if user_data['username']=="admin":
-                user_data['role']='A'
+                user_data['cargo']='A'
             else:
                 id=user_serializer.data['id']
 
@@ -168,7 +168,7 @@ def user_login_request(request):
                 except Persona.DoesNotExist:
                     persona = None
                 person_serializer = PersonaSerializer(persona)
-                user_data['role']=person_serializer.data['cargo']
+                user_data['cargo']=person_serializer.data['cargo']
             
             return JsonResponse(user_data, safe=False)
         return JsonResponse('Usuario o contraseña incorrecto',status=status.HTTP_404_NOT_FOUND,safe=False)
