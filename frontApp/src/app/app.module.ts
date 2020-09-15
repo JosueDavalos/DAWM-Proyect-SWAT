@@ -30,6 +30,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { AdministrarUsuarioComponent } from './componentes/admin/control-panel/administarUsuarios/administarUsuario.component';
 import { AdministrarAnimalesComponent } from './componentes/admin/control-panel/administarAnimales/administarAnimales.component';
 import { UserService } from './servicios';
+import { FormularioPonerAdopcionService } from './servicios/FormularioPonerAdopcion.service';
 
 
 @NgModule({
@@ -72,6 +73,7 @@ import { UserService } from './servicios';
     // provider used to create fake backend
   fakeBackendProvider*/
   UserService,
+  FormularioPonerAdopcionService,
 ],
   bootstrap: [AppComponent]
 })

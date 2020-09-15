@@ -198,7 +198,7 @@ def animal_list(request):
         animales_serializer = AnimalSerializer(data=animal_data)
         if animales_serializer.is_valid():
             animales_serializer.save()
-            return HttpResponse('Animal has been successfully created', status=status.HTTP_201_CREATED) 
+            return JsonResponse(animales_serializer.data, status=status.HTTP_201_CREATED) 
         return JsonResponse(animales_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
    
     elif request.method == 'DELETE':
