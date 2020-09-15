@@ -19,7 +19,7 @@ import { GestionProcesoComponent } from './componentes/admin/gestion-proceso/ges
 import { ReportesComponent } from './componentes/admin/reportes/reportes.component';
 import { NoticiasComponent } from './componentes/paginas/noticias/noticias.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { JwtInterceptor, ErrorInterceptor, fakeBackendProvider } from './componentes/security';
+import { JwtInterceptor, ErrorInterceptor } from './componentes/security';
 import { ComoAyudarComponent } from './componentes/paginas/como-ayudar/como-ayudar.component';
 import { DetalleMascotaComponent } from './componentes/paginas/detalle-mascota/detalle-mascota.component';
 import { DetalleInlineComponent } from './componentes/paginas/detalle-inline/detalle-inline.component';
@@ -31,6 +31,9 @@ import { AdministrarUsuarioComponent } from './componentes/admin/control-panel/a
 import { AdministrarAnimalesComponent } from './componentes/admin/control-panel/administarAnimales/administarAnimales.component';
 import { UserService } from './servicios';
 import { FormularioPonerAdopcionService } from './servicios/FormularioPonerAdopcion.service';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { SortDirective } from './directive/sort.directive';
+import {NgxPaginationModule} from 'ngx-pagination'
 
 
 @NgModule({
@@ -55,7 +58,8 @@ import { FormularioPonerAdopcionService } from './servicios/FormularioPonerAdopc
     DetalleInlineComponent,
     SolicitudesAdopcionComponent,
     AdministrarUsuarioComponent,
-    AdministrarAnimalesComponent
+    AdministrarAnimalesComponent,
+    SortDirective
   ],
   imports: [
     BrowserModule,
@@ -65,7 +69,8 @@ import { FormularioPonerAdopcionService } from './servicios/FormularioPonerAdopc
     HttpClientModule,
     BrowserAnimationsModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    NgxPaginationModule
   ],
   providers: [/*{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },

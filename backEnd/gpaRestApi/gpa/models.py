@@ -101,9 +101,11 @@ class FotoAnimal(models.Model):
 
 class Adopcion(models.Model):
     id = models.AutoField(primary_key=True)
-    idUsuario = models.ForeignKey(Persona, on_delete=models.CASCADE)
-    idAnimal = models.ForeignKey(Animal, on_delete=models.CASCADE)
-    fecha = models.DateField()
+    persona = models.ForeignKey(Persona, on_delete=models.CASCADE, related_name='adopciones')
+    animal = models.ForeignKey(Animal, on_delete=models.CASCADE)
+    fecha = models.DateTimeField()
+    def __str__(self):
+        return "Id:%s\nUsuario: %s\nAnimal:%s\nFecha:%s" %(self.id,self.persona,self.animal,self.fecha)
 
 class Ubicacion(models.Model):
     id = models.AutoField(primary_key=True)
@@ -112,10 +114,17 @@ class Ubicacion(models.Model):
 
 class FormularioPonerAdopcion(models.Model):
     id = models.AutoField(primary_key=True)
-    persona = models.ForeignKey(Persona, on_delete=models.CASCADE, related_name='tracks') #SI SE CAMBIA LA TABLA USUARIO MODIFICAR ESTO
+    persona = models.ForeignKey(Persona, on_delete=models.CASCADE, related_name='formularios') #SI SE CAMBIA LA TABLA USUARIO MODIFICAR ESTO
     animal = models.ForeignKey(Animal, on_delete=models.CASCADE)
     motivo = models.CharField(max_length=400, null=False)
     fecha = models.DateTimeField(auto_now_add=True, blank=True)
     ubicacion = models.ForeignKey(Ubicacion, on_delete=models.SET_NULL, null=True) 
     def __str__(self):
-        return "user: %s\nanimal:%s" % (self.user, self.animal)
+        return "id: %s\nuser: %s\nanimal:%s" % (self.id,self.persona, self.animal)
+
+
+
+
+
+
+

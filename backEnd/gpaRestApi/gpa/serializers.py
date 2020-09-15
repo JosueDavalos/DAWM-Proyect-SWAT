@@ -58,6 +58,7 @@ class OrganizacionSerializer(serializers.ModelSerializer):
                   )
 
 class FormularioPonerAdopcionSerializer(serializers.ModelSerializer):
+   # animal = serializer.StringRelatedField(many=False)
     class Meta:
         model = FormularioPonerAdopcion
         fields = (
@@ -66,8 +67,16 @@ class FormularioPonerAdopcionSerializer(serializers.ModelSerializer):
                   'motivo',
                   'fecha',
                   'ubicacion')
-        depth = 1
+       # depth = 1
 
+class AdopcionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Adopcion
+        fields = (
+                  'persona',
+                  'animal',
+                  'fecha')
+       # depth = 1
 
 
 

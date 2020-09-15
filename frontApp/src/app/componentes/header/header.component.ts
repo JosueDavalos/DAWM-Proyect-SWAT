@@ -22,15 +22,15 @@ export class HeaderComponent implements OnInit {
   }
 
   get isAdmin() {
-    return this.currentUser && this.currentUser.role === Role.Admin;
+    return this.currentUser && this.currentUser.cargo === Role.Admin;
   }
 
   get isVolunteer() {
-    return this.currentUser && this.currentUser.role === Role.Volunteer;
+    return this.currentUser && this.currentUser.cargo === Role.Volunteer;
   }
 
   get isOrganizer() {
-    return this.currentUser && this.currentUser.role === Role.Organizer;
+    return this.currentUser && this.currentUser.cargo === Role.Organizer;
   }
 
   logout() {
