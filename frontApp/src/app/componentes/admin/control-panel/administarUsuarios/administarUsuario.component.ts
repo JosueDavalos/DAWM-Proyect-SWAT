@@ -19,7 +19,7 @@ export class AdministrarUsuarioComponent implements OnInit {
 
     newTodo: Persona;
     //users: Persona[] = [];
-
+    pageActual:number = 1;
 
     public dataList: Array<Persona>=[];
 

@@ -39,7 +39,7 @@
       </thead>
       <tbody>
         
-        <tr *ngFor="let user of dataList">
+        <tr *ngFor="let user of dataList | paginate :{itemsPerPage:8, currentPage: pageActual}">
           <th scope="row">{{ user.id}}</th>
           <td>{{user.cedula}}</td>
           <td><input type="text" value={{user.nombre}} size="10"/></td>
@@ -72,5 +72,5 @@
         </tr>
       </tbody>
     </table>
-    
+    <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
 </div>
