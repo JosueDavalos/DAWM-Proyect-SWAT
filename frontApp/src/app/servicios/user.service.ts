@@ -28,7 +28,12 @@ export class UserService {
                 return answer;
             }));
     }
-
+    deleteUser(id,persona){
+        return this.http.delete<Persona>(`${environment.apiUrl}/persona/`+id)
+            .pipe(map(answer => {
+                return answer;
+            }));
+    }
     /*getUserPerPersona() {
         return this.http.get<User[]>(`${environment.apiUrl}/persona/`);
     }*/

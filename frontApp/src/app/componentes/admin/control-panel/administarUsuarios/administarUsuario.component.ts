@@ -57,10 +57,18 @@ export class AdministrarUsuarioComponent implements OnInit {
         });
     }
     public deleteUser(user: Persona): void {
-        /*this.userService.deleteUser(user.id)
+      
+        this.userService.deleteUser(user.cedula,user)
           .subscribe( data => {
-            this.users = this.users.filter(u => u !== user);
-          })*/
+            this.dataList = this.dataList.filter(u => u !== user);
+            this.error='Usuario eliminado con éxito!';
+              this.showMsg= true;
+              setTimeout(() =>this.showMsg=false, 2000);
+          },error=>{
+            this.error='Error en el proceso!';
+              this.showErr= true;
+              setTimeout(() =>this.showErr=false, 2000);
+          })
           if(this.dataList.indexOf(user)==0){
             this.addNew=false;
           }
@@ -84,7 +92,6 @@ export class AdministrarUsuarioComponent implements OnInit {
       };
 
       onSubmit(user:any) {
-        
         user = {
           id: user.id,
           cedula:this.cedula,
@@ -109,7 +116,7 @@ export class AdministrarUsuarioComponent implements OnInit {
                 return false;
               };
               this.router.navigate([`administrar/usuario`]);
-              this.error='Usuario actualizado con exito!';
+              this.error='Usuario actualizado con éxito!';
               this.showMsg= true;
               setTimeout(() =>this.showMsg=false, 2000);
             },

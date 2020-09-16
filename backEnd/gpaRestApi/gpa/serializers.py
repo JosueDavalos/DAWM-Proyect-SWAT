@@ -182,5 +182,5 @@ def load_data():
 
 
 
-load_data() #Desconmentar si se quiere agregar datos, cuando haces migrate tambien se corre esta linea
+#load_data() #Desconmentar si se quiere agregar datos, cuando haces migrate tambien se corre esta linea
 
