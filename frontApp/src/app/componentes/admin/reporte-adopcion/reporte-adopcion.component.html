@@ -1,0 +1,37 @@
+<section id="reporte-adopcion">
+    <div class="container">
+        <h1>Reporte de adopción</h1>
+        <div class="d-flex w-100 margenes">
+            <button class="button1">Descargar</button>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Edad</th>
+                    <th scope="col">Raza</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Cedula</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Sexo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let adopcion of adopciones">
+                    <ng-template [ngIf]="adopcion.animal.nombre != undefined">
+                        <td>{{adopcion.animal.nombre}}</td>
+                        <td>{{adopcion.animal.edad}}</td>
+                        <td>{{adopcion.animal.raza}}</td>
+                        <td>{{adopcion.animal.tipo}}</td>
+                        <td>{{adopcion.usuario.cedula}}</td>
+                        <td>{{adopcion.usuario.nombre}}</td>
+                        <td>{{adopcion.usuario.apellido}}</td>
+                        <td>{{adopcion.usuario.sexo}}</td>
+                    </ng-template>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>

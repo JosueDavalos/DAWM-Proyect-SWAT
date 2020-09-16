@@ -17,8 +17,7 @@ import { PonerAdopcionComponent } from './componentes/paginas/poner-adopcion/pon
 import { NoticiasComponent } from './componentes/paginas/noticias/noticias.component';
 import { AdministrarUsuarioComponent } from './componentes/admin/control-panel/administarUsuarios/administarUsuario.component';
 import { AdministrarAnimalesComponent } from './componentes/admin/control-panel/administarAnimales/administarAnimales.component';
-
-
+import { ReporteAdopcionComponent } from './componentes/admin/reporte-adopcion/reporte-adopcion.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -37,8 +36,8 @@ const routes: Routes = [
   { path: 'registrar', component: RegisterComponent},
   { path: 'noticias', component: NoticiasComponent},
   { path: 'administrar/usuario' ,component:AdministrarUsuarioComponent},
-  { path: 'administrar/animales', component:AdministrarAnimalesComponent}
-
+  { path: 'administrar/animales', component:AdministrarAnimalesComponent},
+  { path: 'reporteAdopcion', component:ReporteAdopcionComponent},
 ];
 
 @NgModule({

@@ -34,7 +34,17 @@ import { FormularioPonerAdopcionService } from './servicios/FormularioPonerAdopc
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { SortDirective } from './directive/sort.directive';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { ReporteAdopcionComponent } from './componentes/admin/reporte-adopcion/reporte-adopcion.component';
+import { RestangularModule, Restangular } from 'ngx-restangular';
 
+export function RestangularConfigFactory(RestangularProvider) {
+  RestangularProvider.setBaseUrl("https://gpadb-020b.restdb.io/rest/");
+  RestangularProvider.setDefaultHeaders(
+    {
+      apikey: '5f61ebf35313511c55fc972b',
+      
+    });
+}
 
 @NgModule({
   declarations: [
@@ -60,6 +70,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
     AdministrarUsuarioComponent,
     AdministrarAnimalesComponent,
     SortDirective,
+    ReporteAdopcionComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,7 +81,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     BrowserAnimationsModule,
     MatCardModule,
     MatButtonModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    RestangularModule.forRoot(RestangularConfigFactory),
   ],
   providers: [/*{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
