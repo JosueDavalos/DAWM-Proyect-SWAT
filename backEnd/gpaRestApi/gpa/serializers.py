@@ -129,7 +129,7 @@ def load_data():
     print("Formularios cargados....ok")
                             
 
-    #USER
+    USER
     admin = User.objects.create_user('admin', 'jedavalo@espol.edu.ec', 'admin', is_superuser=True, is_staff=True)
     josue = User.objects.create_user('josue', 'jedavalo@espol.edu.ec', 'josue')
     bryan = User.objects.create_user('bryan', 'bryan@espol.edu.ec', 'bryan')
