@@ -401,14 +401,12 @@ def adopcion_detail(request, pk):
 @csrf_exempt 
 def contactanos(request):
     if  request.method=='POST':
-        print("ESTOY EN CONTACTANOS")
-        print(request.POST.keys)
-        subject = "Formulario de información"
-        message = request.POST["mensaje"] + " " + request.POST["email"]
-       # message = request.POST["motivo"]
+        data = JSONParser().parse(request)
+        mensaje = 'Su mascota ha sido agragada en la lista de adopciones de la página.'
+        email = data['email']
+
         email_from = settings.EMAIL_HOST_USER
-        recipient_list=["danjogalvez@gmail.com"]
-        send_mail(subject,message,email_from,recipient_list)
+        send_mail('Mascota en adopcion!', mensaje, email_from , [email])
         return HttpResponse("Gracias por contactarnos"  ,status=status.HTTP_200_OK)
 
 @csrf_exempt
