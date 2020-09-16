@@ -81,7 +81,7 @@ export class DetalleMascotaComponent implements OnInit {
     console.log(this.infoPerson);
     this.enviada = true;
     this.animalService.setAnimalAdoptado(this.idAnimal).then();
-    this.http.post(`${environment.apiUrl}/persona/`, this.infoPerson).toPromise().catch(res => console.log(res));
+    // this.http.post(`${environment.apiUrl}/persona/`, this.infoPerson).toPromise().catch(res => console.log(res));
   }
 
 

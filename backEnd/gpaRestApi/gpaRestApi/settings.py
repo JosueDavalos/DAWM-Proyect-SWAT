@@ -105,10 +105,10 @@ WSGI_APPLICATION = 'gpaRestApi.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'gpa_dawm',
-        'USER': 'usuario_gpa',
-        'PASSWORD': 'usuario_gpa',
-        'HOST': 'te-learning.com',
+        'NAME': 'gpa',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',
         'PORT': '3306'
     }
 }
