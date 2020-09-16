@@ -53,9 +53,7 @@ export class GestionProcesoComponent implements OnInit {
       araza: ['', Validators.required],
       aesteril: [null, Validators.required],
       acolor: ['', Validators.required],
-      afoto: ['', Validators.required],
-
-
+      afoto: [null, Validators.required],
     });
 
     this.motivoFrom = this.formBuilder.group({
@@ -87,8 +85,8 @@ export class GestionProcesoComponent implements OnInit {
       'email':person.uemail.value,
       'cargo':'E'
     }
-    this.http.post(`${environment.apiUrl}/persona/`, this.infoPerson).toPromise().catch(res => console.log(res));
     console.log(this.infoPerson);
+    this.http.post(`${environment.apiUrl}/persona/`, this.infoPerson).toPromise().catch(res => console.log(res));
   }
 
 
@@ -109,12 +107,12 @@ export class GestionProcesoComponent implements OnInit {
       'esterilizado':animal.aesteril.value,
       'color':animal.acolor.value,
       'estado':null,
-      'foto':animal.afoto.value,
+      // 'foto':animal.afoto.value,
       // 'dueno': this.infoPerson['cedula'],
     }
+    console.log(this.infoAnimal);
     this.http.post(`${environment.apiUrl}/animal/`, this.infoAnimal).toPromise()
     .then(res => this.infoMotivo['animal'] = res['id']);
-    console.log(this.infoAnimal);
   }
 
   motivo_form_validator(){

@@ -16,8 +16,14 @@ export class UserService {
         return this.http.get<Persona[]>(`${environment.apiUrl}/persona/`);
     }
 
-    addNew(persona,pk) {
+    put(persona,pk) {
         return this.http.put<Persona>(`${environment.apiUrl}/persona/`+pk,JSON.stringify(persona))
+            .pipe(map(answer => {
+                return answer;
+            }));
+    }
+    addNew(persona) {
+        return this.http.post<Persona>(`${environment.apiUrl}/persona/`,JSON.stringify(persona))
             .pipe(map(answer => {
                 return answer;
             }));

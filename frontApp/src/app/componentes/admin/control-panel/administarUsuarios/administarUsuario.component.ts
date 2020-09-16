@@ -17,6 +17,8 @@ import { Router } from '@angular/router';
 export class AdministrarUsuarioComponent implements OnInit {
   addNew : boolean= false;
   showMsg: boolean = false;
+  showErr:boolean=false;
+  error:string;
     editRowId: any;
 
     loading = false;
@@ -82,6 +84,7 @@ export class AdministrarUsuarioComponent implements OnInit {
       };
 
       onSubmit(user:any) {
+        
         user = {
           id: user.id,
           cedula:this.cedula,
@@ -99,32 +102,56 @@ export class AdministrarUsuarioComponent implements OnInit {
           foto :this.foto,
         };
         this.loading=true;
-        this.userService.addNew(user,this.cedula).pipe(first())
-        .subscribe(
+        if(!this.addNew){
+          this.userService.put(user,this.cedula).pipe(first()).subscribe(
             data => {
-              console.log(data);
               this.router.routeReuseStrategy.shouldReuseRoute = function () {
                 return false;
               };
               this.router.navigate([`administrar/usuario`]);
+              this.error='Usuario actualizado con exito!';
               this.showMsg= true;
-
-              setTimeout(function () {
-                    alert('STOP');
-                
-            }, 5000);
-            console.log("sali");
+              setTimeout(() =>this.showMsg=false, 2000);
             },
             error => {
               console.log(error);
-                /*if(error.status==404){
-                  this.error = "Usuario o contraseña incorrecto";
+                if(error.status==400){
+                  this.error = "Verifique todos los datos";
+                }
+                if(error.status==404){
+                  this.error = "No modifique cédula.";
                 }
                 else{
                   this.error = "Error del servidor";
-                }*/
+                }
+                this.showErr= true;
+                setTimeout(() =>this.showErr=false, 3000);
                 this.loading = false;
             });
+          }else{
+            this.userService.addNew(user).pipe(first()).subscribe(
+              data => {
+                this.router.routeReuseStrategy.shouldReuseRoute = function () {
+                  return false;
+                };
+                this.router.navigate([`administrar/usuario`]);
+                this.error='Usuario insertado!';
+                this.showMsg= true;
+                setTimeout(() =>this.showMsg=false, 2000);
+              },
+              error => {
+                console.log(error);
+                  if(error.status==400)
+                    this.error = "Verifique todos los datos";
+                  else{
+                    this.error = "Error del servidor";
+                  }
+                  this.showErr= true;
+                  setTimeout(() =>this.showErr=false, 3000);
+                  this.loading = false;
+              });
+        }
+        
       }
 
       toggle(user:Persona){

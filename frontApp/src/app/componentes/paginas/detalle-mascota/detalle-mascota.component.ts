@@ -19,13 +19,13 @@ export class DetalleMascotaComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getAnimal();
+    // this.getAnimal();
   }
-  getAnimal(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.animalService.getAnimal(id)
-    .subscribe(animal => this.animal = animal);
-  }
+  // getAnimal(): void {
+  //   const id = +this.route.snapshot.paramMap.get('id');
+  //   this.animalService.getAnimal(id)
+  //   .subscribe(animal => this.animal = animal);
+  // }
   goBack(): void {
     this.location.back();
   }
