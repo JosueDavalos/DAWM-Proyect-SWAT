@@ -34,8 +34,8 @@
         </p>
     </form>
     <div class="d-flex">
-        <button class="btn btn-primary mr-1" (click)="buscar()">Buscar</button>
-        <button class="btn btn-primary" (click)="reiniciar()">Reiniciar</button>
+        <button class="btn btn-primary mr-1 font-weight-bold" (click)="buscar()">Buscar</button>
+        <button class="btn btn-primary font-weight-bold" (click)="reiniciar()">Reiniciar</button>
     </div>
 
     <h4 id="mensaje"></h4>
@@ -53,18 +53,18 @@
     </ul>
 </div-->
 
-<section id="lista-animals" class="col-12">
-    <div class="container">
-        <div *ngFor="let mascota of animals" class="card">
+<section id="lista-animals" class="container">
+    <div class="row">
+        <div *ngFor="let mascota of animals" class="card col-5 mx-auto">
             <div class="d-flex flex-row">
-                <img src="../../../../assets/img/perro.jpg" alt="Card image cap">
+                <img   src="../../../../assets/img/{{mascota.tipo}}.jpg" alt="Card image cap">
                 <div class="card-body">
                     <a routerLink="/detalle-mascota/{{mascota.id}}">
                         <h5 class="card-title">{{mascota.nombre | titlecase}}</h5>
                     </a>
                     <p class="card-text">{{mascota.tipo | titlecase}}</p>
                     <p class="card-text">{{mascota.raza | titlecase}}</p>
-                    <p class="card-text">{{mascota.esterilizado | titlecase }}</p>
+                    <p class="card-text"> <strong>Esterilizado: </strong>  {{mascota.esterilizado | titlecase }}</p>
 
                 </div>
             </div>

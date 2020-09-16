@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { first } from 'rxjs/operators';
 import { Animal } from 'src/app/componentes/models/animal';
-import { ANIMALS } from 'src/app/mock-animals';
 
 
 
@@ -23,7 +22,7 @@ export class AdministrarAnimalesComponent implements OnInit {
 
     ngOnInit() {
         this.loading = true;
-        this.animals = ANIMALS;
+        //this.animals = ANIMALS;
     }
     public deleteUser(user: Animal): void {
         /*this.userService.deleteUser(user.id)
