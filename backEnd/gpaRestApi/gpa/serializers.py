@@ -35,13 +35,15 @@ class UsuarioSerializer(serializers.ModelSerializer):
 class AnimalSerializer(serializers.ModelSerializer):
     class Meta:
         model = Animal
-        fields = ('nombre',
+        fields = ('id',
+                  'nombre',
                   'tipo',
                   'raza', 
                   'edad', 
                   'sexo', 
                   'esterilizado', 
-                  'color'
+                  'color',
+                  'foto',
                   )
 
 
@@ -56,6 +58,7 @@ class OrganizacionSerializer(serializers.ModelSerializer):
                   )
 
 class FormularioPonerAdopcionSerializer(serializers.ModelSerializer):
+   # animal = serializer.StringRelatedField(many=False)
     class Meta:
         model = FormularioPonerAdopcion
         fields = (
@@ -66,6 +69,14 @@ class FormularioPonerAdopcionSerializer(serializers.ModelSerializer):
                   'ubicacion')
         depth = 1
 
+class AdopcionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Adopcion
+        fields = (
+                  'persona',
+                  'animal',
+                  'fecha')
+    #    depth = 1
 
 
 

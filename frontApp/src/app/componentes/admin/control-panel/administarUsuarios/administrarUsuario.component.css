@@ -1,6 +1,14 @@
-div table td{
-    margin-left: 50px;
+table th{
+    padding-left: 20px;
 }
+table td{
+    padding-left: 20px;
+}
+div table{
+    table-layout: auto;
+    width: 100%; 
+}
+
 div table td button{
     margin-left: 10px;
     margin-bottom: 10px;

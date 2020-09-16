@@ -6,9 +6,9 @@ from rest_framework.parsers import JSONParser
 from rest_framework import status
 from django.shortcuts import get_object_or_404
  
-from gpa.models import Persona, Animal, Organizacion, FormularioPonerAdopcion
+from gpa.models import Persona, Animal, Organizacion, FormularioPonerAdopcion,Adopcion
 from django.contrib.auth.models import User
-from gpa.serializers import PersonaSerializer, UsuarioSerializer, AnimalSerializer, OrganizacionSerializer, FormularioPonerAdopcionSerializer
+from gpa.serializers import PersonaSerializer, UsuarioSerializer, AnimalSerializer, OrganizacionSerializer, FormularioPonerAdopcionSerializer,AdopcionSerializer
 
 
 
@@ -159,7 +159,7 @@ def user_login_request(request):
 
         if user.check_password(user_data['password']):
             if user_data['username']=="admin":
-                user_data['role']='A'
+                user_data['cargo']='A'
             else:
                 id=user_serializer.data['id']
 
@@ -168,7 +168,7 @@ def user_login_request(request):
                 except Persona.DoesNotExist:
                     persona = None
                 person_serializer = PersonaSerializer(persona)
-                user_data['role']=person_serializer.data['cargo']
+                user_data['cargo']=person_serializer.data['cargo']
             
             return JsonResponse(user_data, safe=False)
         return JsonResponse('Usuario o contraseña incorrecto',status=status.HTTP_404_NOT_FOUND,safe=False)
@@ -198,7 +198,7 @@ def animal_list(request):
         animales_serializer = AnimalSerializer(data=animal_data)
         if animales_serializer.is_valid():
             animales_serializer.save()
-            return HttpResponse('Animal has been successfully created', status=status.HTTP_201_CREATED) 
+            return JsonResponse(animales_serializer.data, status=status.HTTP_201_CREATED) 
         return JsonResponse(animales_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
    
     elif request.method == 'DELETE':
@@ -311,3 +311,46 @@ def formularioPonerAdopcion_detail(request, pk):
     elif request.method == 'DELETE': 
         formulario.delete()
         return HttpResponse("Formulario %s has been deleted successfully" % pk ,status=status.HTTP_204_NO_CONTENT)
+
+
+@csrf_exempt
+def adopcion_list(request):
+    if request.method == 'GET':
+        objetos = Adopcion.objects.all()
+        objeto_serializer = AdopcionSerializer(objetos, many=True)
+        return JsonResponse(objeto_serializer.data, safe=False)
+
+    elif request.method == 'POST':
+        objeto_data = JSONParser().parse(request)
+        objeto_serializer = AdopcionSerializer(data=objeto_data)
+
+        if objeto_serializer.is_valid():
+            objeto_data['persona'] = Persona.objects.get(pk=formulario_data['persona'])
+            objeto_data['animal'] = Animal.objects.get(pk=formulario_data['animal'])
+            Adopcion.objects.create(**objeto_data).save()
+
+            return HttpResponse('Formulario has been successfully created', status=status.HTTP_201_CREATED) 
+        return HttpResponse('Ocurrió un error', status=status.HTTP_400_BAD_REQUEST)
+   
+    elif request.method == 'DELETE':
+        Adopcion.objects.all().delete()
+        return HttpResponse("Todas las adopciones fueron eliminadas",status=status.HTTP_204_NO_CONTENT)
+ 
+@csrf_exempt 
+def adopcion_detail(request, pk):
+    objeto = get_object_or_404( Adopcion, pk=pk)
+    if request.method == 'GET': 
+        objeto_serializer = AdopcionSerializer(objeto) 
+        return JsonResponse(objeto_serializer.data) 
+
+    elif request.method == 'PUT':
+        data = JSONParser().parse(request)
+        serializer = AdopcionSerializer(objeto, data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data)
+        return JsonResponse(serializer.errors, status=400)
+ 
+    elif request.method == 'DELETE': 
+        objeto.delete()
+        return HttpResponse("La adopcion %s ha sido eliminada exitosamente" % pk ,status=status.HTTP_204_NO_CONTENT)

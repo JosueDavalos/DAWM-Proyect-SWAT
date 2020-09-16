@@ -23,5 +23,11 @@ urlpatterns = [
     #formulario poner adopcion
     url(r'^formularioPonerAdopcion/$', views.formularioPonerAdopcion_list),
     url(r'^formularioPonerAdopcion/(?P<pk>[0-9]+)$', views.formularioPonerAdopcion_detail),
+
+    #adopcion
+       #formulario poner adopcion
+    url(r'^adopcion/$', views.adopcion_list),
+    url(r'^adopcion/(?P<pk>[0-9]+)$', views.adopcion_detail),
+ 
    
 ]

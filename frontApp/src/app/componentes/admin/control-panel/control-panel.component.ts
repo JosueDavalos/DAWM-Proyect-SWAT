@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { first } from 'rxjs/operators';
 import { User } from '../../models';
 import { UserService } from 'src/app/servicios';
+import { Persona } from '../../models/persona';
 
 
 
@@ -14,7 +15,7 @@ selector: 'app-control-panel',
 //Las varibales que tengo asi son las que puedo usar en el html
 export class ControlPanelComponent implements OnInit {
     loading = false;
-    users: User[] = [];
+    users: Persona[] = [];
 
     constructor(private userService: UserService) { }
 

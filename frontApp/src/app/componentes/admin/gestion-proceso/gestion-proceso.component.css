@@ -2,13 +2,13 @@
     font-family: montserrat;
 }
 
-#msform {
+#form_persona {
     text-align: center;
     position: relative;
     margin-top: 20px
 }
 
-#msform fieldset .form-card {
+#form_persona fieldset .form-card {
     background: white;
     border: 0 none;
     border-radius: 0px;
@@ -20,7 +20,7 @@
     position: relative
 }
 
-#msform fieldset {
+#form_persona fieldset {
     background: white;
     border: 0 none;
     border-radius: 0.5rem;
@@ -31,17 +31,17 @@
     position: relative
 }
 
-#msform fieldset:not(:first-of-type) {
+#form_persona fieldset:not(:first-of-type) {
     display: none
 }
 
-#msform fieldset .form-card {
+#form_persona fieldset .form-card {
     text-align: left;
     color: #9E9E9E
 }
 
-#msform input,
-#msform textarea {
+#form_persona input,
+#form_persona textarea {
     padding: 0px 8px 4px 8px;
     border: none;
     border-bottom: 1px solid #ccc;
@@ -56,8 +56,8 @@
     letter-spacing: 1px
 }
 
-#msform input:focus,
-#msform textarea:focus {
+#form_persona input:focus,
+#form_persona textarea:focus {
     -moz-box-shadow: none !important;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
@@ -67,7 +67,7 @@
     outline-width: 0
 }
 
-#msform .action-button {
+#form_persona .action-button {
     width: 100px;
     background: #32C00B;
     font-weight: bold;
@@ -79,12 +79,12 @@
     margin: 10px 5px
 }
 
-#msform .action-button:hover,
-#msform .action-button:focus {
+#form_persona .action-button:hover,
+#form_persona .action-button:focus {
     box-shadow: 0 0 0 2px white, 0 0 0 3px skyblue
 }
 
-#msform .action-button-previous {
+#form_persona .action-button-previous {
     width: 100px;
     background: #616161;
     font-weight: bold;
@@ -96,8 +96,8 @@
     margin: 10px 5px
 }
 
-#msform .action-button-previous:hover,
-#msform .action-button-previous:focus {
+#form_persona .action-button-previous:hover,
+#form_persona .action-button-previous:focus {
     box-shadow: 0 0 0 2px white, 0 0 0 3px #616161
 }
 
@@ -256,3 +256,8 @@ label{
         width: 275% !important;
     }
 } 
+
+
+#errorAdopcion{
+    display: none;
+}

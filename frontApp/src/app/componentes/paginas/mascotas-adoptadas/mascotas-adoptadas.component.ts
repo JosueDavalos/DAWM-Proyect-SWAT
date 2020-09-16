@@ -14,12 +14,12 @@ export class MascotasAdoptadasComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.getAnimals();
+    // this.getAnimals();
   }
-  getAnimals(): void {
-    this.animalService.getAnimals()
-    .subscribe(animals => this.animals = animals);
-  }
+  // getAnimals(): void {
+  //   this.animalService.getAnimals()
+  //   .subscribe(animals => this.animals = animals);
+  // }
 
 }
 

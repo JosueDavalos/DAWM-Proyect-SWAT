@@ -25,8 +25,8 @@
                         
     
                             <!-- procesos -->
-                            <form id="msform">
-                                <fieldset>
+                            <form id="form_persona" >
+                                <fieldset [formGroup]="personaFrom"> 
                                     <div class="form-card">
                                         <h2 class="fs-title mb-3">Información personal</h2> 
                                         
@@ -36,9 +36,9 @@
                                             <label class="col-4 ml-4 d-none d-xl-inline-block" for="ulastname">Apellidos</label> 
                                         </div>
                                         <div class="form-row">
-                                            <div class="col-12 col-lg-3"><input type="text" id="cedula" name="user-cedula" placeholder="Cédula" /></div>
-                                            <div class="col-12 col-lg-4 ml-lg-4"><input type="text" id="uname" name="uname" placeholder="Nombres" /></div>
-                                            <div class="col-12 col-lg-4 ml-lg-4"><input id="ulastname" type="text" name="ulastname" placeholder="Apellidos" /></div>   
+                                            <div class="col-12 col-lg-3"><input type="text" id="cedula" name="user-cedula" placeholder="Cédula" formControlName="ucedula"/></div>
+                                            <div class="col-12 col-lg-4 ml-lg-4"><input type="text" id="uname" name="uname" placeholder="Nombres" formControlName="unombres"/></div>
+                                            <div class="col-12 col-lg-4 ml-lg-4"><input id="ulastname" type="text" name="ulastname" placeholder="Apellidos" formControlName="uapellidos"/></div>   
                                         </div>
                                         
                                         <div class="form-row">
@@ -46,10 +46,10 @@
                                             <label class="col-2  ml-lg-5 d-none d-xl-inline-block" for="gender">Género</label> 
                                         </div>
                                         <div class="form-row">
-                                            <div class="col-6 col-lg-2 ml-lg-0 user-age"> <input type="text" onfocus="(this.type='date')" id="user-age" name="user-age" placeholder="Fecha Nacimiento" /> </div>
+                                            <div class="col-6 col-lg-2 ml-lg-0 user-age"> <input type="text" onfocus="(this.type='date')" id="user-age" name="user-age" placeholder="Fecha Nacimiento" formControlName="unacimiento"/> </div>
                                             <div class="col-6 col-lg-1 ml-lg-5">
-                                                <select class="list-dt" id="gender" name="gender">
-                                                    <option selected>Género</option>
+                                                <select formControlName="ugender" class="list-dt" id="gender" name="gender">
+                                                    <option [ngValue]="null" selected>Género</option>
                                                     <option>Masculino</option>
                                                     <option>Femenino</option>
                                                     <option>Otros</option>
@@ -64,9 +64,9 @@
                                             <label class="col-3 ml-md-4 d-none d-xl-inline-block" for="celular">Celular</label> 
                                         </div>
                                         <div class="form-row">
-                                            <div class="col-12 col-lg-5"><input type="email" id="email"  name="email" placeholder="Correo" /> </div>
-                                            <div class="col-12 col-lg-3 mx-auto mx-xl-4"><input type="tel" name="phone" id="phone" placeholder="Telefono"></div>
-                                            <div class="col-12 col-lg-3 mx-auto mx-xl-0"><input type="tel" name="celular" id="celular" placeholder="Celular"></div>
+                                            <div class="col-12 col-lg-5"><input type="email" id="email"  name="email" placeholder="Correo" formControlName="uemail"/> </div>
+                                            <div class="col-12 col-lg-3 mx-auto mx-xl-4"><input type="tel" name="phone" id="phone" placeholder="Telefono" formControlName="utelf"></div>
+                                            <div class="col-12 col-lg-3 mx-auto mx-xl-0"><input type="tel" name="celular" id="celular" placeholder="Celular" formControlName="ucelular"></div>
                                         </div>
     
                                         <div class="from-row">
@@ -74,33 +74,33 @@
                                             <label class="col-5 ml-lg-4 d-none d-xl-inline-block" for="user-cuidad">Ciudad</label>
                                         </div>
                                         <div class="form-row">
-                                            <div class="col-12 col-xl-5"><input type="text" name="address" placeholder="Dirección" /></div>
-                                            <div class="col-12 col-lg-3 ml-lg-4"><input type="text" id="user-cuidad" name="user-cuidad" placeholder="Cuidad" /></div>
+                                            <div class="col-12 col-xl-5"><input type="text" name="address" placeholder="Dirección" formControlName="udireccion"/></div>
+                                            <div class="col-12 col-lg-3 ml-lg-4"><input type="text" id="user-cuidad" name="user-cuidad" placeholder="Cuidad" formControlName="uciudad"/></div>
                                             <div class="col-12 col-xl-2 ml-md-auto"> 
                                                 <button id="location" class="btn btn-outline-dark" data-toggle="modal" data-target="#modal-mapa"> Ubicación</button>
                                             </div>
                                         </div>
     
                                     </div> 
-                                    <input type="button" name="next" class="next action-button" value="Siguiente" />
+                                    <input (click)="person_form_validator()" type="button" name="next" class="next action-button" value="Siguiente" data-toggle="modal" data-target="#alert_form"/>
                                 </fieldset>
     
     
-                                <fieldset>
+                                <fieldset [formGroup]="animalFrom">
                                     <div class="form-card">
                                         <h2 class="fs-title mb-3">Información de la mascota</h2> 
     
                                         <div class="from-row mx-md-n1">
                                             <label class="col-5 d-none d-xl-inline-block" for="pet-name">Nombre</label>
-                                            <label class="col-5 ml-md-4 d-none d-xl-inline-block" for="pet-age">Edad</label> 
+                                            <label class="col-5 ml-md-4 d-none d-xl-inline-block" for="pet-age">Edad (años)</label> 
                                             <label class="col-1 ml-5 d-none d-xl-inline-block px-md-1" for="pet-gender">Género</label> 
                                         </div>
                                         <div class="form-row">
-                                            <div class="col-12 col-lg-5"> <input type="text" id="pet-name" name="pet-name" placeholder="Nombre" />  </div>
-                                            <div class="col-12 col-lg-5 mx-auto"> <input type="number" id="pet-age" name="pet-age" placeholder="Edad" /> </div>
+                                            <div class="col-12 col-lg-5"> <input type="text" id="pet-name" name="pet-name" placeholder="Nombre" formControlName="anombre"/>  </div>
+                                            <div class="col-12 col-lg-5 mx-auto"> <input type="number" id="pet-age" name="pet-age" placeholder="Edad" formControlName="aedad"/> </div>
                                             <div class="col-12 col-lg-1 mx-auto">
-                                                <select class="list-dt" id="pet-gender" name="pet-gender">
-                                                    <option selected>Género</option>
+                                                <select formControlName="agenero" class="list-dt" id="pet-gender" name="pet-gender">
+                                                    <option [ngValue]="null" selected>Género</option>
                                                     <option>Macho</option>
                                                     <option>Hembra</option>
                                                 </select>
@@ -113,7 +113,7 @@
                                         </div>
                                         <div class="form-row">
                                             <div class="col-12 col-lg-5 ">
-                                                <input list="pet-types" name="pet-type" id="pet-type" placeholder="Tipo">
+                                                <input list="pet-types" name="pet-type" id="pet-type" placeholder="Tipo" formControlName="atipo">
                                                 <datalist id="pet-types">
                                                 <option value="Perro"></option>
                                                 <option value="Gato"></option>
@@ -122,7 +122,7 @@
                                               </datalist></div>
     
                                               <div class="col-12 col-lg-5 mx-auto">
-                                                <input list="type-races" name="type-race" id="type-race" placeholder="Raza">
+                                                <input list="type-races" name="type-race" id="type-race" placeholder="Raza" formControlName="araza">
                                                 <datalist id="type-races">
                                                 <option value="Labrador"></option>
                                                 <option value="Schnauzer"></option>
@@ -130,27 +130,42 @@
                                                 <option value="Pitbull"></option>
                                               </datalist></div>
                                         </div>
-    
+
+                                        <div class="form-row">
+                                            <label class="col-6 d-none d-xl-inline-block">Color</label>
+                                            <label class="col-5 ml-1 d-none d-xl-inline-block ">Esterilizado</label> 
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-12 col-lg-5"> <input type="text" id="pet-color" name="pet-color" placeholder="Color" formControlName="acolor"/>  </div>
+                                            <div class="col-12 col-lg-5 mx-auto mb-3">
+                                                <select formControlName="aesteril" class="list-dt" id="pet-esteril" name="pet-esteril">
+                                                    <option [ngValue]="null" selected>Esterelizado</option>
+                                                    <option>Si</option>
+                                                    <option>No</option>
+                                                </select>
+                                            </div> 
+                                        </div>
+
                                         <div class="form-row">
                                             <div class="col-1" id="pet-picture"></div>
-                                            <div class="col"><input type="file" name="picture" id="picture" /></div>
+                                            <div class="col"><input type="file" name="picture" id="picture" formControlName="afoto"/></div>
                                             <!-- <h6 id="pet-images"></h6> -->
                                         </div>
     
                                     </div> 
                                     <input type="button" name="previous" class="previous action-button-previous" value="Atrás" /> 
-                                    <input type="button" name="next" class="next action-button" value="Siguiente"/>
+                                    <input (click)="animal_form_validator()" type="button" name="next" class="next action-button" value="Siguiente" data-toggle="modal" data-target="#alert_form"/>
                                 </fieldset>
     
-                                <fieldset>
+                                <fieldset [formGroup]="motivoFrom">
                                     <div class="form-card">
                                         <div class="form-group">
                                             <h2 class="fs-title mb-3">Motivo de la adopción</h2>
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Motivo"></textarea>
+                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Motivo" formControlName="motivo"></textarea>
                                         </div>
                                     </div>
                                     <input type="button" name="previous" class="previous action-button-previous" value="Atrás" /> 
-                                    <input type="button" name="save" class="next action-button" value="Guardar"/>
+                                    <input (click)="motivo_form_validator()" type="button" name="save" class="next action-button" value="Guardar" data-toggle="modal" data-target="#alert_form"/>
                                 </fieldset>
     
                                 <fieldset>
@@ -167,12 +182,12 @@
                                     </div>
                                     <input type="button" name="finish" class="submit action-button" value="Finalizar"/>
                                 </fieldset>
-    
+                                <p id="errorAdopcion" >{{errorForm}}</p>
                             </form>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>  
         </div>
     </div>
     
@@ -208,4 +223,25 @@
 </section>
 
 
-  </html>
+    <!-- Modal Alert Form -->
+  <div *ngIf="errorForm=='si'" class="modal fade" id="alert_form" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Error</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            Falta llenar Datos o hay datos incoherentes, por favor revisar.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+</html>

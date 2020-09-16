@@ -1,4 +1,4 @@
-drop database gpa;
+create database gpa;
 use gpa;
 
 select * from gpa_animal;
@@ -13,3 +13,4 @@ SET FOREIGN_KEY_CHECKS=0;
 delete from auth_user;
 delete from gpa_persona;
 delete from gpa_animal;
+delete from gpa_formularioponeradopcion;
