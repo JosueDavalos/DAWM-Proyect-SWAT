@@ -12,6 +12,7 @@ import { Animal } from '../../models/animal';
 })
 export class DetalleMascotaComponent implements OnInit {
   animal: Animal;
+
   constructor(
     private route: ActivatedRoute,
     private animalService: AnimalService,
@@ -19,13 +20,21 @@ export class DetalleMascotaComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.animalService.getAnimalDetails(id).then(animales => this.animal = animales);
     // this.getAnimal();
   }
+
   // getAnimal(): void {
-  //   const id = +this.route.snapshot.paramMap.get('id');
-  //   this.animalService.getAnimal(id)
-  //   .subscribe(animal => this.animal = animal);
+    
+  //   for (let animal of this.animals){
+  //     if (animal.id == id){
+  //       this.animal = animal;
+  //       console.log(animal);
+  //     }
+  //   }
   // }
+
   goBack(): void {
     this.location.back();
   }

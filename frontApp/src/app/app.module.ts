@@ -33,7 +33,7 @@ import { UserService } from './servicios';
 import { FormularioPonerAdopcionService } from './servicios/FormularioPonerAdopcion.service';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { SortDirective } from './directive/sort.directive';
-import {NgxPaginationModule} from 'ngx-pagination'
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 @NgModule({
@@ -59,7 +59,7 @@ import {NgxPaginationModule} from 'ngx-pagination'
     SolicitudesAdopcionComponent,
     AdministrarUsuarioComponent,
     AdministrarAnimalesComponent,
-    SortDirective
+    SortDirective,
   ],
   imports: [
     BrowserModule,

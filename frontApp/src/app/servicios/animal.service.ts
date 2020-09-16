@@ -33,18 +33,13 @@ export class AnimalService {
     .then(response => response as Animal[]);
   }
 
-  // getAnimal(id: number): Observable<Animal>{
-  //   console.log(`AnimalService: fetched animal id=${id}`)
-  //   return of(ANIMALS.find(animal => animal.id === id));
-  // }
+  getAnimalDetails(id){
+    return this.http.get(`${environment.apiUrl}/animal/${id}`)
+    .toPromise()
+    .then(response => response as Animal);
+  }
 
 
-  getAll(): Promise<Animal[]> {
-    return this.http.get(`${environment.apiUrl}/animal/`)
-            .toPromise()
-            .then(response => response as Animal[]);
-
-}
 
 
 }

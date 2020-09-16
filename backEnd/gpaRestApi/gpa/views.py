@@ -6,7 +6,7 @@ from rest_framework.parsers import JSONParser
 from rest_framework import status
 from django.shortcuts import get_object_or_404
  
-from gpa.models import Persona, Animal, Organizacion, FormularioPonerAdopcion,Adopcion
+from gpa.models import Persona, Animal, Organizacion, FormularioPonerAdopcion,Adopcion,EstadoAnimal
 from django.contrib.auth.models import User
 from gpa.serializers import PersonaSerializer, UsuarioSerializer, AnimalSerializer, OrganizacionSerializer, FormularioPonerAdopcionSerializer,AdopcionSerializer
 
@@ -49,7 +49,12 @@ def person_list(request):
 '''
 @csrf_exempt 
 def person_detail(request, pk):
-    user = get_object_or_404(Persona, pk=pk)
+    #user = get_object_or_404(Persona, pk=pk)
+
+    try: 
+        user = Persona.objects.get(pk=pk) 
+    except Persona.DoesNotExist: 
+        return HttpResponse(status=status.HTTP_404_NOT_FOUND) 
     
     if request.method == 'GET': 
         user_serializer = PersonaSerializer(user) 
@@ -197,7 +202,14 @@ def animal_list(request):
         animal_data = JSONParser().parse(request)
         animales_serializer = AnimalSerializer(data=animal_data)
         if animales_serializer.is_valid():
+            estado = None
+            try:
+                estado = EstadoAnimal.objects.get(estado='E')
+            except:
+                print('\tNo hay estado animal')
+            animales_serializer.save().estado=estado
             animales_serializer.save()
+            
             return JsonResponse(animales_serializer.data, status=status.HTTP_201_CREATED) 
         return JsonResponse(animales_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
    
@@ -208,7 +220,7 @@ def animal_list(request):
 @csrf_exempt
 def animal_en_adopcion(request):
     if request.method == 'GET':
-        animales = Animal.objects.filter(estado=2)
+        animales = Animal.objects.filter(estado__estado='E')
         animales_serializer = AnimalSerializer(animales, many=True)
         return JsonResponse(animales_serializer.data, safe=False)
  
