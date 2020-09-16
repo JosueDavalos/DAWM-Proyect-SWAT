@@ -73,9 +73,9 @@ class FormularioPonerAdopcionSerializer(serializers.ModelSerializer):
 class AdopcionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Adopcion
-        fields = (
-                  'persona',
-                  'animal',
+        fields = ('id',
+                  'idUsuario',
+                  'idAnimal',
                   'fecha')
     #    depth = 1
 

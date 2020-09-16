@@ -21,7 +21,7 @@ export class AnimalService {
 
 
   getAnimals(): Promise<Animal[]> {
-    return this.http.get(`${environment.apiUrl}/animal/`)
+    return this.http.get<Animal[]>(`${environment.apiUrl}/animal/`)
     .toPromise()
     .then(response => response as Animal[]);
   }
