@@ -243,11 +243,8 @@ def animal_filter(request, tipo):
     animales = Animal.objects.filter(tipo=tipo)
     
     if request.method == 'GET': 
-        adopciones = Adopcion.objects.all()
-        for i in animales:
-            if i.id==1:
-                print("hola")
-        print(adopciones)
+        #adopciones = Adopcion.objects.all()
+        
         serializer = AnimalSerializer(animales, many=True)
         return JsonResponse(serializer.data, safe=False)
 
