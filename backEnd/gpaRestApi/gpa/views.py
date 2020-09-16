@@ -204,6 +204,13 @@ def animal_list(request):
     elif request.method == 'DELETE':
         Animal.objects.all().delete()
         return HttpResponse("All animals has been deleted",status=status.HTTP_204_NO_CONTENT)
+
+@csrf_exempt
+def animal_en_adopcion(request):
+    if request.method == 'GET':
+        animales = Animal.objects.filter(estado=2)
+        animales_serializer = AnimalSerializer(animales, many=True)
+        return JsonResponse(animales_serializer.data, safe=False)
  
 @csrf_exempt 
 def animal_detail(request, pk):

@@ -25,7 +25,13 @@ export class AnimalService {
     .toPromise()
     .then(response => response as Animal[]);
   }
+  
 
+  getAnimalsEnAdopcion(): Promise<Animal[]> {
+    return this.http.get(`${environment.apiUrl}/animal/EnAdopcion/`)
+    .toPromise()
+    .then(response => response as Animal[]);
+  }
 
   // getAnimal(id: number): Observable<Animal>{
   //   console.log(`AnimalService: fetched animal id=${id}`)
