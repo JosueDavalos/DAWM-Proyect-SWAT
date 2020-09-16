@@ -342,7 +342,6 @@ def formularioPonerAdopcion_list(request):
 @csrf_exempt 
 def formularioPonerAdopcion_detail(request, pk):
     formulario = get_object_or_404( FormularioPonerAdopcion, pk=pk)
-    # NOT YET GET MODEL BASED ERROR
     if request.method == 'GET': 
         formulario_serializer = FormularioPonerAdopcionSerializer(formulario) 
         return JsonResponse(formulario_serializer.data) 
@@ -372,8 +371,8 @@ def adopcion_list(request):
         objeto_serializer = AdopcionSerializer(data=objeto_data)
 
         if objeto_serializer.is_valid():
-            objeto_data['persona'] = Persona.objects.get(pk=formulario_data['persona'])
-            objeto_data['animal'] = Animal.objects.get(pk=formulario_data['animal'])
+            objeto_data['idUsuario'] = Persona.objects.get(pk=objeto_data['idUsuario'])
+            objeto_data['idAnimal'] = Animal.objects.get(pk=objeto_data['idAnimal'])
             Adopcion.objects.create(**objeto_data).save()
 
             return HttpResponse('Formulario has been successfully created', status=status.HTTP_201_CREATED) 

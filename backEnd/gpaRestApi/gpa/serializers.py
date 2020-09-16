@@ -79,7 +79,7 @@ class AdopcionSerializer(serializers.ModelSerializer):
                   'idUsuario',
                   'idAnimal',
                   'fecha')
-    #    depth = 1
+        depth = 1
 
 class EstadoAnimalSerializer(serializers.ModelSerializer):
     class Meta:
