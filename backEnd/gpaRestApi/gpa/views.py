@@ -49,7 +49,12 @@ def person_list(request):
 '''
 @csrf_exempt 
 def person_detail(request, pk):
-    user = get_object_or_404(Persona, pk=pk)
+    #user = get_object_or_404(Persona, pk=pk)
+
+    try: 
+        user = Persona.objects.get(pk=pk) 
+    except Persona.DoesNotExist: 
+        return HttpResponse(status=status.HTTP_404_NOT_FOUND) 
     
     if request.method == 'GET': 
         user_serializer = PersonaSerializer(user) 

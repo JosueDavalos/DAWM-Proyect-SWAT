@@ -6,15 +6,28 @@
   
 </head>
 
+
+
+
 <div class="col-md-12 user-container">
     <br><br><br>
     <h2 style="margin: auto"> Administrar Usuarios</h2>
     <br>
+
+    <div class="row"  *ngIf="showMsg">
+      <div class="col-xs-12">
+        <p class="alert alert-success">
+            <strong>Usuario actualizado con exito!</strong>
+        </p>
+        <p>x</p>
+      </div>
+    </div>
+    
     <div id="botones">
         <button class="btn btn-danger float-right mb-3" style="width:100px" (click)="addUser()"> Add User</button>
-        <button class="btn btn-success float-right mr-3" id="editar" (click)="updateUser()" style="margin-left: 20px;">
+        <!--button class="btn btn-success float-right mr-3" id="editar" (click)="updateAll()" style="margin-left: 20px;">
           <span class="spinner-border spinner-border-sm mr-1"></span>
-        </button>
+        </button-->
     </div>
     
     <table class="table-responsive">
@@ -43,105 +56,111 @@
         
         <tr *ngFor="let user of dataList | paginate :{itemsPerPage:8, currentPage: pageActual}">
  
-            <th scope="row">{{ user.id}}</th>
+            <th scope="row" contenteditable='true'>{{ user.id}}</th>
 
             <td *ngIf="user.id == editRowId">
-              <input type="text" value={{user.cedula}} size="10"/>
+              <input type="text" size="10" [(ngModel)]="cedula"/>
             </td>
-            <td *ngIf="user.id !== editRowId" (click)="toggle(user.id)">
+            <td *ngIf="user.id !== editRowId" (click)="toggle(user)">
               {{user.cedula}}
            </td>
 
             <td *ngIf="user.id == editRowId">
-              <input type="text" value={{user.nombre}} size="10"/>
+              <input type="text" size="10" [(ngModel)]="nombre"/>
             </td>
-            <td *ngIf="user.id !== editRowId" (click)="toggle(user.id)">
+            <td *ngIf="user.id !== editRowId" (click)="toggle(user)">
                 {{user.nombre}}
             </td>
 
             <td *ngIf="user.id == editRowId">
-              <input type="text" value={{user.apellido}} size="10"/>
+              <input type="text" size="10" [(ngModel)]="apellido"/>
             </td>
-            <td *ngIf="user.id !== editRowId" (click)="toggle(user.id)">
+            <td *ngIf="user.id !== editRowId" (click)="toggle(user)">
               {{user.apellido}}
            </td>
 
             <td *ngIf="user.id == editRowId">
-              <select>        
+              <select [(ngModel)]="cargo">        
                 <option value="U" [selected]="'U' === user.cargo">Usuario</option>
                 <option value="A" [selected]="'A' === user.cargo">Administrador</option>
                 <option value="V" [selected]="'V' === user.cargo">Voluntario</option>
                 <option value="O" [selected]="'O' === user.cargo">Organizador</option>
               </select>
             </td>
-            <td *ngIf="user.id !== editRowId" (click)="toggle(user.id)">
+            <td *ngIf="user.id !== editRowId" (click)="toggle(user)">
               {{user.cargo}}
             </td>
 
             <td *ngIf="user.id == editRowId">
-              <input type="text" value={{user.sexo}} size="10"/>
+              <input type="text" [(ngModel)]="sexo" size="10"/>
             </td>
-            <td *ngIf="user.id !== editRowId" (click)="toggle(user.id)">
+            <td *ngIf="user.id !== editRowId" (click)="toggle(user)">
               {{user.sexo}}
            </td>
 
             <td *ngIf="user.id == editRowId">
-              <input type="date" value={{user.fechaNacimiento}} size="8"/>
+              <input type="date" [(ngModel)]="fechaNacimiento" size="8"/>
             </td>
-            <td *ngIf="user.id !== editRowId" (click)="toggle(user.id)">
+            <td *ngIf="user.id !== editRowId" (click)="toggle(user)">
               {{user.fechaNacimiento}}
             </td>
 
             <td *ngIf="user.id == editRowId">
-              <input type="text" value={{user.telefono}} size="8"/>
+              <input type="text" [(ngModel)]="telefono" size="8"/>
             </td>
-            <td *ngIf="user.id !== editRowId" (click)="toggle(user.id)">
+            <td *ngIf="user.id !== editRowId" (click)="toggle(user)">
               {{user.telefono}}
             </td>
             <td *ngIf="user.id == editRowId">
-              <input type="text" value={{user.celular}} size="8"/>
+              <input type="text" [(ngModel)]="celular" size="8"/>
             </td>
-            <td *ngIf="user.id !== editRowId" (click)="toggle(user.id)">
+            <td *ngIf="user.id !== editRowId" (click)="toggle(user)">
               {{user.celular}}
             </td>
             <td *ngIf="user.id == editRowId">
-              <input type="text" value={{user.ciudad}} size="8"/>
+              <input type="text" [(ngModel)]="ciudad" size="8"/>
             </td>
-            <td *ngIf="user.id !== editRowId" (click)="toggle(user.id)">
+            <td *ngIf="user.id !== editRowId" (click)="toggle(user)">
               {{user.ciudad}}
             </td>
             <td *ngIf="user.id == editRowId">
-              <input type="text" value={{user.direccion}} size="20"/>
+              <input type="text" [(ngModel)]="direccion" size="20"/>
             </td>
-            <td *ngIf="user.id !== editRowId" (click)="toggle(user.id)">
+            <td *ngIf="user.id !== editRowId" (click)="toggle(user)">
               {{user.direccion}}
             </td>
             <td *ngIf="user.id == editRowId">
-              <input type="text" value={{user.email}} size="20"/>
+              <input type="text" [(ngModel)]="email" size="20"/>
             </td>
-            <td *ngIf="user.id !== editRowId" (click)="toggle(user.id)">
+            <td *ngIf="user.id !== editRowId" (click)="toggle(user)">
               {{user.email}}
             </td>
             <td *ngIf="user.id == editRowId">
-              <input type="text" value={{user.username}} size="10"/>
+              <input type="text" [(ngModel)]="userN" size="10"/>
             </td>
-            <td *ngIf="user.id !== editRowId" (click)="toggle(user.id)">
-              {{user.username}}
+            <td *ngIf="user.id !== editRowId" (click)="toggle(user)">
+              {{user.user}}
             </td>
             <td *ngIf="user.id == editRowId">
-              <input type="text" value={{user.foto}} size="10"/>
+              <input type="text" [(ngModel)]="foto" size="10"/>
             </td>
-            <td *ngIf="user.id !== editRowId" (click)="toggle(user.id)">
+            <td *ngIf="user.id !== editRowId" (click)="toggle(user)">
               {{user.foto}}
             </td>
 
             <td>
                 <button class="px-auto" id="eliminar" (click)="deleteUser(user)"><i class="fa fa-user-times"></i></button>
             </td>
+            <td *ngIf="user.id == editRowId">
+              <button class="btn btn-success float-right mr-3" id="editar" (click)="onSubmit(user)" style="margin-left: 20px;">
+                <span class="spinner-border spinner-border-sm mr-1"></span>
+              </button>
+            </td>
             
 
         </tr>
       </tbody>
     </table>
+    
     <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
 </div>
