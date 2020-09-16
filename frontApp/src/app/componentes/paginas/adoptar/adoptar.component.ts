@@ -19,7 +19,7 @@ export class AdoptarComponent implements OnInit {
   constructor(private animalService: AnimalService) { }
 
   ngOnInit(): void {
-    this.animalService.getAnimalsEnAdopcion().then(animales => this.animals = animales);
+    this.animalService.getAnimals().then(animales => this.animals = animales);
   }
 
 
@@ -49,6 +49,6 @@ export class AdoptarComponent implements OnInit {
 
   reiniciar() {
     // this.animals = this.allAnimals;
-    this.animalService.getAnimalsEnAdopcion().then(animales => this.animals = animales);
+    this.animalService.getAnimals().then(animales => this.animals = animales);
   }
 }

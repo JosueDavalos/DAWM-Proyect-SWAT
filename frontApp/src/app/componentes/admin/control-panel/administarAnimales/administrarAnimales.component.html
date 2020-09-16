@@ -3,53 +3,154 @@
 <head>
   <title>GPA</title>
   <meta charset="utf-8"/>
+  
 </head>
+
+
+
 
 <div class="col-md-12 user-container">
     <br><br><br>
-    <h2 style="margin: auto"> Administrar Mascotas</h2>
+    <h2 style="margin: auto"> Administrar Animales</h2>
     <br>
+
+    <div class="row"  *ngIf="showMsg">
+      <div class="col-xs-12">
+        <p class="alert alert-success">
+            <strong>{{error}}</strong>
+        </p>
+      </div>
+    </div>
+    <div class="row"  *ngIf="showErr">
+      <div class="col-xs-12">
+        <p class="alert alert-danger">
+            <strong>Error en la operación!</strong> {{error}}
+        </p>
+      </div>
+    </div>
     
     <div id="botones">
-      <button class="btn btn-danger" style="width:100px" (click)="addUser()"> Add User</button>
-      <button class="btn btn-success" id="editar" (click)="updateUser()" style="margin-left: 20px;"></button>
+        <button class="btn btn-danger float-right mb-3" style="width:100px" (click)="addUser()"> Add User</button>
+        <!--button class="btn btn-success float-right mr-3" id="editar" (click)="updateAll()" style="margin-left: 20px;">
+          <span class="spinner-border spinner-border-sm mr-1"></span>
+        </button-->
     </div>
-
-    <table class="table table-striped">
-        <thead>
-          <tr>
-            <th class="hidden">Id</th>
-            <th>Nombre</th>
-            <th>Tipo</th>
-            <th>Edad</th>
-            <th>Raza</th>
-            <th>Sexo</th>
-            <th>contacto</th>
-            <th>Motivo</th>
-            <th>Eliminar</th>
-          </tr>
-        </thead>
-        <tbody>
-          
-          <tr *ngFor="let animal of animals">
-            <td class="hidden">{{animal.id}}</td>
-            <td><input type="text" value={{animal.nombre}} size="10"/></td>
-            <td><input type="text" value={{animal.tipo}} size="10" /></td>
-            <td><input type="text" value={{animal.edad}} size="10"/></td>
-            <td><input type="text" value={{animal.raza}} size="10"/></td>
-            <td><input type="text" value={{animal.sexo}} size="10"/></td>
-            <td><input type="text" value={{animal.contacto}} size="10"/></td>
-            <td><input type="text" value={{animal.motivo}} size="30"/></td>
     
+    <table class="table-responsive">
+      <thead>
+        <tr>
+          <th scope="col" [appSort]="dataList" data-order="desc" data-name="id" width=5%>#</th>
+          <th scope="col"[appSort]="dataList" data-order="desc" data-name="nombre">Nombre</th>
+          <th scope="col"[appSort]="dataList" data-order="desc" data-name="tipo">Tipo</th>
+          <th scope="col"[appSort]="dataList" data-order="desc" data-name="raza">Raza</th>
+          <th scope="col"[appSort]="dataList" data-order="desc" data-name="edad">Edad</th>
+          <th scope="col" [appSort]="dataList" data-order="desc" data-name="sexo">Sexo</th>
+          <th scope="col" [appSort]="dataList" data-order="desc" data-name="esterilizado">Esterilizado</th>
+          <th scope="col" [appSort]="dataList" data-order="desc" data-name="color">Color</th>
+          <th scope="col" [appSort]="dataList" data-order="desc" data-name="foto">Foto</th>
+          <th scope="col" [appSort]="dataList" data-order="desc" data-name="dueno">dueno</th>
+          <th scope="col" [appSort]="dataList" data-order="desc" data-name="historial">Historial</th>
+          <th scope="col" [appSort]="dataList" data-order="desc" data-name="estado">Estado</th>
+          <th></th>
+          <th>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr *ngFor="let user of dataList | paginate :{itemsPerPage:8, currentPage: pageActual}">
+ 
+            <th scope="row" contenteditable='false'>{{ user.id}}</th>
+
+
+
+            <td *ngIf="user.id == editRowId">
+              <input type="text" size="10" [(ngModel)]="nombre"/>
+            </td>
+            <td *ngIf="user.id !== editRowId" (click)="toggle(user)">
+                {{user.nombre}}
+            </td>
+
+            <td *ngIf="user.id == editRowId">
+              <input type="text" size="6" [(ngModel)]="tipo"/>
+            </td>
+            <td *ngIf="user.id !== editRowId" (click)="toggle(user)">
+              {{user.tipo}}
+           </td>
+
+           <td *ngIf="user.id == editRowId">
+            <input type="text" size="14" [(ngModel)]="raza"/>
+            </td>
+            <td *ngIf="user.id !== editRowId" (click)="toggle(user)">
+              {{user.raza}}
+            </td>
+
+            <td *ngIf="user.id == editRowId">
+              <input type="number" size="3" [(ngModel)]="edad"/>
+            </td>
+            <td *ngIf="user.id !== editRowId" (click)="toggle(user)">
+                {{user.edad}}
+            </td>
+
+            <td *ngIf="user.id == editRowId">
+              <input type="text" [(ngModel)]="sexo" size="10"/>
+            </td>
+            <td *ngIf="user.id !== editRowId" (click)="toggle(user)">
+              {{user.sexo}}
+           </td>
+
+            <td *ngIf="user.id == editRowId">
+              <input type="text" [(ngModel)]="esterilizado" size="4"/>
+            </td>
+            <td *ngIf="user.id !== editRowId" (click)="toggle(user)">
+              {{user.esterilizado}}
+            </td>
+
+            <td *ngIf="user.id == editRowId">
+              <input type="text" [(ngModel)]="color" size="8"/>
+            </td>
+            <td *ngIf="user.id !== editRowId" (click)="toggle(user)">
+              {{user.color}}
+            </td>
+            <td *ngIf="user.id == editRowId">
+              <input type="text" [(ngModel)]="foto" size="8"/>
+            </td>
+            <td *ngIf="user.id !== editRowId" (click)="toggle(user)">
+              {{user.foto}}
+            </td>
+            <td *ngIf="user.id == editRowId">
+              <input type="text" [(ngModel)]="dueno" size="8"/>
+            </td>
+            <td *ngIf="user.id !== editRowId" (click)="toggle(user)">
+              {{user.dueno}}
+            </td>
+            <td *ngIf="user.id == editRowId">
+              <input type="number" [(ngModel)]="historial" size="20"/>
+            </td>
+            <td *ngIf="user.id !== editRowId" (click)="toggle(user)">
+              {{user.historial}}
+            </td>
+            <td *ngIf="user.id == editRowId">
+              <input type="number" [(ngModel)]="estado" size="20"/>
+            </td>
+            <td *ngIf="user.id !== editRowId" (click)="toggle(user)">
+              {{user.estado}}
+            </td>
+            
+
             <td>
-              <button class="btn btn-success" id="eliminar" (click)="deleteUser(animal)">X</button>
-          </td>
+                <button class="px-auto" id="eliminar" (click)="deleteUser(user)"><i class="fa fa-user-times"></i></button>
+            </td>
+            <td *ngIf="user.id == editRowId">
+              <button class="btn btn-success float-right mr-3" id="editar" (click)="onSubmit(user)" style="margin-left: 20px;">
+                <span class="spinner-border spinner-border-sm mr-1"></span>
+              </button>
+            </td>
             
-            
-          </tr>
-        </tbody>
-     </table>
 
+        </tr>
+      </tbody>
+    </table>
     
-    
-  </div>
+    <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
+</div>

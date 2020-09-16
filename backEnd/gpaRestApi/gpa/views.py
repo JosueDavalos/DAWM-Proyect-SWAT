@@ -254,6 +254,19 @@ def animal_detail(request, pk):
         animal.delete()
         return HttpResponse("Animal %s has been deleted successfully" % pk ,status=status.HTTP_204_NO_CONTENT)
 
+@csrf_exempt
+def animal_filter(request, tipo):
+    
+    animales = Animal.objects.filter(tipo=tipo)
+    
+    if request.method == 'GET': 
+        #adopciones = Adopcion.objects.all()
+        
+        serializer = AnimalSerializer(animales, many=True)
+        return JsonResponse(serializer.data, safe=False)
+
+
+
 
 @csrf_exempt
 def organizacion_list(request):
@@ -383,3 +396,13 @@ def adopcion_detail(request, pk):
     elif request.method == 'DELETE': 
         objeto.delete()
         return HttpResponse("La adopcion %s ha sido eliminada exitosamente" % pk ,status=status.HTTP_204_NO_CONTENT)
+
+
+@csrf_exempt
+def adopcion_filter_month(request, mes):
+    
+    adopciones = Adopcion.objects.filter(fecha__month=mes)
+        
+    if request.method == 'GET': 
+        serializer = AdopcionSerializer(adopciones, many=True)
+        return JsonResponse(serializer.data, safe=False)
