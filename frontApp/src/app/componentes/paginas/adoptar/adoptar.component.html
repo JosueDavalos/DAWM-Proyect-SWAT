@@ -57,14 +57,14 @@
     <div class="row">
         <div *ngFor="let mascota of animals" class="card col-5 mx-auto">
             <div class="d-flex flex-row">
-                <img   src="../../../../assets/img/{{mascota.tipo}}.jpg" alt="Card image cap">
+                <img   src="../../../../assets/img/{{mascota.tipo | titlecase}}.jpg" alt="Card image cap">
                 <div class="card-body">
                     <a routerLink="/detalle-mascota/{{mascota.id}}">
                         <h5 class="card-title">{{mascota.nombre | titlecase}}</h5>
                     </a>
                     <p class="card-text">{{mascota.tipo | titlecase}}</p>
                     <p class="card-text">{{mascota.raza | titlecase}}</p>
-                    <p class="card-text"> <strong>Esterilizado: </strong>  {{mascota.esterilizado | titlecase }}</p>
+                    <p class="card-text"> <strong>Esterilizado: </strong>  {{mascota.esterilizado | titlecase }} <strong class="ml-5">{{mascota.edad}} Años</strong> </p>
 
                 </div>
             </div>

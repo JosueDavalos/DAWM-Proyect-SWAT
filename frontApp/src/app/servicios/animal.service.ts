@@ -6,7 +6,7 @@ import { environment } from 'src/environments/environment';
 
 // The AnimalService could get animal data from anywhere—a
 // web service, local storage, or a mock data source.'
-import { Animal } from '../componentes/models/animal';
+import { Animal, Animal3 } from '../componentes/models/animal';
 // it instantiates the AnimalService class to provide the service. (make available to the dependecy injection)
 
 
@@ -19,9 +19,12 @@ export class AnimalService {
 
   constructor(private http: HttpClient) { }
 
+  getAll() {
+    return this.http.get<Animal3[]>(`${environment.apiUrl}/animal/`);
+  }
 
   getAnimals(): Promise<Animal[]> {
-    return this.http.get(`${environment.apiUrl}/animal/`)
+    return this.http.get<Animal[]>(`${environment.apiUrl}/animal/`)
     .toPromise()
     .then(response => response as Animal[]);
   }
@@ -33,18 +36,25 @@ export class AnimalService {
     .then(response => response as Animal[]);
   }
 
-  // getAnimal(id: number): Observable<Animal>{
-  //   console.log(`AnimalService: fetched animal id=${id}`)
-  //   return of(ANIMALS.find(animal => animal.id === id));
-  // }
+  getAnimalsAdoptados(): Promise<Animal[]> {
+    return this.http.get(`${environment.apiUrl}/animal/adoptados/`)
+    .toPromise()
+    .then(response => response as Animal[]);
+  }
+
+  getAnimalDetails(id){
+    return this.http.get(`${environment.apiUrl}/animal/${id}`)
+    .toPromise()
+    .then(response => response as Animal);
+  }
+
+  setAnimalAdoptado(id){
+    return this.http.put(`${environment.apiUrl}/animal/${id}`,'')
+    .toPromise()
+    .then().catch(res => res);
+  }
 
 
-  getAll(): Promise<Animal[]> {
-    return this.http.get(`${environment.apiUrl}/animal/`)
-            .toPromise()
-            .then(response => response as Animal[]);
-
-}
 
 
 }

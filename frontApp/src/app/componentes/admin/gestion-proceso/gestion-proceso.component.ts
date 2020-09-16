@@ -106,7 +106,6 @@ export class GestionProcesoComponent implements OnInit {
       'sexo':animal.agenero.value,
       'esterilizado':animal.aesteril.value,
       'color':animal.acolor.value,
-      'estado':null,
       // 'foto':animal.afoto.value,
       // 'dueno': this.infoPerson['cedula'],
     }

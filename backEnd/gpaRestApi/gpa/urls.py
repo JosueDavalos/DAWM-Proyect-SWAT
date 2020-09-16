@@ -16,7 +16,8 @@ urlpatterns = [
     url(r'^animal/$', views.animal_list), 
     url(r'^animal/(?P<pk>[0-9]+)$', views.animal_detail),
     url(r'^animal/EnAdopcion/$', views.animal_en_adopcion), 
-
+    url(r'^animal/adoptados/$', views.animal_adoptados), 
+    url(r'^animal/(?P<tipo>[a-z]+)$', views.animal_filter),
     
     #organizacion
     url(r'^organizacion/$', views.organizacion_list),
@@ -30,6 +31,8 @@ urlpatterns = [
        #formulario poner adopcion
     url(r'^adopcion/$', views.adopcion_list),
     url(r'^adopcion/(?P<pk>[0-9]+)$', views.adopcion_detail),
+    url(r'^adopcion/mes/(?P<mes>[0-9]+)$', views.adopcion_filter_month),
+    
  
    #contactanos
     url(r'^contactanos/$', views.contactanos),

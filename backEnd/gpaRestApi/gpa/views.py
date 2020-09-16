@@ -6,7 +6,7 @@ from rest_framework.parsers import JSONParser
 from rest_framework import status
 from django.shortcuts import get_object_or_404
  
-from gpa.models import Persona, Animal, Organizacion, FormularioPonerAdopcion,Adopcion
+from gpa.models import Persona, Animal, Organizacion, FormularioPonerAdopcion,Adopcion,EstadoAnimal
 from django.contrib.auth.models import User
 from gpa.serializers import PersonaSerializer, UsuarioSerializer, AnimalSerializer, OrganizacionSerializer, FormularioPonerAdopcionSerializer,AdopcionSerializer
 
@@ -203,7 +203,14 @@ def animal_list(request):
         animal_data = JSONParser().parse(request)
         animales_serializer = AnimalSerializer(data=animal_data)
         if animales_serializer.is_valid():
+            estado = None
+            try:
+                estado = EstadoAnimal.objects.filter(estado='E')[0]
+            except:
+                print('\tNo hay estado animal')
+            animales_serializer.save().estado=estado
             animales_serializer.save()
+
             return JsonResponse(animales_serializer.data, status=status.HTTP_201_CREATED) 
         return JsonResponse(animales_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
    
@@ -218,6 +225,13 @@ def animal_en_adopcion(request):
         animales_serializer = AnimalSerializer(animales, many=True)
         return JsonResponse(animales_serializer.data, safe=False)
  
+@csrf_exempt
+def animal_adoptados(request):
+    if request.method == 'GET':
+        animales = Animal.objects.filter(estado__estado='A')
+        animales_serializer = AnimalSerializer(animales, many=True)
+        return JsonResponse(animales_serializer.data, safe=False)
+
 @csrf_exempt 
 def animal_detail(request, pk):
     animal = get_object_or_404(Animal, pk=pk)
@@ -226,17 +240,33 @@ def animal_detail(request, pk):
         animal_serializer = AnimalSerializer(animal) 
         return JsonResponse(animal_serializer.data) 
     
+    #cambiar a adoptado
     elif request.method == 'PUT':
-        data = JSONParser().parse(request)
-        serializer = AnimalSerializer(animal, data=data)
-        if serializer.is_valid():
-            serializer.save()
-            return JsonResponse(serializer.data)
-        return JsonResponse(serializer.errors, status=400)
+        estado = None
+        try:
+            estado = EstadoAnimal.objects.filter(estado='A')[0]
+        except:
+            print('\tAnimal no puede ser adoptado')
+        animal.estado=estado
+        animal.save()
+        return JsonResponse(AnimalSerializer(animal).data)
 
     elif request.method == 'DELETE': 
         animal.delete()
         return HttpResponse("Animal %s has been deleted successfully" % pk ,status=status.HTTP_204_NO_CONTENT)
+
+@csrf_exempt
+def animal_filter(request, tipo):
+    
+    animales = Animal.objects.filter(tipo=tipo)
+    
+    if request.method == 'GET': 
+        #adopciones = Adopcion.objects.all()
+        
+        serializer = AnimalSerializer(animales, many=True)
+        return JsonResponse(serializer.data, safe=False)
+
+
 
 
 @csrf_exempt
@@ -380,3 +410,12 @@ def contactanos(request):
         recipient_list=["danjogalvez@gmail.com"]
         send_mail(subject,message,email_from,recipient_list)
         return HttpResponse("Gracias por contactarnos"  ,status=status.HTTP_200_OK)
+
+@csrf_exempt
+def adopcion_filter_month(request, mes):
+    
+    adopciones = Adopcion.objects.filter(fecha__month=mes)
+        
+    if request.method == 'GET': 
+        serializer = AdopcionSerializer(adopciones, many=True)
+        return JsonResponse(serializer.data, safe=False)
