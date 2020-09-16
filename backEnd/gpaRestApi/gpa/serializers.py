@@ -1,5 +1,5 @@
 from rest_framework import serializers 
-from gpa.models import Persona, Animal, Adopcion, FormularioPonerAdopcion, Ubicacion, Organizacion
+from gpa.models import Persona, Animal, Adopcion, FormularioPonerAdopcion, Ubicacion, Organizacion, EstadoAnimal
 from django.contrib.auth.models import User
 
 
@@ -44,7 +44,8 @@ class AnimalSerializer(serializers.ModelSerializer):
                   'esterilizado', 
                   'color',
                   'foto',
-                  )
+                  'estado')
+        depth=1
 
 
 class OrganizacionSerializer(serializers.ModelSerializer):
@@ -78,7 +79,11 @@ class AdopcionSerializer(serializers.ModelSerializer):
                   'fecha')
     #    depth = 1
 
-
+class EstadoAnimalSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = EstadoAnimal
+        fields = ('id',
+                  'estado')
 
 
 #Cargar datos a la base
@@ -86,6 +91,14 @@ def load_data():
     from datetime import datetime
     import pandas as pd
     import django
+    import random as rd
+
+    #ESTADO ANIMAL
+    estados = []
+    for estado in ['A','E','C','P']:
+        estado_animal = EstadoAnimal.objects.create(estado=estado)
+        estado_animal.save()    
+        estados.append(estado_animal)
 
 
     #ANIMALES
@@ -95,7 +108,7 @@ def load_data():
     l = ['name','animal_type','breed','date_of_birth','sex','Spay/Neuter','color1']
     for data in df[l].head(100).values:
         nombre, tipo, raza, edad, sexo, esterilizado, color = list(data) 
-        animal = Animal.objects.create(nombre=nombre, tipo=tipo, raza=raza, edad= edad, sexo=sexo, esterilizado=esterilizado, color=color)
+        animal = Animal.objects.create(nombre=nombre, tipo=tipo, raza=raza, edad= edad, sexo=sexo, esterilizado=esterilizado, color=color, estado=rd.choice(estados))
         animal.save()
     print("Animales cargados....OK")
 
@@ -140,7 +153,7 @@ def load_data():
     print("Formularios cargados....ok")
                             
 
-    USER
+    #USER
     admin = User.objects.create_user('admin', 'jedavalo@espol.edu.ec', 'admin', is_superuser=True, is_staff=True)
     josue = User.objects.create_user('josue', 'jedavalo@espol.edu.ec', 'josue')
     bryan = User.objects.create_user('bryan', 'bryan@espol.edu.ec', 'bryan')

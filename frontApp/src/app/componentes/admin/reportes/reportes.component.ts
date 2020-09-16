@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ANIMALS } from '../../../mock-animals';
+// import { ANIMALS } from '../../../mock-animals';
 
 @Component({
   selector: 'app-reportes',
@@ -8,7 +8,7 @@ import { ANIMALS } from '../../../mock-animals';
 })
 export class ReportesComponent implements OnInit {
   
-  mascotas = ANIMALS;
+  // mascotas = ANIMALS;
   constructor() { }
 
   ngOnInit(): void {
