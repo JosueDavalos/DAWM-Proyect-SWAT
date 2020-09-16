@@ -44,6 +44,8 @@ class AnimalSerializer(serializers.ModelSerializer):
                   'esterilizado', 
                   'color',
                   'foto',
+                  'dueno',
+                  'historial',
                   'estado')
         depth=1
 
@@ -77,7 +79,7 @@ class AdopcionSerializer(serializers.ModelSerializer):
                   'idUsuario',
                   'idAnimal',
                   'fecha')
-    #    depth = 1
+        depth = 1
 
 class EstadoAnimalSerializer(serializers.ModelSerializer):
     class Meta:

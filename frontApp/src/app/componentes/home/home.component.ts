@@ -116,7 +116,7 @@ export class HomeComponent implements OnInit {
       unombres: ['',  [Validators.required]],
       unacimiento: ['', [Validators.required]],
       uemail: ['', [Validators.required, Validators.email]],
-      umensaje: ['', [Validators.required]],//, Validators.maxLength(200)]],
+      umensaje: ['', [Validators.required, Validators.maxLength(200)]],
       utelf: ['', [Validators.required]],
       uciudad: ['', [Validators.required]]
     });
@@ -151,10 +151,11 @@ export class HomeComponent implements OnInit {
       'mensaje': person.umensaje.value,
       'cargo':'E'
     };
-    console.log('antes del post')
    // this.http.post(`${environment.apiUrl}/persona/`, this.infoPerson).toPromise().catch(res => console.log(res));
-    this.http.post(`${environment.apiUrl}/contactanos/`, this.infoPerson).toPromise().catch(res => console.log(res));
-    console.log('despues del post')
-    console.log(this.infoPerson);
+    this.http.post(`${environment.apiUrl}/contactanos-home/`, {
+      'email': this.infoPerson['email'],
+      'mensaje' : this.infoPerson['mensaje'],
+      
+    }).toPromise().then().catch(res => console.log(res));
   }
 }

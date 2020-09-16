@@ -1,3 +1,5 @@
+import { Persona } from './persona';
+
 // simulating the server
 export class Animal2 {
     id: number;
@@ -38,10 +40,21 @@ export class Animal3{
     esterilizado: string;
     color: string;
     foto: string;
-    /*contacto: string;
-    motivo: string;
-    vacunas: string;*/
+
     dueno :string;
     historial:number;
-    estado:number;
+    estado:EstadoAnimal;
+}
+
+export enum Estado {
+    Adoptado = 'A',
+    En_adopcion = 'E',
+    Colonia = 'C',
+    Preservado = 'P'
+}
+
+
+export class EstadoAnimal{
+    id :number;
+    estado:Estado;
 }

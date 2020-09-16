@@ -200,16 +200,20 @@ def animal_list(request):
         return JsonResponse(animales_serializer.data, safe=False)
 
     elif request.method == 'POST':
+        
         animal_data = JSONParser().parse(request)
+        
         animales_serializer = AnimalSerializer(data=animal_data)
+        print(animales_serializer)
         if animales_serializer.is_valid():
             estado = None
+            animales_serializer.save()
             try:
                 estado = EstadoAnimal.objects.filter(estado='E')[0]
             except:
                 print('\tNo hay estado animal')
             animales_serializer.save().estado=estado
-            animales_serializer.save()
+            
 
             return JsonResponse(animales_serializer.data, status=status.HTTP_201_CREATED) 
         return JsonResponse(animales_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -338,7 +342,6 @@ def formularioPonerAdopcion_list(request):
 @csrf_exempt 
 def formularioPonerAdopcion_detail(request, pk):
     formulario = get_object_or_404( FormularioPonerAdopcion, pk=pk)
-    # NOT YET GET MODEL BASED ERROR
     if request.method == 'GET': 
         formulario_serializer = FormularioPonerAdopcionSerializer(formulario) 
         return JsonResponse(formulario_serializer.data) 
@@ -368,8 +371,8 @@ def adopcion_list(request):
         objeto_serializer = AdopcionSerializer(data=objeto_data)
 
         if objeto_serializer.is_valid():
-            objeto_data['persona'] = Persona.objects.get(pk=formulario_data['persona'])
-            objeto_data['animal'] = Animal.objects.get(pk=formulario_data['animal'])
+            objeto_data['idUsuario'] = Persona.objects.get(pk=objeto_data['idUsuario'])
+            objeto_data['idAnimal'] = Animal.objects.get(pk=objeto_data['idAnimal'])
             Adopcion.objects.create(**objeto_data).save()
 
             return HttpResponse('Formulario has been successfully created', status=status.HTTP_201_CREATED) 
@@ -407,6 +410,19 @@ def contactanos(request):
 
         email_from = settings.EMAIL_HOST_USER
         send_mail('Mascota en adopcion!', mensaje, email_from , [email])
+        return HttpResponse("Gracias por contactarnos"  ,status=status.HTTP_200_OK)
+
+@csrf_exempt 
+def contactanos_home(request):
+    if  request.method=='POST':
+        data = JSONParser().parse(request)
+        email = data['email']
+        mensaje = data['mensaje']
+        admin_email = 'eunicegalvez17@gmail.com'
+        mensaje = 'Un nuevo usuario se desea contactar con GPA\nCorreo: %s\nMensaje: %s' %(email,mensaje)
+
+        email_from = settings.EMAIL_HOST_USER
+        send_mail('Formulario de información', mensaje, email_from , [admin_email])
         return HttpResponse("Gracias por contactarnos"  ,status=status.HTTP_200_OK)
 
 @csrf_exempt

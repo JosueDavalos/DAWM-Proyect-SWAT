@@ -16,6 +16,12 @@ export class UserService {
         return this.http.get<Persona[]>(`${environment.apiUrl}/persona/`);
     }
 
+    getPersonas(): Promise<Persona[]> {
+        return this.http.get<Persona[]>(`${environment.apiUrl}/persona/`)
+        .toPromise()
+        .then(response => response as Persona[]);
+      }
+
     put(persona,pk) {
         return this.http.put<Persona>(`${environment.apiUrl}/persona/`+pk,JSON.stringify(persona))
             .pipe(map(answer => {
