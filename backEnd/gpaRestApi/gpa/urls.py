@@ -36,5 +36,6 @@ urlpatterns = [
  
    #contactanos
     url(r'^contactanos/$', views.contactanos),
+    url(r'^contactanos-home/$', views.contactanos_home),
 
 ]

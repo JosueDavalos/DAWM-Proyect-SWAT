@@ -409,6 +409,18 @@ def contactanos(request):
         send_mail('Mascota en adopcion!', mensaje, email_from , [email])
         return HttpResponse("Gracias por contactarnos"  ,status=status.HTTP_200_OK)
 
+@csrf_exempt 
+def contactanos_home(request):
+    if  request.method=='POST':
+        data = JSONParser().parse(request)
+        email = data['email']
+        mensaje = data['mensaje']
+        admin_email = 'eunicegalvez17@gmail.com'
+        mensaje = 'Un nuevo usuario se desea contactar con GPA\nCorreo: %s\nMensaje: %s' %(email,mensaje)
+
+        email_from = settings.EMAIL_HOST_USER
+        send_mail('Formulario de información', mensaje, email_from , [admin_email])
+        return HttpResponse("Gracias por contactarnos"  ,status=status.HTTP_200_OK)
 @csrf_exempt
 def adopcion_filter_month(request, mes):
     
