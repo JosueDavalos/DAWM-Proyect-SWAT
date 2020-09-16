@@ -3,6 +3,9 @@ import { User } from '../models';
 import { UserService, AuthenticationService } from 'src/app/servicios';
 import { first } from 'rxjs/operators';
 import * as introJs from 'intro.js/intro.js';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +13,13 @@ import * as introJs from 'intro.js/intro.js';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
- introJS = introJs();
+  contactanosForm : FormGroup;
+
+  infoPerson = null;
+  errorForm = 'si';
+
+
+  introJS = introJs();
   loading = false;
   currentUser: User;
   userFromApi: User;
@@ -20,36 +29,43 @@ export class HomeComponent implements OnInit {
   
 
   constructor(
-    private userService: UserService,
-    private authenticationService: AuthenticationService
-  ) {
+                private formBuilder: FormBuilder,
+                private http: HttpClient,
+                private userService: UserService,
+                private authenticationService: AuthenticationService
+             ) 
+  {
+
+    this.buildForm();
+
     this.currentUser = this.authenticationService.currentUserValue;
 
     this.introJS.setOptions({
-      steps: [
-      {
-         element: '#step1',
-         intro: 'Adopta un corazón',
-         position: 'bottom'
-      },
-      {
-        element: '#noticias',
-        intro: 'Historias de nuestros adoptados',
-        position: 'top'
-      },
-      {
-        element: '#step3',
-        intro: 'Estos son nuestros servicios',
-        position: 'top'
-      },
-      {
-        element: '#step4',
-        intro: 'Contáctate con nosotros',
-        position: 'bottom'
-      }
-   ],
-   showProgress: true
-  });
+      steps: 
+      [
+        {
+          element: '#step1',
+          intro: 'Adopta un corazón',
+          position: 'bottom'
+        },
+        {
+          element: '#noticias',
+          intro: 'Historias de nuestros adoptados',
+          position: 'top'
+        },
+        {
+          element: '#step3',
+          intro: 'Estos son nuestros servicios',
+          position: 'top'
+        },
+        {
+          element: '#step4',
+          intro: 'Contáctate con nosotros',
+          position: 'bottom'
+        }
+      ],
+      showProgress: true
+    });
 
   }
 
@@ -95,5 +111,49 @@ export class HomeComponent implements OnInit {
   }
 
 
+  private buildForm() {
+    this.contactanosForm = this.formBuilder.group({
+      unombres: ['',  [Validators.required]],
+      ucedula: ['',  [Validators.required]],
+      unacimiento: ['', [Validators.required]],
+      uemail: ['', [Validators.required, Validators.email]],
+      umensaje: ['', [Validators.required, Validators.maxLength(200)]],
+      utelf: ['', [Validators.required]],
+      uciudad: ['', [Validators.required]]
+    });
 
+    this.contactanosForm.valueChanges
+    .subscribe(value => {
+      console.log(value);
+    });
+  }
+  save(event: Event) {
+    event.preventDefault();
+    const value = this.contactanosForm.value;
+    console.log(value);
+  }
+  person_form_validator(){
+    if (this.contactanosForm.invalid) {
+      this.errorForm = 'si';
+      return;
+    }
+
+    this.errorForm = 'no';
+    const person = this.contactanosForm.controls;
+    this.infoPerson = {
+      'cedula':person.ucedula.value, 
+      'nombre':person.unombres.value,
+      'fechaNacimiento':person.unacimiento.value,
+      'telefono':person.utelf.value,
+      'ciudad':person.uciudad.value,
+      'email':person.uemail.value,
+      'mensaje': person.umensaje.value,
+      'cargo':'E'
+    };
+    
+   // this.http.post(`${environment.apiUrl}/persona/`, this.infoPerson).toPromise().catch(res => console.log(res));
+    this.http.post(`${environment.apiUrl}/contactanos/`, this.infoPerson).toPromise().catch(res => console.log(res));
+
+    console.log(this.infoPerson);
+  }
 }

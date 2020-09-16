@@ -127,43 +127,47 @@
             <h2 class="section-heading text-uppercase">Contáctanos</h2>
             <h3 class="section-subheading text-white font-weight-bold ">Si deseas comunicarte con nosotros no dudes en escribirnos</h3>
         </div>
-        <form id="contactForm" name="sentMessage" novalidate="novalidate">
-            <div class="row align-items-stretch mb-5">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <input class="form-control" id="name" type="text" placeholder="Nombre Completo *" required="required" data-validation-required-message="Nombre incompleto." />
-                        <p class="help-block text-danger"></p>
+            <form [formGroup]="contactanosForm" (ngSubmit)= "save($event)" id="contactForm" name="sentMessage" novalidate="novalidate">
+                <!--fieldset [formGroup]="personaForm"> </fieldset-->
+
+                    <div class="row align-items-stretch mb-5">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input class="form-control" id="name" type="text" placeholder="Nombre Completo *" required="required" data-validation-required-message="Nombre incompleto." formControlName="unombres"/>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" id="birth" type="text" onfocus="(this.type='date')" placeholder="Fecha de nacimiento *" required="required" data-validation-required-message="Fecha de nacimiento incompleta." formControlName="unacimiento"/>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" id="email" type=="email" placeholder="Correo *" required="required" data-validation-required-message="Correo incompleto." formControlName="uemail"/>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group mb-md-0">
+                                <input class="form-control" id="phone" type="tel" placeholder="Telefono *" required="required" data-validation-required-message="Teléfono incompleto" formControlName="utelf" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input class="form-control" list="cities" name="city" id="city" placeholder="Ciudad *" required="required" data-validation-required-message="Ciudad incompleta" formControlName="uciudad" >
+                                <datalist id="cities">
+                                </datalist>
+                            <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group form-group-textarea">
+                                <textarea class="form-control" id="message" placeholder="Su mensaje *" required="required" data-validation-required-message="Mensaje vacío." formControlName="umensaje"></textarea>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <input class="form-control" id="birth" type="text" onfocus="(this.type='date')" placeholder="Fecha de nacimiento *" required="required" data-validation-required-message="Fecha de nacimiento incompleta." />
-                        <p class="help-block text-danger"></p>
+                    <div class="text-center">
+                        <div id="success"></div>
+                        <button class="btn btn-primary btn-xl text-uppercase" id="sendMessageButton" type="submit" >Enviar Mensaje</button>
                     </div>
-                    <div class="form-group">
-                        <input class="form-control" id="email" type="email" placeholder="Correo *" required="required" data-validation-required-message="Correo incompleto." />
-                        <p class="help-block text-danger"></p>
-                    </div>
-                    <div class="form-group mb-md-0">
-                        <input class="form-control" id="phone" type="tel" placeholder="Telefono *" required="required" data-validation-required-message="Telefono incompleto" />
-                        <p class="help-block text-danger"></p>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <input class="form-control" list="cities" name="city" id="city" placeholder="Ciudad *" required="required" data-validation-required-message="Cuidad incompleta" >
-                        <datalist id="cities">
-                        </datalist>
-                      <p class="help-block text-danger"></p>
-                    </div>
-                    <div class="form-group form-group-textarea">
-                        <textarea class="form-control" id="message" placeholder="Su mensaje *" required="required" data-validation-required-message="Mensaje vacío."></textarea>
-                        <p class="help-block text-danger"></p>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center">
-                <div id="success"></div>
-                <button class="btn btn-primary btn-xl text-uppercase" id="sendMessageButton" type="submit">Enviar Mensaje</button>
-            </div>
-        </form>
+
+            </form>
+        
     </div>
 </section>

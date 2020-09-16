@@ -10,7 +10,8 @@ from gpa.models import Persona, Animal, Organizacion, FormularioPonerAdopcion,Ad
 from django.contrib.auth.models import User
 from gpa.serializers import PersonaSerializer, UsuarioSerializer, AnimalSerializer, OrganizacionSerializer, FormularioPonerAdopcionSerializer,AdopcionSerializer
 
-
+from django.core.mail import send_mail
+from django.conf import settings
 
 #Personas
 '''
@@ -354,3 +355,12 @@ def adopcion_detail(request, pk):
     elif request.method == 'DELETE': 
         objeto.delete()
         return HttpResponse("La adopcion %s ha sido eliminada exitosamente" % pk ,status=status.HTTP_204_NO_CONTENT)
+
+def contactanos(request):
+    if  request.method=='POST':
+        subject = "Formulario de información"
+        message = request.POST["MENSAJE"] + " " + request.POST["email"]
+        email_from = settings.EMAIL_HOST_USER
+        recipient_list=["danjogalvez@gmail.com"]
+        send_mail(subject,message,email_from,recipient_list)
+        return HttpResponse("Gracias por contactarnos"  ,status=status.HTTP_200_OK)

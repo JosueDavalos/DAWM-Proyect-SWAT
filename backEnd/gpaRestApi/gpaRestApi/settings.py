@@ -105,10 +105,10 @@ WSGI_APPLICATION = 'gpaRestApi.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'gpa',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': 'localhost',
+        'NAME': 'gpa_dawm',
+        'USER': 'usuario_gpa',
+        'PASSWORD': 'usuario_gpa',
+        'HOST': 'te-learning.com',
         'PORT': '3306'
     }
 }
@@ -151,3 +151,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "eunicegalvez17@gmail.com"
+EMAIL_HOST_PASSWORD = "soundofebola"

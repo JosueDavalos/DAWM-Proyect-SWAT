@@ -29,5 +29,7 @@ urlpatterns = [
     url(r'^adopcion/$', views.adopcion_list),
     url(r'^adopcion/(?P<pk>[0-9]+)$', views.adopcion_detail),
  
-   
+   #contactanos
+    url(r'^contactanos/$', views.contactanos),
+
 ]
