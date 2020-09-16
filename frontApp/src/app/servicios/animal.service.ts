@@ -33,10 +33,22 @@ export class AnimalService {
     .then(response => response as Animal[]);
   }
 
+  getAnimalsAdoptados(): Promise<Animal[]> {
+    return this.http.get(`${environment.apiUrl}/animal/adoptados/`)
+    .toPromise()
+    .then(response => response as Animal[]);
+  }
+
   getAnimalDetails(id){
     return this.http.get(`${environment.apiUrl}/animal/${id}`)
     .toPromise()
     .then(response => response as Animal);
+  }
+
+  setAnimalAdoptado(id){
+    return this.http.put(`${environment.apiUrl}/animal/${id}`,'')
+    .toPromise()
+    .then().catch(res => res);
   }
 
 

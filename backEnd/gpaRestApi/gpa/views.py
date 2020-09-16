@@ -204,12 +204,12 @@ def animal_list(request):
         if animales_serializer.is_valid():
             estado = None
             try:
-                estado = EstadoAnimal.objects.get(estado='E')
+                estado = EstadoAnimal.objects.filter(estado='E')[0]
             except:
                 print('\tNo hay estado animal')
             animales_serializer.save().estado=estado
             animales_serializer.save()
-            
+
             return JsonResponse(animales_serializer.data, status=status.HTTP_201_CREATED) 
         return JsonResponse(animales_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
    
@@ -224,6 +224,13 @@ def animal_en_adopcion(request):
         animales_serializer = AnimalSerializer(animales, many=True)
         return JsonResponse(animales_serializer.data, safe=False)
  
+@csrf_exempt
+def animal_adoptados(request):
+    if request.method == 'GET':
+        animales = Animal.objects.filter(estado__estado='A')
+        animales_serializer = AnimalSerializer(animales, many=True)
+        return JsonResponse(animales_serializer.data, safe=False)
+
 @csrf_exempt 
 def animal_detail(request, pk):
     animal = get_object_or_404(Animal, pk=pk)
@@ -232,13 +239,16 @@ def animal_detail(request, pk):
         animal_serializer = AnimalSerializer(animal) 
         return JsonResponse(animal_serializer.data) 
     
+    #cambiar a adoptado
     elif request.method == 'PUT':
-        data = JSONParser().parse(request)
-        serializer = AnimalSerializer(animal, data=data)
-        if serializer.is_valid():
-            serializer.save()
-            return JsonResponse(serializer.data)
-        return JsonResponse(serializer.errors, status=400)
+        estado = None
+        try:
+            estado = EstadoAnimal.objects.filter(estado='A')[0]
+        except:
+            print('\tAnimal no puede ser adoptado')
+        animal.estado=estado
+        animal.save()
+        return JsonResponse(AnimalSerializer(animal).data)
 
     elif request.method == 'DELETE': 
         animal.delete()

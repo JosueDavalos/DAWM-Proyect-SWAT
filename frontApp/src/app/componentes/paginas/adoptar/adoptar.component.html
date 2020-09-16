@@ -57,7 +57,7 @@
     <div class="row">
         <div *ngFor="let mascota of animals" class="card col-5 mx-auto">
             <div class="d-flex flex-row">
-                <img   src="../../../../assets/img/{{mascota.tipo}}.jpg" alt="Card image cap">
+                <img   src="../../../../assets/img/{{mascota.tipo | titlecase}}.jpg" alt="Card image cap">
                 <div class="card-body">
                     <a routerLink="/detalle-mascota/{{mascota.id}}">
                         <h5 class="card-title">{{mascota.nombre | titlecase}}</h5>

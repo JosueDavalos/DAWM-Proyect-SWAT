@@ -14,12 +14,9 @@ export class MascotasAdoptadasComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    // this.getAnimals();
+    this.animalService.getAnimalsAdoptados().then(animales => this.animals = animales);
   }
-  // getAnimals(): void {
-  //   this.animalService.getAnimals()
-  //   .subscribe(animals => this.animals = animals);
-  // }
+
 
 }
 

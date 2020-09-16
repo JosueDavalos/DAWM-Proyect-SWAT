@@ -8,6 +8,18 @@
 
 <section id="information">
     <div class="container">
+        <div *ngIf="enviada" class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Solicitud enviada!</strong> En los proximos días tendrás un nuevo amigo.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div *ngIf="error" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Upss!</strong> Algo salió mal.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
 
         <div *ngIf="animal">
             <div class="card">
@@ -67,7 +79,7 @@
                 <div class="container-fluid" id="ponerAdopcion">
                     <div class="row justify-content-center">
                         <div class="col-11 col-sm-9 col-md-9 col-lg-10 text-center card-solicitud">
-                            <form id="msform">
+                            <form id="msform" [formGroup]="personaFrom">
                                 <fieldset>
                                     <div class="form-card">
                                         <h2 class="fs-title mb-3">Información personal</h2> 
@@ -78,9 +90,9 @@
                                             <label class="col-4 ml-4 d-none d-xl-inline-block" for="ulastname">Apellidos</label> 
                                         </div>
                                         <div class="form-row">
-                                            <div class="col-12 col-lg-3"><input type="text" id="cedula" name="user-cedula" placeholder="Cédula" /></div>
-                                            <div class="col-12 col-lg-4 ml-lg-4"><input type="text" id="uname" name="uname" placeholder="Nombres" /></div>
-                                            <div class="col-12 col-lg-4 ml-lg-4"><input id="ulastname" type="text" name="ulastname" placeholder="Apellidos" /></div>   
+                                            <div class="col-12 col-lg-3"><input type="text" id="cedula" name="user-cedula" placeholder="Cédula" formControlName="ucedula"/></div>
+                                            <div class="col-12 col-lg-4 ml-lg-4"><input type="text" id="uname" name="uname" placeholder="Nombres" formControlName="unombres"/></div>
+                                            <div class="col-12 col-lg-4 ml-lg-4"><input id="ulastname" type="text" name="ulastname" placeholder="Apellidos" formControlName="uapellidos"/></div>   
                                         </div>
                                         
                                         <div class="form-row">
@@ -88,10 +100,10 @@
                                             <label class="col-2  d-none d-xl-inline-block" for="gender">Género</label> 
                                         </div>
                                         <div class="form-row">
-                                            <div class="col-7 col-lg-2 ml-lg-0 user-age"> <input type="text" onfocus="(this.type='date')" id="user-age" name="user-age" placeholder="Fecha Nacimiento" /> </div>
+                                            <div class="col-7 col-lg-2 ml-lg-0 user-age"> <input type="text" onfocus="(this.type='date')" id="user-age" name="user-age" placeholder="Fecha Nacimiento" formControlName="unacimiento" /> </div>
                                             <div class="col-5 col-lg-1 ml-lg-5">
-                                                <select class="list-dt" id="gender" name="gender">
-                                                    <option selected>Género</option>
+                                                <select class="list-dt" id="gender" name="gender" formControlName="ugender">
+                                                    <option [ngValue]="null" selected>Género</option>
                                                     <option>Masculino</option>
                                                     <option>Femenino</option>
                                                     <option>Otros</option>
@@ -106,9 +118,9 @@
                                             <label class="col-3 ml-md-4 d-none d-xl-inline-block" for="celular">Celular</label> 
                                         </div>
                                         <div class="form-row">
-                                            <div class="col-12 col-lg-5"><input type="email" id="email"  name="email" placeholder="Correo" /> </div>
-                                            <div class="col-12 col-lg-3 mx-auto mx-xl-4"><input type="tel" name="phone" id="phone" placeholder="Telefono"></div>
-                                            <div class="col-12 col-lg-3 mx-auto mx-xl-0"><input type="tel" name="celular" id="celular" placeholder="Celular"></div>
+                                            <div class="col-12 col-lg-5"><input type="email" id="email"  name="email" placeholder="Correo" formControlName="uemail" /> </div>
+                                            <div class="col-12 col-lg-3 mx-auto mx-xl-4"><input type="tel" name="phone" id="phone" placeholder="Telefono" formControlName="utelf"></div>
+                                            <div class="col-12 col-lg-3 mx-auto mx-xl-0"><input type="tel" name="celular" id="celular" placeholder="Celular" formControlName="ucelular"></div>
                                         </div>
     
                                         <div class="from-row">
@@ -116,8 +128,8 @@
                                             <label class="col-5 ml-lg-4 d-none d-xl-inline-block" for="user-cuidad">Ciudad</label>
                                         </div>
                                         <div class="form-row">
-                                            <div class="col-12 col-xl-5"><input type="text" name="address" placeholder="Dirección" /></div>
-                                            <div class="col-12 col-lg-3 ml-lg-4"><input type="text" id="user-cuidad" name="user-cuidad" placeholder="Cuidad" /></div>
+                                            <div class="col-12 col-xl-5"><input type="text" name="address" placeholder="Dirección" formControlName="udireccion"/></div>
+                                            <div class="col-12 col-lg-3 ml-lg-4"><input type="text" id="user-cuidad" name="user-cuidad" placeholder="Cuidad" formControlName="uciudad"/></div>
                                         </div>
     
                                     </div> 
@@ -131,7 +143,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-success">Enviar</button>
+          <button (click)="person_form_validator()" type="button" class="btn btn-success" data-dismiss="modal">Enviar</button>
         </div>
       </div>
     </div>
