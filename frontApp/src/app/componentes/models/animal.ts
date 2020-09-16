@@ -28,3 +28,20 @@ export class Animal{
     motivo: string;
     vacunas: string;
 }
+export class Animal3{
+    id: number;
+    nombre: string;
+    tipo: string;
+    raza: string;
+    edad: number;
+    sexo: string;
+    esterilizado: string;
+    color: string;
+    foto: string;
+    /*contacto: string;
+    motivo: string;
+    vacunas: string;*/
+    dueno :string;
+    historial:number;
+    estado:number;
+}
