@@ -86,11 +86,13 @@ class Animal(models.Model):
     sexo = models.CharField(max_length=20)
     esterilizado = models.CharField(max_length=3)
     color = models.CharField(max_length=20)
+    foto = models.ImageField(upload_to='animals/pictures', blank=True, null=True)
     # ubicacion = models.CharField(max_length=200, null=False) #REVISAR SI VA ESTO
     # descripcion = models.CharField(max_length=200)#REVISAR SI VA ESTO
     dueno = models.ForeignKey(Persona, on_delete=models.SET_NULL, null=True) #SI SE CAMBIA LA TABLA USUARIO MODIFICAR ESTO
     historial = models.ForeignKey(HistorialMedico, on_delete=models.SET_NULL, null=True)
     estado = models.ForeignKey(EstadoAnimal, on_delete=models.SET_NULL, null=True)
+
     def __str__(self):
             return self.nombre
 
@@ -101,11 +103,11 @@ class FotoAnimal(models.Model):
 
 class Adopcion(models.Model):
     id = models.AutoField(primary_key=True)
-    persona = models.ForeignKey(Persona, on_delete=models.CASCADE, related_name='adopciones')
-    animal = models.ForeignKey(Animal, on_delete=models.CASCADE)
-    fecha = models.DateTimeField()
+    idUsuario = models.ForeignKey(Persona, on_delete=models.CASCADE, related_name='adopciones')
+    idAnimal = models.ForeignKey(Animal, on_delete=models.CASCADE)
+    fecha = models.DateTimeField(auto_now_add=True, blank=True)
     def __str__(self):
-        return "Id:%s\nUsuario: %s\nAnimal:%s\nFecha:%s" %(self.id,self.persona,self.animal,self.fecha)
+        return "Id:%s\nUsuario: %s\nAnimal:%s\nFecha:%s" %(self.id,self.idUsuario,self.idAnimal,self.fecha)
 
 class Ubicacion(models.Model):
     id = models.AutoField(primary_key=True)

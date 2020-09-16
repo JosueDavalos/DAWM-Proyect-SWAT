@@ -43,7 +43,7 @@ class AnimalSerializer(serializers.ModelSerializer):
                   'sexo', 
                   'esterilizado', 
                   'color',
-                  'dueno'
+                  'foto',
                   )
 
 
@@ -67,7 +67,7 @@ class FormularioPonerAdopcionSerializer(serializers.ModelSerializer):
                   'motivo',
                   'fecha',
                   'ubicacion')
-       # depth = 1
+        depth = 1
 
 class AdopcionSerializer(serializers.ModelSerializer):
     class Meta:
@@ -76,7 +76,7 @@ class AdopcionSerializer(serializers.ModelSerializer):
                   'persona',
                   'animal',
                   'fecha')
-       # depth = 1
+    #    depth = 1
 
 
 
@@ -169,5 +169,5 @@ def load_data():
 
 
 
-# load_data() #Desconmentar si se quiere agregar datos, cuando haces migrate tambien se corre esta linea
+load_data() #Desconmentar si se quiere agregar datos, cuando haces migrate tambien se corre esta linea
 

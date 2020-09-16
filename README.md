@@ -10,6 +10,7 @@ npm install @angular/localize --save
 npm install --save-dev @angular-devkit/build-angular
 npm install --save intro.js
 npm install --save @types/intro.js
+npm install ngx-pagination --save
 ```
 
 ## Ejecución

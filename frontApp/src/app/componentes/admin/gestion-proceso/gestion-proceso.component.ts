@@ -53,6 +53,8 @@ export class GestionProcesoComponent implements OnInit {
       araza: ['', Validators.required],
       aesteril: [null, Validators.required],
       acolor: ['', Validators.required],
+      afoto: ['', Validators.required],
+
 
     });
 
@@ -92,7 +94,7 @@ export class GestionProcesoComponent implements OnInit {
 
   animal_form_validator(){
     if (this.animalFrom.invalid) {
-      this.errorForm = 'no';
+      this.errorForm = 'si';
       return;
     }
 
@@ -107,6 +109,7 @@ export class GestionProcesoComponent implements OnInit {
       'esterilizado':animal.aesteril.value,
       'color':animal.acolor.value,
       'estado':null,
+      'foto':animal.afoto.value,
       // 'dueno': this.infoPerson['cedula'],
     }
     this.http.post(`${environment.apiUrl}/animal/`, this.infoAnimal).toPromise()
@@ -116,7 +119,7 @@ export class GestionProcesoComponent implements OnInit {
 
   motivo_form_validator(){
     if (this.motivoFrom.invalid) {
-      this.errorForm = 'no';
+      this.errorForm = 'si';
       return;
     }
     this.errorForm = 'no';
