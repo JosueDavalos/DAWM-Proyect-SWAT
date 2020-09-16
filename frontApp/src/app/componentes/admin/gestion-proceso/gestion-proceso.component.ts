@@ -125,7 +125,9 @@ export class GestionProcesoComponent implements OnInit {
     this.infoMotivo['persona'] = this.infoPerson['cedula'];
     console.log(this.infoMotivo);
     this.http.post(`${environment.apiUrl}/formularioPonerAdopcion/`, this.infoMotivo).toPromise().then().catch(res => console.log(res));
-    //this.http.post(`${environment.apiUrl}/contactanos/`, this.infoMotivo).toPromise().then().catch(res => console.log(res));
+    this.http.post(`${environment.apiUrl}/contactanos/`, {
+      'email': this.infoPerson['email']
+    }).toPromise().then().catch(res => console.log(res));
   }
 
  
