@@ -141,7 +141,7 @@
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group">
-                                <input class="form-control" id="email" type=="email" placeholder="Correo *" required="required" data-validation-required-message="Correo incompleto." formControlName="uemail"/>
+                                <input class="form-control" id="email" type="email" placeholder="Correo *" required="required" data-validation-required-message="Correo incompleto." formControlName="uemail"/>
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group mb-md-0">
@@ -164,7 +164,7 @@
                     </div>
                     <div class="text-center">
                         <div id="success"></div>
-                        <button class="btn btn-primary btn-xl text-uppercase" id="sendMessageButton" type="submit" >Enviar Mensaje</button>
+                        <button (click)="person_form_validator()" class="btn btn-primary btn-xl text-uppercase" id="sendMessageButton" type="submit" >Enviar Mensaje</button>
                     </div>
 
             </form>

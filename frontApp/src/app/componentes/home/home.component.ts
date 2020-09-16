@@ -114,10 +114,9 @@ export class HomeComponent implements OnInit {
   private buildForm() {
     this.contactanosForm = this.formBuilder.group({
       unombres: ['',  [Validators.required]],
-      ucedula: ['',  [Validators.required]],
       unacimiento: ['', [Validators.required]],
       uemail: ['', [Validators.required, Validators.email]],
-      umensaje: ['', [Validators.required, Validators.maxLength(200)]],
+      umensaje: ['', [Validators.required]],//, Validators.maxLength(200)]],
       utelf: ['', [Validators.required]],
       uciudad: ['', [Validators.required]]
     });
@@ -133,15 +132,17 @@ export class HomeComponent implements OnInit {
     console.log(value);
   }
   person_form_validator(){
+    // console.log("ENTRO AL VALIDADOR DE PERSONA")
     if (this.contactanosForm.invalid) {
       this.errorForm = 'si';
+      // console.log("SOY INVALIIDOOOOOO")
       return;
     }
 
     this.errorForm = 'no';
+    // console.log('*******NO SOY INVALIDO')
     const person = this.contactanosForm.controls;
     this.infoPerson = {
-      'cedula':person.ucedula.value, 
       'nombre':person.unombres.value,
       'fechaNacimiento':person.unacimiento.value,
       'telefono':person.utelf.value,
@@ -150,10 +151,10 @@ export class HomeComponent implements OnInit {
       'mensaje': person.umensaje.value,
       'cargo':'E'
     };
-    
+    console.log('antes del post')
    // this.http.post(`${environment.apiUrl}/persona/`, this.infoPerson).toPromise().catch(res => console.log(res));
     this.http.post(`${environment.apiUrl}/contactanos/`, this.infoPerson).toPromise().catch(res => console.log(res));
-
+    console.log('despues del post')
     console.log(this.infoPerson);
   }
 }

@@ -368,10 +368,14 @@ def adopcion_detail(request, pk):
         objeto.delete()
         return HttpResponse("La adopcion %s ha sido eliminada exitosamente" % pk ,status=status.HTTP_204_NO_CONTENT)
 
+@csrf_exempt 
 def contactanos(request):
     if  request.method=='POST':
+        print("ESTOY EN CONTACTANOS")
+        print(request.POST.keys)
         subject = "Formulario de información"
-        message = request.POST["MENSAJE"] + " " + request.POST["email"]
+        message = request.POST["mensaje"] + " " + request.POST["email"]
+       # message = request.POST["motivo"]
         email_from = settings.EMAIL_HOST_USER
         recipient_list=["danjogalvez@gmail.com"]
         send_mail(subject,message,email_from,recipient_list)
