@@ -57,7 +57,10 @@ export class AdministrarUsuarioComponent implements OnInit {
         this.dataList.unshift(this.newTodo);
         this.newTodo = new Persona;
       };
+      editRowId: any;
 
-
+      toggle(id){
+        this.editRowId = id;
+      }
  
 }

@@ -11,8 +11,8 @@
     <h2 style="margin: auto"> Administrar Usuarios</h2>
     <br>
     <div id="botones">
-        <button class="btn btn-danger" style="width:100px" (click)="addUser()"> Add User</button>
-        <button class="btn btn-success" id="editar" (click)="updateUser()" style="margin-left: 20px;">
+        <button class="btn btn-danger float-right mb-3" style="width:100px" (click)="addUser()"> Add User</button>
+        <button class="btn btn-success float-right mr-3" id="editar" (click)="updateUser()" style="margin-left: 20px;">
           <span class="spinner-border spinner-border-sm mr-1"></span>
         </button>
     </div>
@@ -35,40 +35,111 @@
           <th scope="col" [appSort]="dataList" data-order="desc" data-name="user">Usuario</th>
           <th>foto</th>
           <th></th>
+          <th>
+          </th>
         </tr>
       </thead>
       <tbody>
         
         <tr *ngFor="let user of dataList | paginate :{itemsPerPage:8, currentPage: pageActual}">
-          <th scope="row">{{ user.id}}</th>
-          <td>{{user.cedula}}</td>
-          <td><input type="text" value={{user.nombre}} size="10"/></td>
-          <td><input type="text" value={{user.apellido}} size="10"/></td>
+ 
+            <th scope="row">{{ user.id}}</th>
 
-          <td>
-            <select>        
-              <option value="U" [selected]="'U' === user.cargo">Usuario</option>
-              <option value="A" [selected]="'A' === user.cargo">Administrador</option>
-              <option value="V" [selected]="'V' === user.cargo">Voluntario</option>
-              <option value="O" [selected]="'O' === user.cargo">Organizador</option>
-            </select>
-          </td>
-          <td><input type="text" value={{user.sexo}} size="10"/></td>
-          <td><input type="date" value={{user.fechaNacimiento}} size="8"/></td>
-          <td><input type="text" value={{user.telefono}} size="8"/></td>
-          <td><input type="text" value={{user.celular}} size="8"/></td>
+            <td *ngIf="user.id == editRowId">
+              <input type="text" value={{user.cedula}} size="10"/>
+            </td>
+            <td *ngIf="user.id !== editRowId" (click)="toggle(user.id)">
+              {{user.cedula}}
+           </td>
 
-          <td><input type="text" value={{user.ciudad}} size="8"/></td>
-          <td><input type="text" value={{user.direccion}} size="20"/></td>
-          <td><input type="text" value={{user.email}} size="20"/></td>
+            <td *ngIf="user.id == editRowId">
+              <input type="text" value={{user.nombre}} size="10"/>
+            </td>
+            <td *ngIf="user.id !== editRowId" (click)="toggle(user.id)">
+                {{user.nombre}}
+            </td>
 
-          <td><input type="text" value={{user.username}} size="10"/></td>
-          <td><input type="text" value={{user.foto}} size="10"/></td>
-          <td>
-              <button class="px-auto" id="eliminar" (click)="deleteUser(user)"><i class="fa fa-user-times"></i></button>
-          </td>
-          
-          
+            <td *ngIf="user.id == editRowId">
+              <input type="text" value={{user.apellido}} size="10"/>
+            </td>
+            <td *ngIf="user.id !== editRowId" (click)="toggle(user.id)">
+              {{user.apellido}}
+           </td>
+
+            <td *ngIf="user.id == editRowId">
+              <select>        
+                <option value="U" [selected]="'U' === user.cargo">Usuario</option>
+                <option value="A" [selected]="'A' === user.cargo">Administrador</option>
+                <option value="V" [selected]="'V' === user.cargo">Voluntario</option>
+                <option value="O" [selected]="'O' === user.cargo">Organizador</option>
+              </select>
+            </td>
+            <td *ngIf="user.id !== editRowId" (click)="toggle(user.id)">
+              {{user.cargo}}
+            </td>
+
+            <td *ngIf="user.id == editRowId">
+              <input type="text" value={{user.sexo}} size="10"/>
+            </td>
+            <td *ngIf="user.id !== editRowId" (click)="toggle(user.id)">
+              {{user.sexo}}
+           </td>
+
+            <td *ngIf="user.id == editRowId">
+              <input type="date" value={{user.fechaNacimiento}} size="8"/>
+            </td>
+            <td *ngIf="user.id !== editRowId" (click)="toggle(user.id)">
+              {{user.fechaNacimiento}}
+            </td>
+
+            <td *ngIf="user.id == editRowId">
+              <input type="text" value={{user.telefono}} size="8"/>
+            </td>
+            <td *ngIf="user.id !== editRowId" (click)="toggle(user.id)">
+              {{user.telefono}}
+            </td>
+            <td *ngIf="user.id == editRowId">
+              <input type="text" value={{user.celular}} size="8"/>
+            </td>
+            <td *ngIf="user.id !== editRowId" (click)="toggle(user.id)">
+              {{user.celular}}
+            </td>
+            <td *ngIf="user.id == editRowId">
+              <input type="text" value={{user.ciudad}} size="8"/>
+            </td>
+            <td *ngIf="user.id !== editRowId" (click)="toggle(user.id)">
+              {{user.ciudad}}
+            </td>
+            <td *ngIf="user.id == editRowId">
+              <input type="text" value={{user.direccion}} size="20"/>
+            </td>
+            <td *ngIf="user.id !== editRowId" (click)="toggle(user.id)">
+              {{user.direccion}}
+            </td>
+            <td *ngIf="user.id == editRowId">
+              <input type="text" value={{user.email}} size="20"/>
+            </td>
+            <td *ngIf="user.id !== editRowId" (click)="toggle(user.id)">
+              {{user.email}}
+            </td>
+            <td *ngIf="user.id == editRowId">
+              <input type="text" value={{user.username}} size="10"/>
+            </td>
+            <td *ngIf="user.id !== editRowId" (click)="toggle(user.id)">
+              {{user.username}}
+            </td>
+            <td *ngIf="user.id == editRowId">
+              <input type="text" value={{user.foto}} size="10"/>
+            </td>
+            <td *ngIf="user.id !== editRowId" (click)="toggle(user.id)">
+              {{user.foto}}
+            </td>
+
+            <td>
+                <button class="px-auto" id="eliminar" (click)="deleteUser(user)"><i class="fa fa-user-times"></i></button>
+            </td>
+            
+
         </tr>
       </tbody>
     </table>
