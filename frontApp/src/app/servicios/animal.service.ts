@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment';
 // The AnimalService could get animal data from anywhere—a
 // web service, local storage, or a mock data source.'
 import { Animal, Animal3 } from '../componentes/models/animal';
+import { map } from 'rxjs/operators';
 // it instantiates the AnimalService class to provide the service. (make available to the dependecy injection)
 
 
@@ -22,6 +23,25 @@ export class AnimalService {
   getAll() {
     return this.http.get<Animal3[]>(`${environment.apiUrl}/animal/`);
   }
+
+  put(animal,pk) {
+    return this.http.put<Animal3>(`${environment.apiUrl}/animal/`+pk,JSON.stringify(animal))
+        .pipe(map(answer => {
+            return answer;
+        }));
+}
+addNew(animal) {
+    return this.http.post<Animal3>(`${environment.apiUrl}/animal/`,JSON.stringify(animal))
+        .pipe(map(answer => {
+            return answer;
+        }));
+}
+delete(id,animal){
+    return this.http.delete<Animal3>(`${environment.apiUrl}/animal/`+id)
+        .pipe(map(answer => {
+            return answer;
+        }));
+}
 
   getAnimals(): Promise<Animal[]> {
     return this.http.get<Animal[]>(`${environment.apiUrl}/animal/`)

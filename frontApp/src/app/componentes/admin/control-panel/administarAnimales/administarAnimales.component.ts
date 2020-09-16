@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
-import { Animal3 } from 'src/app/componentes/models/animal';
+import { Animal3, EstadoAnimal } from 'src/app/componentes/models/animal';
+import { Persona } from 'src/app/componentes/models/persona';
 import { Role } from 'src/app/componentes/models/role';
+import { UserService } from 'src/app/servicios';
 import { AnimalService } from 'src/app/servicios/animal.service';
 
 
@@ -38,13 +41,28 @@ export class AdministrarAnimalesComponent implements OnInit {
     public foto: string;
     public dueno :string;
     public historial:number;
-    public estado:number;
+    public estado:EstadoAnimal;
 
-
+    form: FormGroup;
+    personas : Persona[];
     
     public dataList: Array<Animal3>=[];
 
-    constructor(private service: AnimalService,private router: Router,) { }
+    constructor(private service: AnimalService,private router: Router,
+      private formBuilder: FormBuilder,private userService :UserService) {
+        this.form = this.formBuilder.group({
+          orders: ['']
+        });
+    
+        this.personas = this.getPersonas();
+        
+       }
+
+    getPersonas(): any[] {
+     
+      this.userService.getPersonas().then(personas => this.personas = personas);
+      return this.personas;
+    }
 
     ngOnInit() {
         this.loading = true;
@@ -54,12 +72,12 @@ export class AdministrarAnimalesComponent implements OnInit {
             this.dataList=users;
         });
     }
-    public deleteUser(user: Animal3): void {
+    public deleteUser(obj: Animal3): void {
       
-        /*this.service.deleteUser(user.cedula,user)
+        this.service.delete(obj.id,obj)
           .subscribe( data => {
-            this.dataList = this.dataList.filter(u => u !== user);
-            this.error='Usuario eliminado con éxito!';
+            this.dataList = this.dataList.filter(u => u !== obj);
+            this.error='Animal eliminado con éxito!';
               this.showMsg= true;
               setTimeout(() =>this.showMsg=false, 2000);
           },error=>{
@@ -67,12 +85,12 @@ export class AdministrarAnimalesComponent implements OnInit {
               this.showErr= true;
               setTimeout(() =>this.showErr=false, 2000);
           })
-          if(this.dataList.indexOf(user)==0){
+          if(this.dataList.indexOf(obj)==0){
             this.addNew=false;
           }
-          const index: number = this.dataList.indexOf(user);
+          const index: number = this.dataList.indexOf(obj);
           this.dataList.splice(index,1);
-          */
+          
       };
     
 
@@ -89,32 +107,32 @@ export class AdministrarAnimalesComponent implements OnInit {
         }
       };
 
-      onSubmit(user:any) {
-        /*user = {
-          id: user.id,
-          cedula:this.cedula,
+      onSubmit(obj:any) {
+        obj = {
+          
+          id: this.id,
           nombre: this.nombre,
-          apellido: this.apellido,
-          cargo: this.cargo,
+          tipo: this.tipo,
+          raza: this.raza,
           sexo : this.sexo,
-          fechaNacimiento : this.fechaNacimiento,
-          telefono :this.telefono,
-          celular :this.celular,
-          ciudad :this.ciudad,
-          direccion :this.direccion,
-          email :this.email,
-          user: this.userN,   
+          edad : this.edad,
+          esterilizado :this.esterilizado,
+          color :this.color,
           foto :this.foto,
+          dueno :this.dueno,
+          historial :this.historial,
+          estado: this.estado,   
         };
+        console.log(obj);
         this.loading=true;
         if(!this.addNew){
-          this.service.put(user,this.cedula).pipe(first()).subscribe(
+          this.service.put(obj,this.id).pipe(first()).subscribe(
             data => {
               this.router.routeReuseStrategy.shouldReuseRoute = function () {
                 return false;
               };
-              this.router.navigate([`administrar/usuario`]);
-              this.error='Usuario actualizado con éxito!';
+              this.router.navigate([`administrar/animales`]);
+              this.error='Animal actualizado con éxito!';
               this.showMsg= true;
               setTimeout(() =>this.showMsg=false, 2000);
             },
@@ -124,7 +142,7 @@ export class AdministrarAnimalesComponent implements OnInit {
                   this.error = "Verifique todos los datos";
                 }
                 if(error.status==404){
-                  this.error = "No modifique cédula.";
+                  this.error = "No modifique el id.";
                 }
                 else{
                   this.error = "Error del servidor";
@@ -134,13 +152,13 @@ export class AdministrarAnimalesComponent implements OnInit {
                 this.loading = false;
             });
           }else{
-            this.service.addNew(user).pipe(first()).subscribe(
+            this.service.addNew(obj).pipe(first()).subscribe(
               data => {
                 this.router.routeReuseStrategy.shouldReuseRoute = function () {
                   return false;
                 };
-                this.router.navigate([`administrar/usuario`]);
-                this.error='Usuario insertado!';
+                this.router.navigate([`administrar/animales`]);
+                this.error='Animal insertado!';
                 this.showMsg= true;
                 setTimeout(() =>this.showMsg=false, 2000);
               },
@@ -156,7 +174,7 @@ export class AdministrarAnimalesComponent implements OnInit {
                   this.loading = false;
               });
         }
-        */
+        
       }
 
       toggle(obj:Animal3){

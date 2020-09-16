@@ -30,7 +30,7 @@
     </div>
     
     <div id="botones">
-        <button class="btn btn-danger float-right mb-3" style="width:100px" (click)="addUser()"> Add User</button>
+        <button class="btn btn-danger float-right mb-3" style="width:150px" (click)="addUser()"> Add Mascota</button>
         <!--button class="btn btn-success float-right mr-3" id="editar" (click)="updateAll()" style="margin-left: 20px;">
           <span class="spinner-border spinner-border-sm mr-1"></span>
         </button-->
@@ -48,8 +48,8 @@
           <th scope="col" [appSort]="dataList" data-order="desc" data-name="esterilizado">Esterilizado</th>
           <th scope="col" [appSort]="dataList" data-order="desc" data-name="color">Color</th>
           <th scope="col" [appSort]="dataList" data-order="desc" data-name="foto">Foto</th>
-          <th scope="col" [appSort]="dataList" data-order="desc" data-name="dueno">dueno</th>
-          <th scope="col" [appSort]="dataList" data-order="desc" data-name="historial">Historial</th>
+          <th scope="col" [appSort]="dataList" data-order="desc" data-name="dueno">Dueño</th>
+          <!--th scope="col" [appSort]="dataList" data-order="desc" data-name="historial">Historial</th-->
           <th scope="col" [appSort]="dataList" data-order="desc" data-name="estado">Estado</th>
           <th></th>
           <th>
@@ -118,20 +118,33 @@
             <td *ngIf="user.id !== editRowId" (click)="toggle(user)">
               {{user.foto}}
             </td>
+
             <td *ngIf="user.id == editRowId">
-              <input type="text" [(ngModel)]="dueno" size="8"/>
+              <!--input type="text" [(ngModel)]="dueno" size="8"/-->
+              <select id="personas" [(ngModel)]="dueno">
+                <option *ngFor="let order of personas; let i = index" [value]="order.cedula">
+                  {{personas[i].nombre +' '+ personas[i].apellido}}
+                </option>
+              </select>
             </td>
             <td *ngIf="user.id !== editRowId" (click)="toggle(user)">
               {{user.dueno}}
             </td>
-            <td *ngIf="user.id == editRowId">
+
+            <!--td *ngIf="user.id == editRowId">
               <input type="number" [(ngModel)]="historial" size="20"/>
             </td>
             <td *ngIf="user.id !== editRowId" (click)="toggle(user)">
               {{user.historial}}
-            </td>
+            </td-->
+
             <td *ngIf="user.id == editRowId">
-              <input type="number" [(ngModel)]="estado" size="20"/>
+              <select id="personas" [(ngModel)]="estado">
+                <option value="A" [selected]="'A' === user.estado">Adoptado</option>
+                <option value="E" [selected]="'E' === user.estado">En_adopcion</option>
+                <option value="C" [selected]="'C' === user.estado">Colonia</option>
+                <option value="P" [selected]="'P' === user.estado">Preservado</option>
+              </select>
             </td>
             <td *ngIf="user.id !== editRowId" (click)="toggle(user)">
               {{user.estado}}

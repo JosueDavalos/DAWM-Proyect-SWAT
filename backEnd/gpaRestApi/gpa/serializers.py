@@ -44,6 +44,8 @@ class AnimalSerializer(serializers.ModelSerializer):
                   'esterilizado', 
                   'color',
                   'foto',
+                  'dueno',
+                  'historial',
                   'estado')
         depth=1
 

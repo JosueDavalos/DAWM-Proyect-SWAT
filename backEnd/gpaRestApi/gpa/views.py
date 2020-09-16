@@ -200,16 +200,20 @@ def animal_list(request):
         return JsonResponse(animales_serializer.data, safe=False)
 
     elif request.method == 'POST':
+        
         animal_data = JSONParser().parse(request)
+        
         animales_serializer = AnimalSerializer(data=animal_data)
+        print(animales_serializer)
         if animales_serializer.is_valid():
             estado = None
+            animales_serializer.save()
             try:
                 estado = EstadoAnimal.objects.filter(estado='E')[0]
             except:
                 print('\tNo hay estado animal')
             animales_serializer.save().estado=estado
-            animales_serializer.save()
+            
 
             return JsonResponse(animales_serializer.data, status=status.HTTP_201_CREATED) 
         return JsonResponse(animales_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -421,6 +425,7 @@ def contactanos_home(request):
         email_from = settings.EMAIL_HOST_USER
         send_mail('Formulario de información', mensaje, email_from , [admin_email])
         return HttpResponse("Gracias por contactarnos"  ,status=status.HTTP_200_OK)
+
 @csrf_exempt
 def adopcion_filter_month(request, mes):
     
