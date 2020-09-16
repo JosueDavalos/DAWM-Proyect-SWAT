@@ -13,7 +13,7 @@
             <div class="card">
                 <div class="row">
 
-                    <img class="card-img-top mx-auto col-3" src="../../../../assets/img/perro.jpg" alt="Imagen de la mascota">
+                    <img class="card-img-top mx-auto col-3" src="../../../../assets/img/{{animal.tipo}}.jpg" alt="Imagen de la mascota">
                     
                     <div class="card-body col-9">
                         <h5 id="nombre" class="card-title">{{animal.nombre | titlecase}}</h5>
@@ -32,13 +32,13 @@
                             <img [src]="'assets/img/iconos/detalles_mascota/genero.png'" class="mr-2"  alt="simbolos de genero" />
                             {{animal.sexo | titlecase}}
                         </div>
-                        <div id="vacuna">
+                        <!-- <div id="vacuna">
                             <img [src]="'assets/img/iconos/detalles_mascota/vacuna.png'" class="mr-2"  alt="simbolos de vacuna" />
                             {{animal.vacunas | titlecase}}
-                        </div>
+                        </div> -->
                         <div id="esterilizado">
                             <img [src]="'assets/img/iconos/detalles_mascota/bisturi.png'" class="mr-2"  alt="simbolos de esterilizacion" />
-                            {{animal.esterilizado | titlecase}}
+                            <strong>Esterilizado: </strong> {{animal.esterilizado | titlecase}}
                         </div>
                     </div>
                 </div>
