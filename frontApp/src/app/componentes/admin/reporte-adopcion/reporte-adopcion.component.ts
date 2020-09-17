@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Restangular } from 'ngx-restangular';
-import { saveAs } from 'file-saver';
+// import { saveAs } from 'file-saver';
 @Component({
   selector: 'app-reporte-adopcion',
   templateUrl: './reporte-adopcion.component.html',
